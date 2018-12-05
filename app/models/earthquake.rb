@@ -1,3 +1,5 @@
+require('command_search')
+
 class Earthquake
   include Mongoid::Document
 
@@ -20,4 +22,35 @@ class Earthquake
   field :houses_destroyed, type: Integer
   field :houses_damaged, type: Integer
 
+  def self.search(query)
+    options = {
+      fields: [:location_name, :eq_primary, :intensity],
+      command_fields: {
+        id: Numeric,
+        flag_tsunami: Boolean,
+        date: Date,
+        focal_depth: Numeric,
+        eq_primary: Numeric,
+        intensity: Numeric,
+        country: String,
+        state: String,
+        location_name: String,
+        latitude: Numeric,
+        longitude: Numeric,
+        region_code: Numeric,
+        deaths: Numeric,
+        missing: Numeric,
+        injuries: Numeric,
+        damage_millions_dollars: Numeric,
+        houses_destroyed: Numeric,
+        houses_damaged: Numeric
+      },
+      aliases: {
+        'favorite' => 'starred:true',
+        /=/ => ':',
+        /\$\d+/ => -> (match) { "cost:#{match[1..-1]}" }
+      }
+    }
+    CommandSearch.search(Earthquake, query, options)
+  end
 end

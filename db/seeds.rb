@@ -12,7 +12,7 @@ quake_data.each do |data|
 
     date = Date.new(data['YEAR'].to_i, (data['MONTH'] || 1).to_i, (data['DAY'] || 1).to_i)
 
-    e.id = data['I_D']
+    e.id = data['I_D'].to_i
     e.flag_tsunami = !!data['FLAG_TSUNAMI']
     e.date = date
     e.focal_depth = data['FOCAL_DEPTH'].to_i
