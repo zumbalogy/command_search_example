@@ -1,7 +1,7 @@
 class HomeController < ApplicationController
 
   def splash
-    render inline: 'test splash'
+    render 'splash'
   end
 
   def search
