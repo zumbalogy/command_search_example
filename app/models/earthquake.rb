@@ -1,15 +1,10 @@
 class Earthquake
   include Mongoid::Document
 
-  field :i_d, type: Integer
+  field :id, type: Integer
   field :flag_tsunami, type: Boolean
-  field :year, type: Integer
-  field :month, type: Integer # todo: combine into a Time
-  field :day, type: Integer # todo: combine into a Time
-  field :hour, type: Integer # todo: combine into a Time
-  field :minute, type: Integer # todo: combine into a Time
-  field :second, type: Integer # todo: combine into a Time
-  field :focal_depth, type: Float
+  field :date, type: Date
+  field :focal_depth, type: Integer
   field :eq_primary, type: Float
   field :intensity, type: Integer
   field :country, type: String
@@ -24,11 +19,5 @@ class Earthquake
   field :damage_millions_dollars, type: Float
   field :houses_destroyed, type: Integer
   field :houses_damaged, type: Integer
-  field :total_deaths, type: Integer
-  field :total_missing, type: Integer
-  field :total_injuries, type: Integer
-  field :total_damage_millions_dollars, type: Float
-  field :total_houses_destroyed, type: Integer
-  field :total_houses_damaged, type: Integer
 
 end
