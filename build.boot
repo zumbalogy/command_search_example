@@ -10,9 +10,7 @@
                  [nrepl                       "0.4.5"    :scope "test"]
                  [weasel                      "0.7.0"    :scope "test"]
                  [cider/piggieback            "0.3.10"   :scope "test"]
-                 [binaryage/devtools          "0.9.10"]
-                 [cljsjs/react                "16.6.0-0"]
-                 [cljsjs/react-dom            "16.6.0-0"]
+                 ; [binaryage/devtools          "0.9.10"   :scope "test"]
                  [reagent                     "0.8.1"]])
 
 (require

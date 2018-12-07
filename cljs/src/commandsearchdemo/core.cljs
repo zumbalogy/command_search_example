@@ -1,13 +1,11 @@
 (ns commandsearchdemo.core
-  (:require [devtools.core :as devtools]
-            [reagent.core :as r]))
+  (:require [reagent.core :as r]))
 
-;; -- Debugging aids ----------------------------------------------------------
-(devtools/install!)       ;; we love https://github.com/binaryage/cljs-devtools
-(enable-console-print!)   ;; so that println writes to `console.log`
+(enable-console-print!)
 
 (defn app []
-    [:p "this is a test"])
+    [:div [:p "Search Earthquakes"]
+          [:input]])
 
 (defn ^:export main []
     (r/render [app] (js/document.getElementById "app")))
