@@ -22,3 +22,6 @@
 
 # Ignore master key for decrypting credentials and more.
 /config/master.key
+# Added by cljs-rails
+/app/assets/cljs-build
+.nrepl-port
