@@ -1,41 +1,34 @@
 (ns commandsearchdemo.core
   (:require [reagent.core :as r]))
 
-(enable-console-print!)
-
 (def query (r/atom ""))
 (def results (r/atom []))
 
-(defn fetch [url]
-  (-> (js/fetch url)
-      (.then #(.json %))))
-
-(defn update-results []
-  ; TODO: sanitize this
-  ; TODO:
-  (-> (str "/search/" @query)
-      (fetch)
+(defn update-results [query]
+  (-> (str "/search/" (js/btoa query))
+      (js/fetch)
+      (.then #(.json %))
       (.then #(reset! results %))))
 
 (defn build-quake [data]
-  [:p { :key (.-_id data) }
-    (.-eq_primary data)
-    " "
-    (.-location_name data)
-    " "
-    " "
-    (.-date data)
-    ])
+  [:tr { :key (.-_id data) }
+    [:td (.-eq_primary data)]
+    [:td (.-location_name data)]
+    [:td (.-date data)]])
 
 (defn app []
     [:div [:p "Search Earthquakes"]
           [:input { :value @query
-                    :on-change #(do (reset! query  (-> % .-target .-value))
-                                    (update-results))}]
-          (map build-quake @results)])
+                    :on-change #(do (reset! query (-> % .-target .-value))
+                                    (update-results @query))}]
+          [:p "Disclaimer: This data has been cleaned in a lossy manner. See the full data at"]
+          [:a "https://www.ngdc.noaa.gov/nndc/struts/form?t=101650&s=1"]
+          [:table
+            [:tbody (map build-quake @results)]]])
 
 (defn ^:export main []
-    (r/render [app] (js/document.getElementById "app")))
+    (r/render [app] (js/document.getElementById "app"))
+    (update-results @query))
 
 
-; TODO: add disclaimer about data and dates being defaulted and all
+; TODO: link the github

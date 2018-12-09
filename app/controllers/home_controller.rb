@@ -5,7 +5,8 @@ class HomeController < ApplicationController
   end
 
   def search
-    render json: Earthquake.search(params[:query] || '').take(50)
+    decoded = Base64.decode64(params[:query] || '')
+    render json: Earthquake.search(decoded).take(50)
   end
 end
 
@@ -24,4 +25,4 @@ end
 # 23:38:03 rails.1 | MONGODB | localhost:27017 | command_search_demo_development.getMore | STARTED | {"getMore"=>104800927300050, "collection"=>"earthquakes", "lsid"=>{"id"=><BSON::Binary:0x70182998131200 type=uuid data=0xe7d02eafe0e54f1f...>}}
 
 
-# TODO: look into mongo/search sometimes hanging. 
+# TODO: look into mongo/search sometimes hanging.
