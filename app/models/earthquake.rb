@@ -30,6 +30,7 @@ class Earthquake
         flag_tsunami: Boolean,
         date: Date,
         focal_depth: Numeric,
+        strength: :eq_primary,
         eq_primary: Numeric,
         intensity: Numeric,
         country: String,

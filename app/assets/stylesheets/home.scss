@@ -1,3 +1,102 @@
-// Place all the styles related to the Home controller here.
-// They will automatically be included in application.css.
-// You can use Sass (SCSS) here: http://sass-lang.com/
+* {
+  box-sizing: border-box;
+}
+
+html {
+  height: 100%;
+  overflow: hidden;
+}
+
+body {
+  height: 100%;
+  overflow: auto;
+  margin: 0;
+  color: rgba(0, 0, 0, 0.86);
+}
+
+.header {
+  display: flex;
+  margin-bottom: 10px;
+  border-bottom: 1px solid #000;
+  .left {
+    display: flex;
+    align-items: center;
+    min-width: 200px;
+    h3 {
+      width: 100%;
+      text-align: center;
+      font-family: sans-serif;
+    }
+  }
+  .right {
+    display: inline-block;
+    border-left: 1px solid #000;
+    a {
+      display: inline-block;
+      padding: 6px;
+      text-decoration: none;
+      font-family: Futura;
+      font-size: 13px;
+    }
+    p {
+      display: inline-block;
+      width: 100%;
+      margin: 0;
+      padding: 6px;
+      border-top: 1px solid #000;
+    }
+  }
+}
+
+.center {
+  .left {
+    display: inline-block;
+    width: 50%;
+    table {
+      font-family: monospace;
+    }
+    tr:nth-child(even) {
+      background-color: #f4f4f4;
+    }
+    input {
+      width: 320px;
+      height: 38px;
+      padding: 6px;
+      font-size: 16px;
+      margin-left: 12px;
+      margin-bottom: 8px;
+      border: 1px solid #000;
+      &:focus {
+        outline: none;
+      }
+    }
+  }
+  .right {
+    float: right;
+    width: 50%;
+    .map-wrapper {
+      position: relative;
+      svg {
+        position: absolute;
+        top: 0;
+        left: 0;
+      }
+    }
+  }
+}
+
+.footer {
+  position: fixed;
+  bottom: 0;
+  width: 100%;
+  .source-code {
+    float: right;
+    padding: 4px 10px 4px 8px;
+    font-size: 14px;
+    font-family: futura;
+    text-decoration: none;
+    border-top: 1px solid #000;
+    border-left: 1px solid #000;
+    background-color: #fff;
+  }
+}
