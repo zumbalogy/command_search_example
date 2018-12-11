@@ -5,14 +5,16 @@ of which the relevant code is here: https://github.com/zumbalogy/command_search_
 
 map from: https://commons.wikimedia.org/wiki/File:BlankMap-Equirectangular.svg
 
-
-
 TODO:
 make "cleaned" in the disclaimer a link to the code
 
 clicking the map could search results within a few degrees of where you clicked
 
-make question mark pop up helper box in the input to show off syntax and all. 
+a timeline above the map could be nice.
+
+selected one could be a diff color on map/timeline
+
+make question mark pop up helper box in the input to show off syntax and all.
 
 build selected-result card pretty and make things clickable so that clicking country:spain puts "country:spain" in the search box
 
@@ -44,54 +46,3 @@ proper paging
 give lat and long to the 49 with 0 and 0 as their lat and long
 :008 > Earthquake.search("latitude:0 longitude>0").count
  => 5
-
-Earthquake.search("latitude:0 longitude:0")
-ITALY: SABINES
-INDIA: FORT MADRAN
-INDIA: CALCUTTA
-CHINA: SICHUAN PROVINCE: CHANGLI
-SOUTH COASTS OF ASIA MINOR
-SYRIAN COASTS
-MARMARA SEA
-CALIFORNIA: NORTHERN
-HAWAII
-COSTA RICA-PANAMA
-ALASKA: ALEUTIAN ISLANDS
-SOLOMON ISLANDS
-TAIWAN
-MICRONESIA, FED. STATES OF: YAP IS, CAROLINE IS
-NEW YORK: WILLETTS POINT
-HAWAII
-EL SALVADOR: SAN MARCOS
-EL SALVADOR: SAN SALVADOR
-EL SALVADOR: SAN SALVADOR
-EL SALVADOR: SAN SALVADOR
-EL SALVADOR: SAN SALVADOR
-UNITED KINGDOM: IRELAND: SLIABH-ELPA
-UNITED KINGDOM: IRELAND
-ICELAND: SOUTHERN LOWLAND
-ICELAND: SOUTHERN LOWLAND
-ITALY: ADRIATIC SEA
-GREECE: CRETE
-ITALY: CALABRIA
-ITALY: LIGURIAN COAST
-EGYPT
-CANADA: MONTREAL
-GREECE
-MEXICO: SOUTHERN
-PERU-CHILE
-INDONESIA: SUMATRA: MENTAWAI ISLANDS
-ALGERIA: BORDJOU, ARRERIDJ
-ICELAND
-TURKEY: CICILIA, CEYHAN (SEYHAN)
-TONGA ISLANDS
-NEW ZEALAND: COOK STRAIT
-HAWAII
-NEW ZEALAND: WELLINGTON
-GREECE: MALIAKOS GULF
-JAPAN: RYUKYU ISLANDS
-JAPAN: RYUKYU ISLANDS
-PERU: CALLAO
-GREECE: AEGEAN SEA
-GUADELOUPE
-LARA

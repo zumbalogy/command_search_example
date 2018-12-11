@@ -41,7 +41,7 @@
     [:div.right
       [:a { :href "https://www.ngdc.noaa.gov/nndc/struts/form?t=101650&s=1" :target "_blank"}
         "National Geophysical Data Center / World Data Service (NGDC/WDS): NCEI/WDS Global Significant Earthquake Database. NOAA National Centers for Environmental Information. doi:10.7289/V5TD9V7K"]
-      [:p "Disclaimer: This data has been cleaned in a lossy manner from the original NCEI/WDS source."]]])
+      [:p "Disclaimer: This data has been normalized and approximated from the original NCEI/WDS source."]]])
 
 (defn center []
   [:div.center
