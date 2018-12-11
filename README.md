@@ -46,3 +46,6 @@ proper paging
 give lat and long to the 49 with 0 and 0 as their lat and long
 :008 > Earthquake.search("latitude:0 longitude>0").count
  => 5
+
+
+country:"" causes (Request URL: http://localhost:5000/search/Y291bnRyeToiIg==) command search to error

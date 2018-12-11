@@ -36,6 +36,8 @@ class Earthquake
         country: String,
         state: String,
         location_name: String,
+        lat: :latitude,
+        long: :longitude,
         latitude: Numeric,
         longitude: Numeric,
         region_code: Numeric,

@@ -15,6 +15,7 @@
   [:tr { :key (.-_id data)
          :on-click #(reset! selected-result data) }
     [:td (.-eq_primary data)]
+    [:td (.-country data)]
     [:td (.-location_name data)]
     [:td (.-date data)]])
 
