@@ -1,5 +1,6 @@
 (ns commandsearchdemo.core
-  (:require [reagent.core :as r]))
+  (:require [clojure.string :as string]
+            [reagent.core :as r]))
 
 (defonce query (r/atom ""))
 (defonce results (r/atom []))
@@ -35,12 +36,46 @@
     [:svg {:x 0 :y 0 :width 360 :height 180}
       (map build-quake-svg quakes)]])
 
+(defn format-query-end [text]
+  (if (string/includes? (str text) " ")
+    (str "'" text "'")
+    text))
+
+(defn selected-quake-section
+  ([quake attr]
+    (selected-quake-section quake attr attr))
+  ([quake attr name]
+    (let [text (str name ": " (quake attr))]
+      [:div { :on-click #(do (reset! query (str name ":" (format-query-end (quake attr))))
+                             (update-results @query)) }
+        (str name ": " (quake attr))])))
+
+(defn selected-quake [quake]
+  (when quake
+    (let [q (js->clj quake)]
+      [:div.selected-quake
+        (selected-quake-section q "country")
+        (selected-quake-section q "location_name" "location")
+        (selected-quake-section q "eq_primary" "strength")
+        (selected-quake-section q "intensity")
+        (selected-quake-section q "focal_depth")
+        (selected-quake-section q "flag_tsunami" "tsunami")
+        (selected-quake-section q "latitude" "lat")
+        (selected-quake-section q "longitude" "long")
+        (selected-quake-section q "date")
+        (selected-quake-section q "region_code")
+        (selected-quake-section q "houses_destroyed")
+        (selected-quake-section q "houses_damaged")
+        ; [:div "cljs: " (str (js->clj quake))]
+        ; [:div "raw: " (.-raw quake)]
+        ])))
+
 (def header
   [:div.header
     [:div.left
       [:h3 "Earthquakes"]]
     [:div.right
-      [:a { :href "https://www.ngdc.noaa.gov/nndc/struts/form?t=101650&s=1" :target "_blank"}
+      [:a { :href "https://www.ngdc.noaa.gov/nndc/struts/form?t=101650&s=1" :target "_blank" }
         "National Geophysical Data Center / World Data Service (NGDC/WDS): NCEI/WDS Global Significant Earthquake Database. NOAA National Centers for Environmental Information. doi:10.7289/V5TD9V7K"]
       [:p "Disclaimer: This data has been normalized and approximated from the original NCEI/WDS source."]]])
 
@@ -55,7 +90,7 @@
          [:tbody (map build-quake @results)]]]
     [:div.right
       (quake-map @results)
-      [:p (str (js->clj @selected-result))]]])
+      (selected-quake @selected-result)]])
 
 (def footer
   [:div.footer

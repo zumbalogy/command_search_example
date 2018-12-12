@@ -3,6 +3,7 @@ require('command_search')
 class Earthquake
   include Mongoid::Document
 
+  field :raw, type: String # TODO: for deveopement. remove this
   field :id, type: Integer
   field :flag_tsunami, type: Boolean
   field :date, type: Date
@@ -27,6 +28,7 @@ class Earthquake
       fields: [:country, :location_name, :eq_primary, :intensity],
       command_fields: {
         id: Numeric,
+        tsunami: :flag_tsunami,
         flag_tsunami: Boolean,
         date: Date,
         focal_depth: Numeric,
@@ -35,6 +37,7 @@ class Earthquake
         intensity: Numeric,
         country: String,
         state: String,
+        location: :location_name,
         location_name: String,
         lat: :latitude,
         long: :longitude,

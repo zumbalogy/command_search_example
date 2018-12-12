@@ -6,6 +6,9 @@ of which the relevant code is here: https://github.com/zumbalogy/command_search_
 map from: https://commons.wikimedia.org/wiki/File:BlankMap-Equirectangular.svg
 
 TODO:
+
+add time of day field. 
+
 make "cleaned" in the disclaimer a link to the code
 
 clicking the map could search results within a few degrees of where you clicked
@@ -28,6 +31,7 @@ Traceback (most recent call last):
 Mongo::Error::OperationFailure ($not needs a regex or a document (2))
 
 look into the pending
+```
 # 23:37:56 boot.1  | Elapsed time: 0.779 sec
 # 23:37:56 rails.1 | MONGODB | Server description for localhost:27017 changed from 'unknown' to 'standalone'.
 # 23:37:56 boot.1  |
@@ -40,6 +44,7 @@ look into the pending
 # 23:38:03 rails.1 | MONGODB | localhost:27017 | command_search_demo_development.find | SUCCEEDED | 0.003s
 # 23:38:03 boot.1  |
 # 23:38:03 rails.1 | MONGODB | localhost:27017 | command_search_demo_development.getMore | STARTED | {"getMore"=>104800927300050, "collection"=>"earthquakes", "lsid"=>{"id"=><BSON::Binary:0x70182998131200 type=uuid data=0xe7d02eafe0e54f1f...>}}
+```
 
 proper paging
 
