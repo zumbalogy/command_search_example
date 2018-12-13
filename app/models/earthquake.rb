@@ -53,7 +53,6 @@ class Earthquake
       },
       aliases: {
         'favorite' => 'starred:true',
-        /=/ => ':',
         /\$\d+/ => -> (match) { "cost:#{match[1..-1]}" }
       }
     }

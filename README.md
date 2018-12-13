@@ -7,7 +7,7 @@ map from: https://commons.wikimedia.org/wiki/File:BlankMap-Equirectangular.svg
 
 TODO:
 
-add time of day field. 
+add time of day field.
 
 make "cleaned" in the disclaimer a link to the code
 
@@ -54,3 +54,10 @@ give lat and long to the 49 with 0 and 0 as their lat and long
 
 
 country:"" causes (Request URL: http://localhost:5000/search/Y291bnRyeToiIg==) command search to error
+
+
+
+ ----
+
+
+ how to run locally (have mongo, bundle, seed, foreman start, go to port)

@@ -82,6 +82,25 @@ body {
         left: 0;
       }
     }
+    .selected-quake {
+      border: 1px solid #000;
+      padding: 6px 12px;
+      margin-right: 12px;
+      margin-top: 8px;
+      h4 {
+        margin: 0;
+        margin-top: 4px;
+        margin-bottom: 6px;
+        text-decoration: underline;
+      }
+      div {
+        min-width: 40%;
+        max-width: 60%;
+        display: inline-block;
+        margin-top: 3px;
+        margin-bottom: 3px;
+      }
+    }
   }
 }
 

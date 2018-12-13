@@ -3,7 +3,8 @@ git_source(:github) { |repo| "https://github.com/#{repo}.git" }
 
 ruby '2.5.3'
 
-gem 'command_search'
+# gem 'command_search'
+gem 'command_search', path: '../command_search'
 
 gem 'mongoid'
 gem 'cljs-rails'
