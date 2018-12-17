@@ -76,6 +76,9 @@ body {
     width: 50%;
     .map-wrapper {
       position: relative;
+      overflow: hidden;
+      height: 180px;
+      width: 360px;
       svg {
         position: absolute;
         top: 0;

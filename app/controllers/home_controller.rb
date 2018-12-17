@@ -6,6 +6,6 @@ class HomeController < ApplicationController
 
   def search
     decoded = Base64.decode64(params[:query] || '')
-    render json: Earthquake.search(decoded).take(100)
+    render json: Earthquake.order_by(_id: -1).search(decoded).take(100)
   end
 end

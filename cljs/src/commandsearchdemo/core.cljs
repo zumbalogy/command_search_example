@@ -20,28 +20,44 @@
     [:td (.-location_name data)]
     [:td (.-date data)]])
 
-(defn build-quake-svg [data]
-  [:circle { :key (.-id data)
-             :cx (+ 180 (.-longitude data))
-             :cy (- 180 (+ 90 (.-latitude data)))
-             :r 2
-             :fill "#f22"
-             :on-click #(reset! selected-result data)}])
-
-(defn build-selected-quake-svg [data]
-  (when data
-   [:circle { :key (.-id data)
-              :cx (+ 180 (.-longitude data))
-              :cy (- 180 (+ 90 (.-latitude data)))
-              :r 3
-              :fill "#3f3"}]))
+;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
 
 (defn quake-map [quakes]
-  [:div.map-wrapper
-    [:img { :src "/blank_map.svg" }]
-    [:svg {:x 0 :y 0 :width 360 :height 180}
-      (map build-quake-svg quakes)
-      (build-selected-quake-svg @selected-result)]])
+  (if (empty? quakes)
+    [:div.map-wrapper [:img { :src "/blank_map.svg" }]]
+    (let [max-lat (apply max (map #(.-latitude %) quakes))
+          min-lat (apply min (map #(.-latitude %) quakes))
+          max-long (apply max (map #(.-longitude %) quakes))
+          min-long (apply min (map #(.-longitude %) quakes))
+          dif-lat (- max-lat min-lat)
+          dif-long (- max-long min-long)
+          max-dif (max dif-long (* 2 dif-lat))
+          zoom (condp > max-dif
+                 20 6
+                 50 5
+                 70 4
+                 100 3
+                 200 2
+                 360 1)
+          transX (- (+ 180 min-long) (* 5 zoom))
+          transY (- (- 90 max-lat) (* 2 zoom))
+          transform (when (< 1 zoom) (str "translate(-" transX "px, -" transY "px)"))
+          build-quake-svg (fn [data]
+            [:circle { :key (.-id data)
+                       :cx (+ 180 (.-longitude data))
+                       :cy (- 90 (.-latitude data))
+                       :r (if (= data @selected-result) (/ 3 zoom) (/ 2 zoom))
+                       :fill (if (= data @selected-result) "#3f3" "#f22")
+                       :on-click #(reset! selected-result data)}])]
+      [:div.map-wrapper
+        [:img { :src "/blank_map.svg" :style { :zoom zoom :transform transform } }]
+        [:svg {:x 0 :y 0 :width 360 :height 180 :style { :zoom zoom :transform transform } }
+          (doall (map build-quake-svg quakes))]])))
+
+;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
+
+(defn capitalize-words [s]
+  (string/join (map string/capitalize (string/split s #"\b"))))
 
 (defn format-query-end [text]
   (if (string/includes? (str text) " ")
@@ -55,7 +71,7 @@
     (let [text (str name ": " (quake attr))]
       [:div { :on-click #(do (reset! query (str name ":" (format-query-end (quake attr))))
                              (update-results @query)) }
-        (str name ": " (quake attr))])))
+        (capitalize-words (str name ": " (quake attr)))])))
 
 (defn selected-quake [quake]
   (when quake
