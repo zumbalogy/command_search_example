@@ -47,12 +47,14 @@
                        :cx (+ 180 (.-longitude data))
                        :cy (- 90 (.-latitude data))
                        :r (if (= data @selected-result) (/ 3 zoom) (/ 2 zoom))
+                       :id (when (= data @selected-result) "selected")
                        :fill (if (= data @selected-result) "#3f3" "#f22")
                        :on-click #(reset! selected-result data)}])]
       [:div.map-wrapper
         [:img { :src "/blank_map.svg" :style { :zoom zoom :transform transform } }]
         [:svg {:x 0 :y 0 :width 360 :height 180 :style { :zoom zoom :transform transform } }
-          (doall (map build-quake-svg quakes))]])))
+          (doall (map build-quake-svg quakes))
+          [:use { :xlinkHref "#selected" } ]]])))
 
 ;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
 
