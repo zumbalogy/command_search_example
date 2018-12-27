@@ -9,17 +9,12 @@
 <style type="text/css">
 .country {
 	opacity:1;
-	fill:#444444;
+	fill:#999;
 	fill-opacity:1;
 	fill-rule:evenodd;
 	stroke:none;
 }
-/*
-Example for painting countries:
-.GBR {
-	fill: #0000aa !important;
-}
-*/
+
 </style>
 
 <g id="positioner" transform="translate(180, 90) scale(1, -1)">

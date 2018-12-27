@@ -24,7 +24,7 @@
 
 (defn quake-map [quakes]
   (if (empty? quakes)
-    [:div.map-wrapper [:img { :src "/blank_map.svg" }]]
+    [:div.map-wrapper [:img { :src "/blank_map2.svg" }]]
     (let [max-lat (apply max (map #(.-latitude %) quakes))
           min-lat (apply min (map #(.-latitude %) quakes))
           max-long (apply max (map #(.-longitude %) quakes))
@@ -34,25 +34,27 @@
           max-dif (max dif-long (* 2 dif-lat))
           zoom (condp > max-dif
                  20 6
-                 50 5
-                 70 4
-                 100 3
-                 200 2
+                 40 5
+                 60 4
+                 90 3
+                 180 2
                  360 1)
-          transX (- (+ 180 min-long) (* 5 zoom))
-          transY (- (- 90 max-lat) (* 2 zoom))
-          transform (when (< 1 zoom) (str "translate(-" transX "px, -" transY "px)"))
+          ; transX (- (+ 180 min-long) (* 5 zoom))
+          ; transY (- (- 90 max-lat) (* 2 zoom))
+          transX (* -0.555 min-long (/ zoom 2))
+          transY (* 1.111 max-lat (/ zoom 2))
+          transform (when (< 1 zoom) (str "translate(" transX "%, " transY "%) scale(" zoom ")"))
           build-quake-svg (fn [data]
             [:circle { :key (.-id data)
                        :cx (+ 180 (.-longitude data))
                        :cy (- 90 (.-latitude data))
                        :r (if (= data @selected-result) (/ 3 zoom) (/ 2 zoom))
                        :id (when (= data @selected-result) "selected")
-                       :fill (if (= data @selected-result) "#3f3" "#f22")
+                       :fill (if (= data @selected-result) "#f11" "#235")
                        :on-click #(reset! selected-result data)}])]
       [:div.map-wrapper
-        [:img { :src "/blank_map.svg" :style { :zoom zoom :transform transform } }]
-        [:svg {:x 0 :y 0 :width 360 :height 180 :style { :zoom zoom :transform transform } }
+        [:img { :src "/blank_map2.svg" :style {  :transform transform } }]
+        [:svg {:x 0 :y 0 :viewBox [0 0 360 180] :style { :transform transform } }
           (doall (map build-quake-svg quakes))
           [:use { :xlinkHref "#selected" } ]]])))
 

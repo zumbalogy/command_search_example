@@ -7,6 +7,10 @@ map from: https://commons.wikimedia.org/wiki/File:BlankMap-Equirectangular.svg
 
 TODO:
 
+have them be properly sorted by date.
+
+"hawaii" zooms the map funny
+
 add time of day field.
 
 make "cleaned" in the disclaimer a link to the code
