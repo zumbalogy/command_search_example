@@ -52,11 +52,11 @@ class Earthquake
         houses_damaged: Numeric
       },
       aliases: {
-        'eggplant' => '|',
         'favorite' => 'starred:true',
         /\$\d+/ => -> (match) { "cost:#{match[1..-1]}" }
       }
     }
+    #    logger.info "about to build search"
     CommandSearch.search(Earthquake, query, options)
   end
 end

@@ -27,23 +27,23 @@
     [:div.map-wrapper [:img { :src "/blank_map2.svg" }]]
     (let [max-lat (apply max (map #(.-latitude %) quakes))
           min-lat (apply min (map #(.-latitude %) quakes))
+          mid-lat (/ (+ min-lat max-lat) 2)
           max-long (apply max (map #(.-longitude %) quakes))
           min-long (apply min (map #(.-longitude %) quakes))
+          mid-long (/ (+ min-long max-long) 2)
           dif-lat (- max-lat min-lat)
           dif-long (- max-long min-long)
           max-dif (max dif-long (* 2 dif-lat))
           zoom (condp > max-dif
-                 20 6
-                 40 5
-                 60 4
+                 11 6
+                 22 5
+                 45 4
                  90 3
                  180 2
                  360 1)
-          ; transX (- (+ 180 min-long) (* 5 zoom))
-          ; transY (- (- 90 max-lat) (* 2 zoom))
-          transX (* -0.555 min-long (/ zoom 2))
-          transY (* 1.111 max-lat (/ zoom 2))
-          transform (when (< 1 zoom) (str "translate(" transX "%, " transY "%) scale(" zoom ")"))
+          transX (/ (* 50 mid-long) -180)
+          transY (/ (* 50 mid-lat) 90)
+          transform (when (< 1 zoom) (str "scale(" zoom ")" "translate(" transX "%, " transY "%)"))
           build-quake-svg (fn [data]
             [:circle { :key (.-id data)
                        :cx (+ 180 (.-longitude data))
@@ -56,7 +56,7 @@
         [:img { :src "/blank_map2.svg" :style {  :transform transform } }]
         [:svg {:x 0 :y 0 :viewBox [0 0 360 180] :style { :transform transform } }
           (doall (map build-quake-svg quakes))
-          [:use { :xlinkHref "#selected" } ]]])))
+          [:use { :xlinkHref "#selected" }]]])))
 
 ;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
 

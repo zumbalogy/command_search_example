@@ -79,6 +79,7 @@ body {
       position: relative;
       overflow: hidden;
       outline: 1px solid #000;
+      max-width: 620px;
       img {
         display: block;
         width: 100%;
@@ -90,9 +91,10 @@ body {
       }
     }
     .selected-quake {
-      border: 1px solid #000;
+      outline: 1px solid #000;
       padding: 6px 12px;
       margin-top: 8px;
+      max-width: 620px;
       h4 {
         margin: 0;
         margin-top: 4px;

@@ -7,6 +7,35 @@ map from: https://commons.wikimedia.org/wiki/File:BlankMap-Equirectangular.svg
 
 TODO:
 
+
+
+Started GET "/search/3w==" for 127.0.0.1 at 2018-12-31 15:02:22 -0600
+Processing by HomeController#search as */*
+  Parameters: {"query"=>"3w=="}
+MONGODB | localhost:27017 | command_search_demo_development.find | STARTED | {"find"=>"earthquakes", "filter"=>{"$or"=>[{"country"=>/\xDF/i}, {"location_name"=>/\xDF/i}, {"eq_primary"=>/\xDF/i}, {"intensity"=>/\xDF/i}]}, "sort"=>{"_id"=>-1}, "lsid"=>{"id"=><BSON::Binary:0x70197866788300 type=uuid data=0x62c39d20480f4408...>}}
+MONGODB | localhost:27017 | command_search_demo_development.find | FAILED | String � is not a valid UTF-8 CString. | 0.00021799999999999999s
+Completed 500 Internal Server Error in 2ms
+
+
+
+ArgumentError (String � is not a valid UTF-8 CString.):
+
+app/controllers/home_controller.rb:10:in `take'
+app/controllers/home_controller.rb:10:in `search'
+Started GET "/search/3w==" for 127.0.0.1 at 2018-12-31 15:02:24 -0600
+Processing by HomeController#search as */*
+  Parameters: {"query"=>"3w=="}
+MONGODB | localhost:27017 | command_search_demo_development.find | STARTED | {"find"=>"earthquakes", "filter"=>{"$or"=>[{"country"=>/\xDF/i}, {"location_name"=>/\xDF/i}, {"eq_primary"=>/\xDF/i}, {"intensity"=>/\xDF/i}]}, "sort"=>{"_id"=>-1}, "lsid"=>{"id"=><BSON::Binary:0x70197871247660 type=uuid data=0xdd7254fd932c48f6...>}}
+MONGODB | localhost:27017 | command_search_demo_development.find | FAILED | String � is not a valid UTF-8 CString. | 0.00027s
+Completed 500 Internal Server Error in 2ms
+
+
+
+ArgumentError (String � is not a valid UTF-8 CString.):
+
+------------------------
+
+
 have them be properly sorted by date.
 
 "hawaii" zooms the map funny
