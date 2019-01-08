@@ -52,24 +52,60 @@ body {
   .left {
     display: inline-block;
     width: 50%;
-    table {
-      font-family: monospace;
-      width: calc(100% - 12px);
-      margin-left: 6px;
-      margin-right: 6px;
+    ul {
+      display: inline-block;
       border: 1px solid #000;
-    }
-    tr:nth-child(even) {
-      background-color: #f4f4f4;
+      font-family: monospace;
+      overflow: scroll;
+      padding: 0;
+      margin: 0 10px;
+      width: calc(100% - 20px);
+      max-height: calc(100vh - 126px);
+      // TODO: polish these, or move to some flexbox nonesense or something
+      @media (max-width: 1448px) { max-height: calc(100vh - 142px); }
+      @media (max-width: 848px) { max-height: calc(100vh - 160px); }
+      @media (max-width: 829px) { max-height: calc(100vh - 178px); }
+      @media (max-width: 645px) { max-height: calc(100vh - 194px); }
+      @media (max-width: 544px) { max-height: calc(100vh - 212px); }
+      @media (max-width: 534px) { max-height: calc(100vh - 230px); }
+      @media (max-width: 469px) { max-height: calc(100vh - 246px); }
+      @media (max-width: 439px) { max-height: calc(100vh - 264px); }
+      li {
+        list-style: none;
+        height: 22px;
+        div {
+          // TODO: make a tad more responsive
+          vertical-align: middle;
+          display: inline-block;
+          &.strength {
+            width: 36px;
+          }
+          &.country {
+            min-width: 100px;
+            width: calc(40% - 36px)
+          }
+          &.location {
+            min-width: 100px;
+            width: calc(60% - 88px)
+          }
+          &.date {
+            width: 88px;
+          }
+        }
+      }
+      li:nth-child(even) {
+        background-color: #f4f4f4;
+      }
     }
     input {
-      width: calc(100% - 12px);
-      margin-left: 6px;
-      margin-right: 6px;
+      width: calc(100% - 20px);
+      // TODO: polish margins everywhere.
+      margin-left: 10px;
+      margin-right: 10px;
       height: 38px;
       padding: 6px;
       font-size: 16px;
-      margin-bottom: 6px;
+      margin-bottom: 8px;
       border: 1px solid #000;
       &:focus {
         outline: none;
@@ -83,8 +119,7 @@ body {
     .map-wrapper {
       position: relative;
       overflow: hidden;
-      outline: 1px solid #000;
-      max-width: 620px;
+      border: 1px solid #000;
       img {
         display: block;
         width: 100%;
@@ -96,10 +131,9 @@ body {
       }
     }
     .selected-quake {
-      outline: 1px solid #000;
+      border: 1px solid #000;
       padding: 6px 12px;
       margin-top: 8px;
-      max-width: 620px;
       h4 {
         margin: 0;
         margin-top: 4px;

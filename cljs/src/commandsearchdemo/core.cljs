@@ -28,7 +28,7 @@
           dif-long (- max-long min-long)
 
           max-dif (max 1 dif-long (* 2 dif-lat))
-          zoom (- 9.5 (/ (Math/log max-dif) (Math/log 2)))
+          zoom (- 9.3 (/ (Math/log max-dif) (Math/log 2)))
           transX (/ (* 50 mid-long) -180)
           transY (/ (* 50 mid-lat) 90)
           transform (when (< 1.5 zoom) (str "scale(" zoom ") translate(" transX "%, " transY "%)"))
@@ -96,24 +96,23 @@
       [:p "Disclaimer: This data has been normalized and approximated from the original NCEI/WDS source."]]])
 
 (defn build-quake [data]
-  [:tr { :key (.-_id data)
+  [:li { :key (.-_id data)
          :on-click #(reset! selected-result data) }
-    [:td (.-eq_primary data)]
-    [:td (.-country data)]
-    [:td (.-location_name data)]
-    [:td (.-date data)]])
+    [:div.strength (.-eq_primary data)]
+    [:div.country (.-country data)]
+    [:div.location (.-location_name data)]
+    [:div.date (.-date data)]])
 
 (defn center []
   [:div.center
     [:div.left
-       [:input { :value @query
-                 :placeholder "Search..."
-                 :on-change #(do (reset! query (-> % .-target .-value))
-                                 (update-results @query))}]
-       [:table
-         [:tbody (if (empty? @results)
-                   [:tr.empty-message [:td "No earthquakes found."]]
-                   (map build-quake @results))]]]
+      [:input { :value @query
+                :placeholder "Search..."
+                :on-change #(do (reset! query (-> % .-target .-value))
+                                (update-results @query))}]
+        [:ul (if (empty? @results)
+               [:li.empty-message "No earthquakes found."]
+               (map build-quake @results))]]
     [:div.right
       (quake-map @results)
       (selected-quake @selected-result)]])
