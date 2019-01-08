@@ -7,8 +7,6 @@ map from: https://commons.wikimedia.org/wiki/File:BlankMap-Equirectangular.svg
 
 TODO:
 
-
-
 Started GET "/search/3w==" for 127.0.0.1 at 2018-12-31 15:02:22 -0600
 Processing by HomeController#search as */*
   Parameters: {"query"=>"3w=="}
@@ -30,21 +28,13 @@ MONGODB | localhost:27017 | command_search_demo_development.find | FAILED | Stri
 Completed 500 Internal Server Error in 2ms
 
 
-
 ArgumentError (String � is not a valid UTF-8 CString.):
 
 ------------------------
 
-
 have them be properly sorted by date.
 
-"hawaii" zooms the map funny
-
 add time of day field.
-
-make "cleaned" in the disclaimer a link to the code
-
-clicking the map could search results within a few degrees of where you clicked
 
 a timeline above the map could be nice.
 
@@ -52,11 +42,7 @@ selected one could be a diff color on map/timeline
 
 make question mark pop up helper box in the input to show off syntax and all.
 
-build selected-result card pretty and make things clickable so that clicking country:spain puts "country:spain" in the search box
-
-make the map take up more room
-
-make the map zoom a little bit when it can
+make things case insensitive by default and all, so clicking in selected box is nice and all
 
 2.5.3 :006 > Earthquake.search("latitude:0 -longitude:0").first
 Traceback (most recent call last):
@@ -81,16 +67,4 @@ look into the pending
 
 proper paging
 
-give lat and long to the 49 with 0 and 0 as their lat and long
-:008 > Earthquake.search("latitude:0 longitude>0").count
- => 5
-
-
-country:"" causes (Request URL: http://localhost:5000/search/Y291bnRyeToiIg==) command search to error
-
-
-
- ----
-
-
- how to run locally (have mongo, bundle, seed, foreman start, go to port)
+add "how to run locally (have mongo, bundle, seed, foreman start, go to port)" and such to readme

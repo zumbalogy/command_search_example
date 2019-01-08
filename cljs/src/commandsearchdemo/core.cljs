@@ -12,14 +12,6 @@
       (.then #(.json %))
       (.then #(reset! results %))))
 
-(defn build-quake [data]
-  [:tr { :key (.-_id data)
-         :on-click #(reset! selected-result data) }
-    [:td (.-eq_primary data)]
-    [:td (.-country data)]
-    [:td (.-location_name data)]
-    [:td (.-date data)]])
-
 ;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
 
 (defn quake-map [quakes]
@@ -28,22 +20,18 @@
     (let [max-lat (apply max (map #(.-latitude %) quakes))
           min-lat (apply min (map #(.-latitude %) quakes))
           mid-lat (/ (+ min-lat max-lat) 2)
+          dif-lat (- max-lat min-lat)
+
           max-long (apply max (map #(.-longitude %) quakes))
           min-long (apply min (map #(.-longitude %) quakes))
           mid-long (/ (+ min-long max-long) 2)
-          dif-lat (- max-lat min-lat)
           dif-long (- max-long min-long)
-          max-dif (max dif-long (* 2 dif-lat))
-          zoom (condp > max-dif
-                 11 6
-                 22 5
-                 45 4
-                 90 3
-                 180 2
-                 360 1)
+
+          max-dif (max 1 dif-long (* 2 dif-lat))
+          zoom (- 9.5 (/ (Math/log max-dif) (Math/log 2)))
           transX (/ (* 50 mid-long) -180)
           transY (/ (* 50 mid-lat) 90)
-          transform (when (< 1 zoom) (str "scale(" zoom ")" "translate(" transX "%, " transY "%)"))
+          transform (when (< 1.5 zoom) (str "scale(" zoom ") translate(" transX "%, " transY "%)"))
           build-quake-svg (fn [data]
             [:circle { :key (.-id data)
                        :cx (+ 180 (.-longitude data))
@@ -107,6 +95,14 @@
         "National Geophysical Data Center / World Data Service (NGDC/WDS): NCEI/WDS Global Significant Earthquake Database. NOAA National Centers for Environmental Information. doi:10.7289/V5TD9V7K"]
       [:p "Disclaimer: This data has been normalized and approximated from the original NCEI/WDS source."]]])
 
+(defn build-quake [data]
+  [:tr { :key (.-_id data)
+         :on-click #(reset! selected-result data) }
+    [:td (.-eq_primary data)]
+    [:td (.-country data)]
+    [:td (.-location_name data)]
+    [:td (.-date data)]])
+
 (defn center []
   [:div.center
     [:div.left
@@ -115,7 +111,9 @@
                  :on-change #(do (reset! query (-> % .-target .-value))
                                  (update-results @query))}]
        [:table
-         [:tbody (map build-quake @results)]]]
+         [:tbody (if (empty? @results)
+                   [:tr.empty-message [:td "No earthquakes found."]]
+                   (map build-quake @results))]]]
     [:div.right
       (quake-map @results)
       (selected-quake @selected-result)]])

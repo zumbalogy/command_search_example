@@ -54,17 +54,22 @@ body {
     width: 50%;
     table {
       font-family: monospace;
+      width: calc(100% - 12px);
+      margin-left: 6px;
+      margin-right: 6px;
+      border: 1px solid #000;
     }
     tr:nth-child(even) {
       background-color: #f4f4f4;
     }
     input {
-      width: 320px;
+      width: calc(100% - 12px);
+      margin-left: 6px;
+      margin-right: 6px;
       height: 38px;
       padding: 6px;
       font-size: 16px;
-      margin-left: 12px;
-      margin-bottom: 8px;
+      margin-bottom: 6px;
       border: 1px solid #000;
       &:focus {
         outline: none;
