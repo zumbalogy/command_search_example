@@ -1,52 +1,18 @@
 (ns commandsearchdemo.core
   (:require [clojure.string :as string]
-            [reagent.core :as r]))
+            [reagent.core :as r]
+            [commandsearchdemo.quake-map :as quake-map]))
 
 (defonce query (r/atom ""))
 (defonce results (r/atom []))
 (defonce selected-result (r/atom nil))
+(defonce show-help (r/atom false))
 
 (defn update-results [query]
   (-> (str "/search/" (js/btoa query))
       (js/fetch)
       (.then #(.json %))
       (.then #(reset! results %))))
-
-;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
-
-(defn quake-map [quakes]
-  (if (empty? quakes)
-    [:div.map-wrapper [:img { :src "/blank_map2.svg" }]]
-    (let [max-lat (apply max (map #(.-latitude %) quakes))
-          min-lat (apply min (map #(.-latitude %) quakes))
-          mid-lat (/ (+ min-lat max-lat) 2)
-          dif-lat (- max-lat min-lat)
-
-          max-long (apply max (map #(.-longitude %) quakes))
-          min-long (apply min (map #(.-longitude %) quakes))
-          mid-long (/ (+ min-long max-long) 2)
-          dif-long (- max-long min-long)
-
-          max-dif (max 1 dif-long (* 2 dif-lat))
-          zoom (- 9.3 (/ (Math/log max-dif) (Math/log 2)))
-          transX (/ (* 50 mid-long) -180)
-          transY (/ (* 50 mid-lat) 90)
-          transform (when (< 1.5 zoom) (str "scale(" zoom ") translate(" transX "%, " transY "%)"))
-          build-quake-svg (fn [data]
-            [:circle { :key (.-id data)
-                       :cx (+ 180 (.-longitude data))
-                       :cy (- 90 (.-latitude data))
-                       :r (if (= data @selected-result) (/ 3 zoom) (/ 2 zoom))
-                       :id (when (= data @selected-result) "selected")
-                       :fill (if (= data @selected-result) "#f11" "#235")
-                       :on-click #(reset! selected-result data)}])]
-      [:div.map-wrapper
-        [:img { :src "/blank_map2.svg" :style {  :transform transform } }]
-        [:svg {:x 0 :y 0 :viewBox [0 0 360 180] :style { :transform transform } }
-          (doall (map build-quake-svg quakes))
-          [:use { :xlinkHref "#selected" }]]])))
-
-;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
 
 (defn capitalize-words [s]
   (string/join (map string/capitalize (string/split s #"\b"))))
@@ -86,6 +52,38 @@
         ; [:div "raw: " (.-raw quake)]
         ])))
 
+(defn build-quake [data]
+  [:li { :key (.-_id data)
+         :on-click #(reset! selected-result data) }
+    [:div.strength (.-eq_primary data)]
+    [:div.country (.-country data)]
+    [:div.location (.-location_name data)]
+    [:div.date (.-date data)]])
+
+
+(defn build-help-example [text]
+  [:div.example { :on-click #(do (reset! query text)
+                                 (update-results @query)) }
+    text])
+
+(def help-section
+  [:div.help-section
+    [:h4 "Help"]
+    [:div.help-subheader "The search allows for specification, comparison, quotation, and logic (AND, OR, NOT)."
+                         [:br]
+                         "Here are some clickable examples:"]
+    (build-help-example "country:Italy")
+    (build-help-example "\"SOUTH ISLAND\"")
+    (build-help-example "strength>8.6")
+    (build-help-example "-strength:0")
+    (build-help-example "sea|ocean")
+    (build-help-example "100_years_ago<date<90_years_ago")
+    (build-help-example "country:'UK' -territory")
+    (build-help-example "morocco -spain")
+    [:div.help-footer "Click on an earthquake in the list or on the map to select it."
+                      [:br]
+                      "Attributes in the selected quake are also clickable."]])
+
 (def header
   [:div.header
     [:div.left
@@ -95,14 +93,6 @@
         "National Geophysical Data Center / World Data Service (NGDC/WDS): NCEI/WDS Global Significant Earthquake Database. NOAA National Centers for Environmental Information. doi:10.7289/V5TD9V7K"]
       [:p "Disclaimer: This data has been normalized and approximated from the original NCEI/WDS source."]]])
 
-(defn build-quake [data]
-  [:li { :key (.-_id data)
-         :on-click #(reset! selected-result data) }
-    [:div.strength (.-eq_primary data)]
-    [:div.country (.-country data)]
-    [:div.location (.-location_name data)]
-    [:div.date (.-date data)]])
-
 (defn center []
   [:div.center
     [:div.left
@@ -110,11 +100,14 @@
                 :placeholder "Search..."
                 :on-change #(do (reset! query (-> % .-target .-value))
                                 (update-results @query))}]
-        [:ul (if (empty? @results)
-               [:li.empty-message "No earthquakes found."]
-               (map build-quake @results))]]
+      [:div.help-button { :on-click #(swap! show-help not) }
+        "?"]
+      [:ul (if (empty? @results)
+             [:li.empty-message "No earthquakes found."]
+             (map build-quake @results))]]
     [:div.right
-      (quake-map @results)
+      (when @show-help help-section)
+      (quake-map/create @results selected-result)
       (selected-quake @selected-result)]])
 
 (def footer

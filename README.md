@@ -68,3 +68,20 @@ look into the pending
 proper paging
 
 add "how to run locally (have mongo, bundle, seed, foreman start, go to port)" and such to readme
+
+///
+----------------------//////////////////////////////
+
+no earthquakes found text should be centered better.
+
+----------------------//////////////////////////////
+
+some data like "Location: Grfece: Off West Coast" and should maybe just be cleaned up.
+
+----------------------//////////////////////////////
+
+"kuril -strength:5"
+
+"-strength:0"
+
+causes and error
