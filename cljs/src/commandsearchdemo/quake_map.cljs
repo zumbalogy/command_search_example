@@ -14,18 +14,18 @@
           dif-long (- max-long min-long)
 
           max-dif (max 1 dif-long (* 2 dif-lat))
-          zoom (- 9.3 (/ (Math/log max-dif) (Math/log 2)))
+          zoom (min 20 (/ 300 max-dif))
           transX (/ (* 50 mid-long) -180)
           transY (/ (* 50 mid-lat) 90)
-          transform (when (< 1.5 zoom) (str "scale(" zoom ") translate(" transX "%, " transY "%)"))
+          transform (when (< 1.4 zoom) (str "scale(" zoom ") translate(" transX "%, " transY "%)"))
           build-quake-svg (fn [data]
             [:circle { :key (.-id data)
                        :cx (+ 180 (.-longitude data))
                        :cy (- 90 (.-latitude data))
                        :r (if (= data @selected) (/ 3 zoom) (/ 2 zoom))
                        :id (when (= data @selected) "selected")
-                       :fill (if (= data @selected) "#f11" "#235")
-                       :on-click #(reset! selected data)}])]
+                       :fill (if (= data @selected) "#f118" "#1278") ; TODO: the trasparency should ajust depending on how many results. (and be set outside the loop)
+                       :on-click #(reset! selected data)}])] ; TODO: selected quake stuff should happen after this stuff for performance reasons.
       [:div.map-wrapper
         [:img { :src "/blank_map2.svg" :style {  :transform transform } }]
         [:svg {:x 0 :y 0 :viewBox [0 0 360 180] :style { :transform transform } }
