@@ -14,7 +14,7 @@ MONGODB | localhost:27017 | command_search_demo_development.find | STARTED | {"f
 MONGODB | localhost:27017 | command_search_demo_development.find | FAILED | String � is not a valid UTF-8 CString. | 0.00021799999999999999s
 Completed 500 Internal Server Error in 2ms
 
-
+----------------------//////////////////////////////
 
 ArgumentError (String � is not a valid UTF-8 CString.):
 
@@ -27,27 +27,30 @@ MONGODB | localhost:27017 | command_search_demo_development.find | STARTED | {"f
 MONGODB | localhost:27017 | command_search_demo_development.find | FAILED | String � is not a valid UTF-8 CString. | 0.00027s
 Completed 500 Internal Server Error in 2ms
 
-
-ArgumentError (String � is not a valid UTF-8 CString.):
-
 ------------------------
 
 have them be properly sorted by date.
 
+----------------------//////////////////////////////
+
 add time of day field.
+
+----------------------//////////////////////////////
 
 a timeline above the map could be nice.
 
-selected one could be a diff color on map/timeline
-
-make question mark pop up helper box in the input to show off syntax and all.
+----------------------//////////////////////////////
 
 make things case insensitive by default and all, so clicking in selected box is nice and all
+
+----------------------//////////////////////////////
 
 2.5.3 :006 > Earthquake.search("latitude:0 -longitude:0").first
 Traceback (most recent call last):
         1: from (irb):6
 Mongo::Error::OperationFailure ($not needs a regex or a document (2))
+
+----------------------//////////////////////////////
 
 look into the pending
 ```
@@ -65,14 +68,13 @@ look into the pending
 # 23:38:03 rails.1 | MONGODB | localhost:27017 | command_search_demo_development.getMore | STARTED | {"getMore"=>104800927300050, "collection"=>"earthquakes", "lsid"=>{"id"=><BSON::Binary:0x70182998131200 type=uuid data=0xe7d02eafe0e54f1f...>}}
 ```
 
-proper paging
-
-add "how to run locally (have mongo, bundle, seed, foreman start, go to port)" and such to readme
-
-///
 ----------------------//////////////////////////////
 
-no earthquakes found text should be centered better.
+proper paging
+
+----------------------//////////////////////////////
+
+add "how to run locally (have mongo, bundle, seed, foreman start, go to port)" and such to readme
 
 ----------------------//////////////////////////////
 
@@ -85,3 +87,16 @@ some data like "Location: Grfece: Off West Coast" and should maybe just be clean
 "-strength:0"
 
 causes and error
+
+----------------------//////////////////////////////
+
+make the zoom in zoom a bit more by default.
+
+----------------------//////////////////////////////
+
+make urls searchable
+
+----------------------//////////////////////////////
+
+
+current readme example in command search repo of /=/ => ":" does not work, and should be tested and all

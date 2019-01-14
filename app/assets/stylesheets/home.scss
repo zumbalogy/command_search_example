@@ -132,10 +132,15 @@ body {
       li {
         list-style: none;
         min-height: 22px;
+        &.empty-message {
+            line-height: 22px;
+            text-align: center;
+        }
         div {
           // TODO: make a tad more responsive
           vertical-align: middle;
           display: inline-block;
+          overflow-wrap: break-word;
           &.strength {
             width: 38px;
             padding-left: 4px;
