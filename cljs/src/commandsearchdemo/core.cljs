@@ -3,16 +3,23 @@
             [reagent.core :as r]
             [commandsearchdemo.quake-map :as quake-map]))
 
+(defonce all-quakes (aget js/window "allQuakes"))
+
 (defonce query (r/atom ""))
-(defonce results (r/atom []))
+(defonce results (r/atom all-quakes))
 (defonce selected-result (r/atom nil))
 (defonce show-help (r/atom false))
 
+(defn pluck-from-all-quakes [ids]
+  ((aget js/window "fastQuakeFilter") ids all-quakes))
+
 (defn update-results [query]
-  (-> (str "/search/" (js/btoa query))
-      (js/fetch)
-      (.then #(.json %))
-      (.then #(reset! results %))))
+  (if (= query "")
+    (reset! results all-quakes)
+    (-> (str "/search/" (js/btoa query))
+        (js/fetch)
+        (.then #(.json %))
+        (.then #(reset! results (pluck-from-all-quakes %))))))
 
 (defn capitalize-words [s]
   (string/join (map string/capitalize (string/split s #"\b"))))
@@ -47,18 +54,16 @@
         (selected-quake-section q "date")
         (selected-quake-section q "region_code")
         (selected-quake-section q "houses_destroyed")
-        (selected-quake-section q "houses_damaged")
-        ; [:div "cljs: " (str (js->clj quake))]
-        ; [:div "raw: " (.-raw quake)]
-        ])))
+        (selected-quake-section q "houses_damaged")])))
 
 (defn build-quake [data]
-  [:li { :key (.-_id data)
-         :on-click #(reset! selected-result data) }
-    [:div.strength (.-eq_primary data)]
-    [:div.country (.-country data)]
-    [:div.location (.-location_name data)]
-    [:div.date (.-date data)]])
+  [:li { :key (aget data "_id")
+         :on-click #(reset! selected-result data) ; this is potentally slow performance
+       }
+    [:div.strength (aget data "eq_primary")]
+    [:div.country (aget data "country")]
+    [:div.location (aget data "location_name")]
+    [:div.date (aget data "date")]])
 
 
 (defn build-help-example [text]
@@ -84,16 +89,7 @@
                       [:br]
                       "Attributes in the selected quake are also clickable."]])
 
-(def header
-  [:div.header
-    [:div.left
-      [:h3 "Earthquakes"]]
-    [:div.right
-      [:a { :href "https://www.ngdc.noaa.gov/nndc/struts/form?t=101650&s=1" :target "_blank" }
-        "National Geophysical Data Center / World Data Service (NGDC/WDS): NCEI/WDS Global Significant Earthquake Database. NOAA National Centers for Environmental Information. doi:10.7289/V5TD9V7K"]
-      [:p "Disclaimer: This data has been normalized and approximated from the original NCEI/WDS source."]]])
-
-(defn center []
+(defn app []
   [:div.center
     [:div.left
       [:input { :value @query
@@ -110,14 +106,5 @@
       (quake-map/create @results selected-result)
       (selected-quake @selected-result)]])
 
-(def footer
-  [:div.footer
-    [:a.source-code { :href "https://github.com/zumbalogy/command_search_example" :target "_blank"}
-      "Source Code"]])
-
-(defn app []
-  [:div header (center) footer])
-
 (defn ^:export main []
-    (r/render [app] (js/document.getElementById "splash-render-hook"))
-    (update-results @query))
+    (r/render [app] (js/document.getElementById "splash-render-hook")))

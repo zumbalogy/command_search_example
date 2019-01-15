@@ -61,8 +61,6 @@ quake_data.each do |data|
     # i have a suggestion to add the times because it might be neat to see if daytime ones
     # are more or less damaging or something
 
-    e.raw = data.to_s # TODO: for deveopement. remove this
-
     e.id = data['I_D'].to_i
     e.flag_tsunami = !!data['FLAG_TSUNAMI']
     e.date = date

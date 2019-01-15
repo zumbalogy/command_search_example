@@ -3,7 +3,6 @@ require('command_search')
 class Earthquake
   include Mongoid::Document
 
-  field :raw, type: String # TODO: for deveopement. remove this
   field :id, type: Integer
   field :flag_tsunami, type: Boolean
   field :date, type: Date

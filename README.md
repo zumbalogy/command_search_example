@@ -5,6 +5,9 @@ of which the relevant code is here: https://github.com/zumbalogy/command_search_
 
 map from: https://commons.wikimedia.org/wiki/File:BlankMap-Equirectangular.svg
 
+boot prod; RAILS_ENV=production rake assets:precompile; RAILS_SERVE_STATIC_FILES=true RAILS_ENV=production rails s
+
+
 TODO:
 
 Started GET "/search/3w==" for 127.0.0.1 at 2018-12-31 15:02:22 -0600
