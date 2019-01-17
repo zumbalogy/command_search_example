@@ -163,11 +163,19 @@ test:
           mode: :primary
         max_pool_size: 1
 
+# production:
+#   clients:
+#     default:
+#       database: command_search_demo_development
+#       hosts:
+#         - localhost:27017
+#       options:
+#   options:
+
 production:
   clients:
     default:
-      database: command_search_demo_development
-      hosts:
-        - localhost:27017
-      options:
-  options:
+     uri: <%= ENV['MONGODB_URI'] %>
+
+     options:
+       connect_timeout: 15

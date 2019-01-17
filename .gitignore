@@ -25,3 +25,6 @@
 # Added by cljs-rails
 /app/assets/cljs-build
 .nrepl-port
+
+# Ignore application configuration
+/config/application.yml
