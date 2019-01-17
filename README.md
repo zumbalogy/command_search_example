@@ -114,3 +114,6 @@ TODO: gzip the quake_export.csv (put on asset pipeline or something)
 
 
 ///////
+
+
+it should say "loading" not "no quakes found" when loading in the beggining. 
