@@ -12,5 +12,24 @@
   <body>
     <%= yield %>
   </body>
+
+  <script>
+    // TODO: externs and such https://lispcast.com/clojurescript-externs/.
+    window.fastQuakeFilter = function(ids, list) {
+      var output = [];
+      var list_index = 0;
+      ids.forEach(function(id) {
+        while (id !== list[list_index]._id) {
+          list_index += 1;
+        }
+        output.push(list[list_index])
+        list_index += 1;
+      })
+      return output;
+    }
+
+    window.quakeFetch = fetch("<%= asset_path 'quake_export.json' %>")
+  </script>
+
   <%= javascript_include_tag cljs_main_path %>
 </html>

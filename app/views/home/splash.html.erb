@@ -22,22 +22,3 @@
     Source Code
   </a>
 </div>
-
-<script>
-  window.allQuakes = <%= raw Earthquake.all.to_json %>
-  <%# TODO: make this just a static file or something. %>
-
-  <%# TODO: externs and such https://lispcast.com/clojurescript-externs/. %>
-  window.fastQuakeFilter = function(ids, list) {
-    var output = [];
-    var list_index = 0;
-    ids.forEach(function(id) {
-      while (id !== list[list_index]._id) {
-        list_index += 1;
-      }
-      output.push(list[list_index])
-      list_index += 1;
-    })
-    return output;
-  }
-</script>

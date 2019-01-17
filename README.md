@@ -103,3 +103,8 @@ make urls searchable
 
 
 current readme example in command search repo of /=/ => ":" does not work, and should be tested and all
+
+
+//////////////////////////////////////////////
+
+TODO: gzip the quake_export.csv (put on asset pipeline or something)

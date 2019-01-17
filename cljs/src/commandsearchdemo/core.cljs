@@ -3,12 +3,16 @@
             [reagent.core :as r]
             [commandsearchdemo.quake-map :as quake-map]))
 
-(defonce all-quakes (aget js/window "allQuakes"))
-
 (defonce query (r/atom ""))
-(defonce results (r/atom all-quakes))
+(defonce results (r/atom []))
 (defonce selected-result (r/atom nil))
 (defonce show-help (r/atom false))
+
+(when-not (exists? all-quakes)
+  (-> (aget js/window "quakeFetch")
+      (.then #(.json %))
+      (.then #(defonce all-quakes %))
+      (.then #(reset! results all-quakes))))
 
 (defn pluck-from-all-quakes [ids]
   ((aget js/window "fastQuakeFilter") ids all-quakes))

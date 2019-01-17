@@ -1,3 +1,4 @@
+require('csv')
 require('command_search')
 
 class Earthquake
@@ -56,7 +57,31 @@ class Earthquake
         # /=/ => ':'
       }
     }
-    #    logger.info "about to build search"
     CommandSearch.search(Earthquake, query, options)
   end
+
+  # def self.to_csv()
+  #   attributes = Earthquake.fields.map(&:first) - ['_id']
+  #   quakes = Earthquake.all.to_a
+  #
+  #   CSV.generate(headers: true) do |csv|
+  #     csv << attributes
+  #
+  #     quakes.each do |quake|
+  #       csv << attributes.map { |attr| quake.send(attr) }
+  #     end
+  #   end
+  # end
+  #
+  # def self.export_csv()
+  #   File.open(Rails.root + 'public/quake_export.csv', 'w') do |f|
+  #     f.write(self.to_csv())
+  #   end
+  # end
+  #
+  # def self.export_json()
+  #   File.open(Rails.root + 'public/quake_export.json', 'w') do |f|
+  #     f.write(self.all.to_json())
+  #   end
+  # end
 end

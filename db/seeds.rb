@@ -57,6 +57,8 @@ quake_data.each do |data|
 
     date = Date.new(data['YEAR'].to_i, (data['MONTH'] || 1).to_i, (data['DAY'] || 1).to_i)
 
+    # TODO: trim whitespace of more than one character
+
 
     # i have a suggestion to add the times because it might be neat to see if daytime ones
     # are more or less damaging or something
