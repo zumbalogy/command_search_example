@@ -114,5 +114,3 @@ TODO: gzip the quake_export.csv (put on asset pipeline or something)
 
 
 ///////
-
-clean out main.js from repo
