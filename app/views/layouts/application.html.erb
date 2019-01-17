@@ -28,7 +28,7 @@
       return output;
     }
 
-    window.quakeFetch = fetch("<%= asset_path 'quake_export.json' %>")
+    window.quakeFetch = fetch('/quake_export.json')
   </script>
 
   <%= javascript_include_tag cljs_main_path %>

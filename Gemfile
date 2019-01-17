@@ -12,6 +12,8 @@ gem 'figaro'
 gem 'rails_12factor', group: :production
 gem 'webpacker', require: false
 
+gem 'iodine'
+
 # Bundle edge Rails instead: gem 'rails', github: 'rails/rails'
 gem 'rails', '~> 5.2.1', '>= 5.2.1.1'
 # Use Puma as the app server
