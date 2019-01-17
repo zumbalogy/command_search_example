@@ -6,7 +6,7 @@ of which the relevant code is here: https://github.com/zumbalogy/command_search_
 map from: https://commons.wikimedia.org/wiki/File:BlankMap-Equirectangular.svg
 
 
-rake run db:seed; gzip the public one. (db:seed needs to write the file)
+rake run db:seed; gzip the public one. (db:seed needs to write the file. (to assets as well i guess))
 
 boot prod; RAILS_ENV=production rake assets:precompile; RAILS_SERVE_STATIC_FILES=true RAILS_ENV=production rails s
 
@@ -111,3 +111,8 @@ current readme example in command search repo of /=/ => ":" does not work, and s
 //////////////////////////////////////////////
 
 TODO: gzip the quake_export.csv (put on asset pipeline or something)
+
+
+///////
+
+clean out main.js from repo

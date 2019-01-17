@@ -4,15 +4,13 @@
     <title>Earthquakes</title>
     <%= csrf_meta_tags %>
     <%= csp_meta_tag %>
-
-    <%= stylesheet_link_tag    'application', media: 'all', 'data-turbolinks-track': 'reload' %>
-    <%= javascript_include_tag 'application', 'data-turbolinks-track': 'reload' %>
+    <%= stylesheet_link_tag 'application', media: 'all', 'data-turbolinks-track': 'reload' %>
+    <link rel='preload' href='/blank_map2.svg' as='image'>
+    <link rel='preload' href='/quake_export.json' as='fetch' crossorigin='anonymous'>
   </head>
-
   <body>
     <%= yield %>
   </body>
-
   <script>
     // TODO: externs and such https://lispcast.com/clojurescript-externs/.
     window.fastQuakeFilter = function(ids, list) {
@@ -27,11 +25,8 @@
       })
       return output;
     }
-
     // TODO: put this in CDN free tier or something.
-    window.quakeFetch = fetch("quake_export.json")
-
+    window.quakeFetch = fetch('quake_export.json' )
   </script>
-
   <%= javascript_include_tag cljs_main_path %>
 </html>
