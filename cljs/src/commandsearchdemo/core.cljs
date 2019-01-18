@@ -9,7 +9,8 @@
 (defonce show-help (r/atom false))
 
 (when-not (exists? all-quakes)
-  (-> (aget js/window "quakeFetch")
+; TODO: put in cdn or so.
+  (-> (js/fetch "quake_export.json")
       (.then #(.json %))
       (.then #(defonce all-quakes %))
       (.then #(reset! results all-quakes))))
