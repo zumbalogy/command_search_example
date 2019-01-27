@@ -5,6 +5,7 @@
 
 (defonce query (r/atom ""))
 (defonce results (r/atom []))
+(defonce scroll-offset (r/atom 0))
 (defonce selected-result (r/atom nil))
 (defonce show-help (r/atom false))
 
@@ -13,18 +14,22 @@
   (-> (js/fetch "quake_export.json")
       (.then #(.json %))
       (.then #(defonce all-quakes %))
-      (.then #(reset! results all-quakes))))
+      (.then #(reset! results all-quakes))
+      (.then #(reset! query (js/atob (subs js/window.location.hash 2))))
+      (.then #(update-results @query))))
 
 (defn pluck-from-all-quakes [ids]
   ((aget js/window "fastQuakeFilter") ids all-quakes))
 
 (defn update-results [query]
-  (if (= query "")
-    (reset! results all-quakes)
-    (-> (str "/search/" (js/btoa query))
-        (js/fetch)
-        (.then #(.json %))
-        (.then #(reset! results (pluck-from-all-quakes %))))))
+  (let [base64 (js/btoa query)]
+    (set! js/window.location (str "#/" base64))
+    (if (= query "")
+      (reset! results all-quakes)
+      (-> (str "/search/" base64)
+          (js/fetch)
+          (.then #(.json %))
+          (.then #(reset! results (pluck-from-all-quakes %)))))))
 
 (defn capitalize-words [s]
   (string/join (map string/capitalize (string/split s #"\b"))))
@@ -103,9 +108,15 @@
                                 (update-results @query))}]
       [:div.help-button { :on-click #(swap! show-help not) }
         "?"]
-      [:ul (if (empty? @results)
-             [:li.empty-message "No earthquakes found."]
-             (map build-quake @results))]]
+      [:ul { :on-scroll #(reset! scroll-offset (-> % .-target .-scrollTop)) }
+        (if (empty? @results)
+          (if (= "" @query)
+              [:li.empty-message "Loading..."]
+              [:li.empty-message "No earthquakes found."])
+            (concat
+              (map build-quake (take 200 @results))
+              (when (< 500 @scroll-offset)
+                (map build-quake (drop 200 @results)))))]]
     [:div.right
       (when @show-help help-section)
       (quake-map/create @results selected-result)

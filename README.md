@@ -76,10 +76,6 @@ look into the pending
 
 ----------------------//////////////////////////////
 
-proper paging
-
-----------------------//////////////////////////////
-
 add "how to run locally (have mongo, bundle, seed, foreman start, go to port)" and such to readme
 
 ----------------------//////////////////////////////
@@ -96,24 +92,16 @@ causes and error
 
 ----------------------//////////////////////////////
 
-make the zoom in zoom a bit more by default.
-
-----------------------//////////////////////////////
-
-make urls searchable
-
-----------------------//////////////////////////////
-
-
 current readme example in command search repo of /=/ => ":" does not work, and should be tested and all
-
 
 //////////////////////////////////////////////
 
-TODO: gzip the quake_export.csv (put on asset pipeline or something)
+TODO: gzip the quake_export.json (put on asset pipeline or CDN or something). also changing the data format could save some size`
 
+//////------
 
-///////
+look into tuning mongo, or configuring it, or putting indexes by fields i care about for general search (or combining them into one field to search on)
 
+//////////////////////
 
-it should say "loading" not "no quakes found" when loading in the beggining. 
+once scrolled and loaded all quakes, they should probably just stay loaded until another search.
