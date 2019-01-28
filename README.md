@@ -5,8 +5,7 @@ of which the relevant code is here: https://github.com/zumbalogy/command_search_
 
 map from: https://commons.wikimedia.org/wiki/File:BlankMap-Equirectangular.svg
 
-
-rake run db:seed; gzip the public one. (db:seed needs to write the file. (to assets as well i guess))
+rake run db:seed
 
 boot prod; RAILS_ENV=production rake assets:precompile; RAILS_SERVE_STATIC_FILES=true RAILS_ENV=production rails s
 
