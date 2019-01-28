@@ -68,6 +68,9 @@ body {
     margin-bottom: 4px;
     font-family: monospace;
     vertical-align: top;
+    @media (max-width: 1020px) {
+      width: 100%;
+    }
   }
   .help-footer {
     margin-top: 8px;
