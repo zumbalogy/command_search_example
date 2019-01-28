@@ -10,7 +10,6 @@
 (defonce show-help (r/atom false))
 
 (when-not (exists? all-quakes)
-; TODO: put in cdn or so.
   (-> (js/fetch "quake_export.json")
       (.then #(.json %))
       (.then #(defonce all-quakes %))
@@ -68,13 +67,11 @@
 
 (defn build-quake [data]
   [:li { :key (aget data "_id")
-         :on-click #(reset! selected-result data) ; this is potentally slow performance
-       }
+         :on-click #(reset! selected-result data) }
     [:div.size (aget data "eq_primary")]
     [:div.country (aget data "country")]
     [:div.location (aget data "location")]
     [:div.date (aget data "date")]])
-
 
 (defn build-help-example [text]
   [:div.example { :on-click #(do (reset! query text)
