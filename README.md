@@ -10,7 +10,6 @@ rake run db:seed; gzip the public one. (db:seed needs to write the file. (to ass
 
 boot prod; RAILS_ENV=production rake assets:precompile; RAILS_SERVE_STATIC_FILES=true RAILS_ENV=production rails s
 
-
 TODO:
 
 Started GET "/search/3w==" for 127.0.0.1 at 2018-12-31 15:02:22 -0600
@@ -40,10 +39,6 @@ have them be properly sorted by date.
 ----------------------//////////////////////////////
 
 add time of day field.
-
-----------------------//////////////////////////////
-
-a timeline above the map could be nice.
 
 ----------------------//////////////////////////////
 
@@ -80,10 +75,6 @@ add "how to run locally (have mongo, bundle, seed, foreman start, go to port)" a
 
 ----------------------//////////////////////////////
 
-some data like "Location: Grfece: Off West Coast" and should maybe just be cleaned up.
-
-----------------------//////////////////////////////
-
 "kuril -strength:5"
 
 "-strength:0"
@@ -96,7 +87,7 @@ current readme example in command search repo of /=/ => ":" does not work, and s
 
 //////////////////////////////////////////////
 
-TODO: gzip the quake_export.json (put on asset pipeline or CDN or something). also changing the data format could save some size`
+TODO: gzip the quake_export.json (put on asset pipeline or CDN or something). also changing the data format could save some size
 
 //////------
 

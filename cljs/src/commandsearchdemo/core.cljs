@@ -54,15 +54,15 @@
       [:div.selected-quake
         [:h4 "Selected Quake"]
         (selected-quake-section q "country")
-        (selected-quake-section q "location_name" "location")
-        (selected-quake-section q "eq_primary" "strength")
+        (selected-quake-section q "location")
+        (selected-quake-section q "eq_primary" "size")
         (selected-quake-section q "intensity")
         (selected-quake-section q "focal_depth")
-        (selected-quake-section q "flag_tsunami" "tsunami")
+        (selected-quake-section q "tsu" "tsunami")
         (selected-quake-section q "latitude" "lat")
         (selected-quake-section q "longitude" "long")
         (selected-quake-section q "date")
-        (selected-quake-section q "region_code")
+        (selected-quake-section q "region")
         (selected-quake-section q "houses_destroyed")
         (selected-quake-section q "houses_damaged")])))
 
@@ -70,9 +70,9 @@
   [:li { :key (aget data "_id")
          :on-click #(reset! selected-result data) ; this is potentally slow performance
        }
-    [:div.strength (aget data "eq_primary")]
+    [:div.size (aget data "eq_primary")]
     [:div.country (aget data "country")]
-    [:div.location (aget data "location_name")]
+    [:div.location (aget data "location")]
     [:div.date (aget data "date")]])
 
 
@@ -89,8 +89,8 @@
                          "Here are some clickable examples:"]
     (build-help-example "country:Italy")
     (build-help-example "\"SOUTH ISLAND\"")
-    (build-help-example "strength>8.6")
-    (build-help-example "-strength:0")
+    (build-help-example "size>8.6")
+    (build-help-example "-size:0")
     (build-help-example "sea|ocean")
     (build-help-example "100_years_ago<date<90_years_ago")
     (build-help-example "country:'UK' -territory")

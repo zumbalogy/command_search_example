@@ -27,7 +27,7 @@
                        :on-click #(reset! selected data)}])]
       [:div.map-wrapper
         [:img { :src "/blank_map2.svg" :style {  :transform transform } }]
-        [:svg {:x 0 :y 0 :viewBox [0 0 360 180] :style { :transform transform } }
+        [:svg { :x 0 :y 0 :viewBox [0 0 360 180] :style { :transform transform } }
           (doall (map build-quake-svg quakes))
           (when @selected
             [:circle { :key "selected"

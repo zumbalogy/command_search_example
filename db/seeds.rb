@@ -57,21 +57,18 @@ quake_data.each do |data|
 
     date = Date.new(data['YEAR'].to_i, (data['MONTH'] || 1).to_i, (data['DAY'] || 1).to_i)
 
-    # TODO: trim whitespace of more than one character
-
-
     # i have a suggestion to add the times because it might be neat to see if daytime ones
     # are more or less damaging or something
 
     e.id = data['I_D'].to_i
-    e.flag_tsunami = !!data['FLAG_TSUNAMI']
+    e.tsu = !!data['FLAG_TSUNAMI']
     e.date = date
     e.focal_depth = data['FOCAL_DEPTH'].to_i
     e.eq_primary = data['EQ_PRIMARY'].to_f
     e.intensity = data['INTENSITY'].to_i
     e.country = data['COUNTRY']
     e.state = data['STATE']
-    e.region_code = data['REGION_CODE'].to_i
+    e.region = data['REGION_CODE'].to_i
 
     # TODO: nils should not be replaced with zeros. maybe with -1 or something. so that it works for search?
     # nil is more realistic for the demo though.
@@ -82,7 +79,8 @@ quake_data.each do |data|
     e.houses_destroyed = (data['TOTAL_HOUSES_DESTROYED'] || data['HOUSES_DESTROYED']).to_i
     e.houses_damaged = (data['TOTAL_HOUSES_DAMAGED'] || data['HOUSES_DAMAGED']).to_i
 
-    e.location_name = (data['LOCATION_NAME'] || '').sub(/^#{data['COUNTRY']}:/, '').strip
+    e.location = (data['LOCATION_NAME'] || '').sub(/^#{data['COUNTRY']}:/, '').strip
+    e.location = e.location.gsub(/\s+/, ' ')
 
     if data['LATITUDE'] == nil && data['LONGITUDE'] == nil
       key = data['LOCATION_NAME'].gsub(/\s+/, ' ')
@@ -97,4 +95,13 @@ quake_data.each do |data|
     e.save!
 end
 
-#  TODO: write a json file ()
+q = Earthquake.where(location: "GRFECE: OFF WEST COAST").first
+q.location = 'OFF WEST COAST'
+q.save!
+
+
+File.open(__dir__ + '/../public/quake_export.json', 'w') do |f|
+  f.write(Earthquake.all.to_json)
+end
+
+`gzip -f -k -9 #{__dir__ + '/../public/quake_export.json'}`
