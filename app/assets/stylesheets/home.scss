@@ -135,7 +135,6 @@ body {
       margin-left: 12px;
       width: calc(100% - 20px);
       max-height: calc(100vh - 126px);
-      // TODO: polish these, or move to some flexbox nonesense or something
       @media (max-width: 1448px) { max-height: calc(100vh - 142px); }
       @media (max-width: 848px) { max-height: calc(100vh - 160px); }
       @media (max-width: 829px) { max-height: calc(100vh - 178px); }
@@ -152,7 +151,6 @@ body {
             text-align: center;
         }
         div {
-          // TODO: make a tad more responsive
           vertical-align: middle;
           display: inline-block;
           overflow-wrap: break-word;
