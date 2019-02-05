@@ -9,6 +9,11 @@
 (defonce selected-result (r/atom nil))
 (defonce show-help (r/atom false))
 
+(defonce hash-change-listener
+    (set! js/window.onhashchange (fn []
+        (reset! query (js/atob (subs js/window.location.hash 2)))
+        (update-results @query))))
+
 (when-not (exists? all-quakes)
   (-> (js/fetch "quake_export.json")
       (.then #(.json %))
