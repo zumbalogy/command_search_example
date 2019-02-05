@@ -25,7 +25,7 @@ class Earthquake
 
   def self.search(query)
     options = {
-      fields: [:country, :location, :eq_primary, :intensity],
+      fields: [:country, :location, :eq_primary],
       command_fields: {
         id: Numeric,
         tsunami: :tsu,

@@ -11,6 +11,22 @@ boot prod; RAILS_ENV=production rake assets:precompile; RAILS_SERVE_STATIC_FILES
 
 TODO:
 
+
+/////////////////////////////////////////
+
+back and front button dont work.
+
+/////////////////////////////////////////
+
+2.5.3 :003 > Earthquake.where(eq_primary: 4).count
+ => 8
+2.5.3 :004 > Earthquake.where(eq_primary: "4").count
+ => 8
+2.5.3 :005 > Earthquake.where(eq_primary: /4/i).count
+ => 0
+
+----------------------//////////////////////////////
+
 Started GET "/search/3w==" for 127.0.0.1 at 2018-12-31 15:02:22 -0600
 Processing by HomeController#search as */*
   Parameters: {"query"=>"3w=="}
