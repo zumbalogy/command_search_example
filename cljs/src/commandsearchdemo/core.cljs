@@ -10,7 +10,7 @@
 (defonce show-help (r/atom false))
 
 (defonce hash-change-listener
-    (set! js/window.onhashchange (fn []
+    (aset js/window "onhashchange" (fn []
         (reset! query (js/atob (subs js/window.location.hash 2)))
         (update-results @query))))
 
