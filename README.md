@@ -11,21 +11,14 @@ boot prod; RAILS_ENV=production rake assets:precompile; RAILS_SERVE_STATIC_FILES
 
 TODO:
 
-2.5.3 :003 > Earthquake.where(eq_primary: 4).count
- => 8
-2.5.3 :004 > Earthquake.where(eq_primary: "4").count
- => 8
-2.5.3 :005 > Earthquake.where(eq_primary: /4/i).count
- => 0
-
-----------------------//////////////////////////////
-
 Started GET "/search/3w==" for 127.0.0.1 at 2018-12-31 15:02:22 -0600
 Processing by HomeController#search as */*
   Parameters: {"query"=>"3w=="}
 MONGODB | localhost:27017 | command_search_demo_development.find | STARTED | {"find"=>"earthquakes", "filter"=>{"$or"=>[{"country"=>/\xDF/i}, {"location_name"=>/\xDF/i}, {"eq_primary"=>/\xDF/i}, {"intensity"=>/\xDF/i}]}, "sort"=>{"_id"=>-1}, "lsid"=>{"id"=><BSON::Binary:0x70197866788300 type=uuid data=0x62c39d20480f4408...>}}
 MONGODB | localhost:27017 | command_search_demo_development.find | FAILED | String � is not a valid UTF-8 CString. | 0.00021799999999999999s
 Completed 500 Internal Server Error in 2ms
+
+(String � is not a valid UTF-8 CString., ß is what was encoded.)
 
 ----------------------//////////////////////////////
 
@@ -40,7 +33,7 @@ MONGODB | localhost:27017 | command_search_demo_development.find | STARTED | {"f
 MONGODB | localhost:27017 | command_search_demo_development.find | FAILED | String � is not a valid UTF-8 CString. | 0.00027s
 Completed 500 Internal Server Error in 2ms
 
-------------------------
+----------------------//////////////////////////////
 
 have them be properly sorted by date.
 
@@ -50,26 +43,7 @@ add time of day field.
 
 ----------------------//////////////////////////////
 
-make things case insensitive by default and all, so clicking in selected box is nice and all
-
-----------------------//////////////////////////////
-
-2.5.3 :006 > Earthquake.search("latitude:0 -longitude:0").first
-Traceback (most recent call last):
-        1: from (irb):6
-Mongo::Error::OperationFailure ($not needs a regex or a document (2))
-
-----------------------//////////////////////////////
-
 add "how to run locally (have mongo, bundle, seed, foreman start, go to port)" and such to readme
-
-----------------------//////////////////////////////
-
-"kuril -strength:5"
-
-"-strength:0"
-
-causes and error
 
 ----------------------//////////////////////////////
 
@@ -83,3 +57,37 @@ look into tuning mongo, or configuring it, or putting indexes by fields i care a
 
 consider, in the seeds.rb, using nils when the value is nil as opposed to converting it to zero.
 maybe with -1 or something. nil is more realistic for the demo though.
+
+---------//////////-------------------------------------------////////////------
+////////////-----------------------------------------------------///////////////
+---------//////////-------------------------------------------////////////------
+////////////-----------------------------------------------------///////////////
+---------//////////-------------------------------------------////////////------
+////////////-----------------------------------------------------///////////////
+---------//////////-------------------------------------------////////////------
+////////////-----------------------------------------------------///////////////
+---------//////////-------------------------------------------////////////------
+////////////-----------------------------------------------------///////////////
+
+TODO for command_search gem
+
+----------------------//////////////////////////////
+
+make things case insensitive by default and all, so clicking in selected box is nice and all
+
+----------------------//////////////////////////////
+
+2.5.3 :003 > Earthquake.where(eq_primary: 4).count
+ => 8
+2.5.3 :004 > Earthquake.where(eq_primary: "4").count
+ => 8
+2.5.3 :005 > Earthquake.where(eq_primary: /4/i).count
+ => 0
+
+ ----------------------//////////////////////////////
+
+ "kuril -strength:5"
+
+ "-strength:0"
+
+ causes and error

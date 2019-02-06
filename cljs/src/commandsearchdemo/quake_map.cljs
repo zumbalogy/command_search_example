@@ -1,9 +1,11 @@
 (ns commandsearchdemo.quake-map)
 
+(def long-lat-finder (aget js/window "longLatFinder"))
+
 (defn create [quakes selected]
   (if (empty? quakes)
     [:div.map-wrapper [:img { :src "/blank_map2.svg" }]]
-    (let [[min-lat max-lat min-long max-long] ((aget js/window "longLatFinder") quakes)
+    (let [[min-lat max-lat min-long max-long] (long-lat-finder quakes)
 
           mid-lat (/ (+ min-lat max-lat) 2)
           dif-lat (- max-lat min-lat)

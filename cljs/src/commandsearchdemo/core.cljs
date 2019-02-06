@@ -9,9 +9,13 @@
 (defonce selected-result (r/atom nil))
 (defonce show-help (r/atom false))
 
+(def fast-quake-filter (aget js/window "fastQuakeFilter"))
+(def encode (aget js/window "b64EncodeUnicode"))
+(def decode (aget js/window "b64DecodeUnicode"))
+
 (defonce hash-change-listener
     (aset js/window "onhashchange" (fn []
-        (reset! query (js/atob (subs js/window.location.hash 2)))
+        (reset! query (decode (subs js/window.location.hash 2)))
         (update-results @query))))
 
 (when-not (exists? all-quakes)
@@ -19,18 +23,18 @@
       (.then #(.json %))
       (.then #(defonce all-quakes %))
       (.then #(reset! results all-quakes))
-      (.then #(reset! query (js/atob (subs js/window.location.hash 2))))
+      (.then #(reset! query (decode (subs js/window.location.hash 2))))
       (.then #(update-results @query))))
 
 (defn pluck-from-all-quakes [ids]
-  ((aget js/window "fastQuakeFilter") ids all-quakes))
+  (fast-quake-filter ids all-quakes))
 
 (defn update-results [query]
-  (let [base64 (js/btoa query)]
-    (set! js/window.location (str "#/" base64))
+  (let [encoded (encode query)]
+    (set! js/window.location (str "#/" encoded))
     (if (= query "")
       (reset! results all-quakes)
-      (-> (str "/search/" base64)
+      (-> (str "/search/" encoded)
           (js/fetch)
           (.then #(.json %))
           (.then #(reset! results (pluck-from-all-quakes %)))))))
