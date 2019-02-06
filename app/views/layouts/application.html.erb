@@ -12,7 +12,6 @@
     <%= yield %>
   </body>
   <script>
-    // TODO: externs and such https://lispcast.com/clojurescript-externs/.
     window.fastQuakeFilter = function(ids, list) {
       var output = [];
       var list_index = 0;
@@ -38,27 +37,6 @@
         if (item.longitude > maxLong) { maxLong = item.longitude }
       })
       return [minLat, maxLat, minLong, maxLong];
-    }
-
-    function DSVToArray(res) {
-      return res.text().then(function(strData) {
-        console.time('DSV');
-        var lines= strData.split('\n');
-        var out = [];
-        var headers = lines[0].split('|');
-        debugger;
-        for (var i = 1; i<lines.length; i++) {
-          var obj = {};
-          var currentline = lines[i].split('|');
-          for (var j = 0; j < headers.length; j++) {
-            obj[headers[j]] = currentline[j];
-          }
-          out.push(obj);
-        }
-        console.timeEnd('DSV');
-        console.log(out);
-        return out;
-      })
     }
   </script>
   <%= javascript_include_tag cljs_main_path %>

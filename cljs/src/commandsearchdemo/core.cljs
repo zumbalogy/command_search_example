@@ -15,9 +15,8 @@
         (update-results @query))))
 
 (when-not (exists? all-quakes)
-  (-> (js/fetch "quake_export.dsv")
-      (.then #((aget js/window "DSVToArray") %))
-      ; (.then #(.json %))
+  (-> (js/fetch "quake_export.json")
+      (.then #(.json %))
       (.then #(defonce all-quakes %))
       (.then #(reset! results all-quakes))
       (.then #(reset! query (js/atob (subs js/window.location.hash 2))))
