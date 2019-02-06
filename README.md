@@ -77,10 +77,6 @@ current readme example in command search repo of /=/ => ":" does not work, and s
 
 ----------------------//////////////////////////////
 
-TODO: gzip the quake_export.json (put on asset pipeline or CDN or something). also changing the data format could save some size
-
-----------------------//////////////////////////////
-
 look into tuning mongo, or configuring it, or putting indexes by fields i care about for general search (or combining them into one field to search on)
 
 ----------------------//////////////////////////////
