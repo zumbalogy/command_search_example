@@ -53,55 +53,65 @@ lat_long_lookup = {
 }
 
 quake_data.each do |data|
-    e = Earthquake.new()
+  e = Earthquake.new()
 
-    date = Date.new(data['YEAR'].to_i, (data['MONTH'] || 1).to_i, (data['DAY'] || 1).to_i)
+  date = Date.new(data['YEAR'].to_i, (data['MONTH'] || 1).to_i, (data['DAY'] || 1).to_i)
 
-    # i have a suggestion to add the times because it might be neat to see if daytime ones
-    # are more or less damaging or something
+  # i have a suggestion to add the times because it might be neat to see if daytime ones
+  # are more or less damaging or something
 
-    e.id = data['I_D'].to_i
-    e.tsu = !!data['FLAG_TSUNAMI']
-    e.date = date
-    e.focal_depth = data['FOCAL_DEPTH'].to_i
-    e.eq_primary = data['EQ_PRIMARY'].to_f
-    e.intensity = data['INTENSITY'].to_i
-    e.country = data['COUNTRY']
-    e.state = data['STATE']
-    e.region = data['REGION_CODE'].to_i
+  e.id = data['I_D'].to_i
+  e.tsu = !!data['FLAG_TSUNAMI']
+  e.date = date
+  e.focal_depth = data['FOCAL_DEPTH'].to_i
+  e.eq_primary = data['EQ_PRIMARY'].to_f
+  e.intensity = data['INTENSITY'].to_i
+  e.country = data['COUNTRY']
+  e.state = data['STATE']
+  e.region = data['REGION_CODE'].to_i
 
-    # TODO: nils should not be replaced with zeros. maybe with -1 or something. so that it works for search?
-    # nil is more realistic for the demo though.
-    e.deaths = (data['TOTAL_DEATHS'] || data['DEATHS']).to_i
-    e.missing = (data['TOTAL_MISSING'] || data['MISSING']).to_i
-    e.injuries = (data['TOTAL_INJURIES'] || data['INJURIES']).to_i
-    e.damage_millions_dollars = (data['TOTAL_DAMAGE_MILLIONS_DOLLARS'] || data['DAMAGE_MILLIONS_DOLLARS']).to_f
-    e.houses_destroyed = (data['TOTAL_HOUSES_DESTROYED'] || data['HOUSES_DESTROYED']).to_i
-    e.houses_damaged = (data['TOTAL_HOUSES_DAMAGED'] || data['HOUSES_DAMAGED']).to_i
+  # TODO: nils should not be replaced with zeros. maybe with -1 or something. so that it works for search?
+  # nil is more realistic for the demo though.
+  e.deaths = (data['TOTAL_DEATHS'] || data['DEATHS']).to_i
+  e.missing = (data['TOTAL_MISSING'] || data['MISSING']).to_i
+  e.injuries = (data['TOTAL_INJURIES'] || data['INJURIES']).to_i
+  e.damage_millions_dollars = (data['TOTAL_DAMAGE_MILLIONS_DOLLARS'] || data['DAMAGE_MILLIONS_DOLLARS']).to_f
+  e.houses_destroyed = (data['TOTAL_HOUSES_DESTROYED'] || data['HOUSES_DESTROYED']).to_i
+  e.houses_damaged = (data['TOTAL_HOUSES_DAMAGED'] || data['HOUSES_DAMAGED']).to_i
 
-    e.location = (data['LOCATION_NAME'] || '').sub(/^#{data['COUNTRY']}:/, '').strip
-    e.location = e.location.gsub(/\s+/, ' ')
+  e.location = (data['LOCATION_NAME'] || '').sub(/^#{data['COUNTRY']}:/, '').strip
+  e.location = e.location.gsub(/\s+/, ' ')
 
-    if data['LATITUDE'] == nil && data['LONGITUDE'] == nil
-      key = data['LOCATION_NAME'].gsub(/\s+/, ' ')
-      (lat, long) = lat_long_lookup[key]
-      e.latitude = lat
-      e.longitude = long
-    else
-      e.latitude = data['LATITUDE'].to_f
-      e.longitude = data['LONGITUDE'].to_f
-    end
+  if data['LATITUDE'] == nil && data['LONGITUDE'] == nil
+    key = data['LOCATION_NAME'].gsub(/\s+/, ' ')
+    (lat, long) = lat_long_lookup[key]
+    e.latitude = lat
+    e.longitude = long
+  else
+    e.latitude = data['LATITUDE'].to_f
+    e.longitude = data['LONGITUDE'].to_f
+  end
 
-    e.save!
+  e.save!
 end
 
 q = Earthquake.where(location: "GRFECE: OFF WEST COAST").first
 q.location = 'OFF WEST COAST'
 q.save!
 
-
 File.open(__dir__ + '/../public/quake_export.json', 'w') do |f|
   f.write(Earthquake.all.to_json)
 end
 
+CSV.open(__dir__ + '/../public/quake_export.dsv', 'w', { col_sep: '|' }) do |dsv|
+  attrs = Earthquake.attribute_names
+  dsv << attrs
+  Earthquake.all.each do |quake|
+    attrs.each do |attr|
+      dsv << quake[attr]
+    end
+  end
+end
+
 `gzip -f -k -9 #{__dir__ + '/../public/quake_export.json'}`
+`gzip -f -k -9 #{__dir__ + '/../public/quake_export.dsv'}`
