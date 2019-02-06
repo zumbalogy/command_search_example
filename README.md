@@ -5,7 +5,9 @@ of which the relevant code is here: https://github.com/zumbalogy/command_search_
 
 map from: https://commons.wikimedia.org/wiki/File:BlankMap-Equirectangular.svg
 
-rake run db:seed
+To run this project, first `bundle install` and `rake run db:seed`, then `boot dev` for the front end and `rails s` for the backend.
+
+To build for production:
 
 boot prod; RAILS_ENV=production rake assets:precompile; RAILS_SERVE_STATIC_FILES=true RAILS_ENV=production rails s
 
