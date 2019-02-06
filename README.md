@@ -81,4 +81,5 @@ look into tuning mongo, or configuring it, or putting indexes by fields i care a
 
 ----------------------//////////////////////////////
 
-once scrolled and rendered all quakes, they should probably just stay rendered until another search.
+consider, in the seeds.rb, using nils when the value is nil as opposed to converting it to zero.
+maybe with -1 or something. nil is more realistic for the demo though.

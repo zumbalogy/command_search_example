@@ -57,9 +57,6 @@ quake_data.each do |data|
 
   date = Date.new(data['YEAR'].to_i, (data['MONTH'] || 1).to_i, (data['DAY'] || 1).to_i)
 
-  # i have a suggestion to add the times because it might be neat to see if daytime ones
-  # are more or less damaging or something
-
   e.id = data['I_D'].to_i
   e.tsu = !!data['FLAG_TSUNAMI']
   e.date = date
@@ -70,8 +67,6 @@ quake_data.each do |data|
   e.state = data['STATE']
   e.region = data['REGION_CODE'].to_i
 
-  # TODO: nils should not be replaced with zeros. maybe with -1 or something. so that it works for search?
-  # nil is more realistic for the demo though.
   e.deaths = (data['TOTAL_DEATHS'] || data['DEATHS']).to_i
   e.missing = (data['TOTAL_MISSING'] || data['MISSING']).to_i
   e.injuries = (data['TOTAL_INJURIES'] || data['INJURIES']).to_i
