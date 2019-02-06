@@ -107,9 +107,7 @@ CSV.open(__dir__ + '/../public/quake_export.dsv', 'w', { col_sep: '|' }) do |dsv
   attrs = Earthquake.attribute_names
   dsv << attrs
   Earthquake.all.each do |quake|
-    attrs.each do |attr|
-      dsv << quake[attr]
-    end
+    dsv << attrs.map { |a| quake.send(a) }
   end
 end
 
