@@ -14,30 +14,32 @@
 (def decode (aget js/window "b64DecodeUnicode"))
 
 (defonce hash-change-listener
-    (aset js/window "onhashchange" (fn []
-        (reset! query (decode (subs js/window.location.hash 2)))
-        (update-results @query))))
+  (aset js/window "onhashchange" (fn []
+    (update-results (decode (subs js/window.location.hash 2))))))
 
 (when-not (exists? all-quakes)
   (-> (js/fetch "quake_export.json")
       (.then #(.json %))
       (.then #(defonce all-quakes %))
       (.then #(reset! results all-quakes))
-      (.then #(reset! query (decode (subs js/window.location.hash 2))))
-      (.then #(update-results @query))))
+      (.then #(update-results (decode (subs js/window.location.hash 2))))))
 
 (defn pluck-from-all-quakes [ids]
   (fast-quake-filter ids all-quakes))
 
-(defn update-results [query]
-  (let [encoded (encode query)]
-    (set! js/window.location (str "#/" encoded))
-    (if (= query "")
-      (reset! results all-quakes)
-      (-> (str "/search/" encoded)
-          (js/fetch)
-          (.then #(.json %))
-          (.then #(reset! results (pluck-from-all-quakes %)))))))
+(defn update-results [input]
+  (let [prev (.trim @query)
+        clean (.trim input)
+        encoded (encode clean)]
+    (reset! query input)
+    (when (not= clean prev)
+      (set! js/window.location (str "#/" encoded))
+      (if (= clean "")
+        (reset! results all-quakes)
+        (-> (str "/search/" encoded)
+            (js/fetch)
+            (.then #(.json %))
+            (.then #(reset! results (pluck-from-all-quakes %))))))))
 
 (defn capitalize-words [s]
   (string/join (map string/capitalize (string/split s #"\b"))))
@@ -52,8 +54,7 @@
     (selected-quake-section quake attr attr))
   ([quake attr name]
     (let [text (str name ": " (quake attr))]
-      [:div { :on-click #(do (reset! query (str name ":" (format-query-end (quake attr))))
-                             (update-results @query)) }
+      [:div { :on-click #(update-results (str name ":" (format-query-end (quake attr)))) }
         (capitalize-words (str name ": " (quake attr)))])))
 
 (defn selected-quake [quake]
@@ -83,8 +84,7 @@
     [:div.date (aget data "date")]])
 
 (defn build-help-example [text]
-  [:div.example { :on-click #(do (reset! query text)
-                                 (update-results @query)) }
+  [:div.example { :on-click #(update-results text) }
     text])
 
 (def help-section
@@ -110,8 +110,7 @@
     [:div.left
       [:input { :value @query
                 :placeholder "Search..."
-                :on-change #(do (reset! query (-> % .-target .-value))
-                                (update-results @query))}]
+                :on-change #(update-results (-> % .-target .-value)) }]
       [:div.help-button { :on-click #(swap! show-help not) }
         "?"]
       [:ul { :on-scroll #(reset! scroll-offset (-> % .-target .-scrollTop)) }

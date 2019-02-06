@@ -5,11 +5,21 @@ of which the relevant code is here: https://github.com/zumbalogy/command_search_
 
 map from: https://commons.wikimedia.org/wiki/File:BlankMap-Equirectangular.svg
 
-To run this project, first `bundle install` and `rake run db:seed`, then `boot dev` for the front end and `rails s` for the backend.
+## Setup
+
+To run this project, you will need to have mongo installed, and then run
+`bundle install` and `rake run db:seed`, then `boot dev` for the front end and `rails s` for the backend.
 
 To build for production:
 
 boot prod; RAILS_ENV=production rake assets:precompile; RAILS_SERVE_STATIC_FILES=true RAILS_ENV=production rails s
+
+but note that for production, `ENV['MONGODB_URI']` has to be set (or edit mongoid.yml).
+
+----------------------//////////////////////////////
+----------------------//////////////////////////////
+----------------------//////////////////////////////
+----------------------//////////////////////////////
 
 TODO:
 
@@ -18,10 +28,6 @@ have them be properly sorted by date.
 ----------------------//////////////////////////////
 
 add time of day field.
-
-----------------------//////////////////////////////
-
-add "how to run locally (have mongo, bundle, seed, foreman start, go to port)" and such to readme
 
 ----------------------//////////////////////////////
 
@@ -62,10 +68,12 @@ make things case insensitive by default and all, so clicking in selected box is 
 2.5.3 :005 > Earthquake.where(eq_primary: /4/i).count
  => 0
 
- ----------------------//////////////////////////////
+----------------------//////////////////////////////
 
- "kuril -strength:5"
+"kuril -strength:5"
 
- "-strength:0"
+"-strength:0"
 
- causes and error
+region:60|region:30|region:40|region:50|region:60|region:140|region:170 -ecuador -australia -"NEW ZEALAND" -tonga -madagascar  -ocean -coromos -africa -french
+
+cause errors ($not needs a regex or a document)
