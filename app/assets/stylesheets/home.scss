@@ -171,7 +171,8 @@ body {
           }
           &.date {
             width: 88px;
-            float: right;
+            text-align: right;
+            padding-right: 2px;
           }
         }
       }

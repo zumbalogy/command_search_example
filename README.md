@@ -54,22 +54,3 @@ TODO for command_search gem
 ----------------------//////////////////////////////
 
 make things case insensitive by default and all, so clicking in selected box is nice and all
-
-----------------------//////////////////////////////
-
-2.5.3 :003 > Earthquake.where(eq_primary: 4).count
- => 8
-2.5.3 :004 > Earthquake.where(eq_primary: "4").count
- => 8
-2.5.3 :005 > Earthquake.where(eq_primary: /4/i).count
- => 0
-
-----------------------//////////////////////////////
-
-"kuril -strength:5"
-
-"-strength:0"
-
-region:60|region:30|region:40|region:50|region:60|region:140|region:170 -ecuador -australia -"NEW ZEALAND" -tonga -madagascar  -ocean -coromos -africa -french
-
-cause errors ($not needs a regex or a document)
