@@ -53,11 +53,11 @@ class Earthquake
         houses_damaged: Numeric
       },
       aliases: {
-        'asia' => 'region:30|region:40|region:50|region:60|region:140|country:MALAYSIA|country:indonesia -country:"ECUADOR" -country:"AUSTRALIA" -country:MADAGASCAR -ocean -country:COMOROS -edward',
-        'europe' => 'region:120|region:130|region:110|turkey',
-        'africa' => 'region:10|region:15|madagascar|comoros',
+        'asia' => '(region:30|region:40|region:50|region:60|region:140|country:MALAYSIA|country:indonesia|country:philippines -country:"ECUADOR" -country:"AUSTRALIA" -country:MADAGASCAR -ocean -country:COMOROS -edward)',
+        'europe' => '(region:120|region:130|region:110|turkey)',
+        'africa' => '(region:10|region:15|madagascar|comoros)',
         /\$\d+/ => -> (match) { "cost:#{match[1..-1]}" },
-        # /=/ => ':'
+        /=/ => ':'
       }
     }
     CommandSearch.search(Earthquake, query, options)
