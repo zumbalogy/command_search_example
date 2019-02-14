@@ -1,0 +1,13 @@
+### TODO:
+
+have them be properly sorted by date.
+
+----------------------//////////////////////////////
+
+add time of day field.
+
+----------------------//////////////////////////////
+
+consider, in the seeds.rb, using nils when the value is nil as opposed to converting it to zero.
+maybe with -1 or something. nil is more realistic for the demo though.
+
