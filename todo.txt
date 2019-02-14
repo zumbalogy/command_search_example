@@ -11,3 +11,29 @@ add time of day field.
 consider, in the seeds.rb, using nils when the value is nil as opposed to converting it to zero.
 maybe with -1 or something. nil is more realistic for the demo though.
 
+----------------------//////////////////////////////
+
+italy|asia still not working.
+(region:30|region:40)|italy works
+(region:30 -country:"ECUADOR" )|italy works
+(region:30|region:40 -country:"ECUADOR" )|italy does not work.
+(size:0 country:japan|country:china)|italy does not work.
+
+
+
+Earthquake.search('(size:0 country:japan|country:china)|italy').selector
+{"$or"=>
+  [{"$and"=>[{"eq_primary"=>0},
+             {"country"=>/japan/i},
+             {"country"=>/china/i}]},
+   {"country"=>/italy/i},
+   {"location"=>/italy/i},
+   {"eq_primary"=>"italy"}]}
+
+Earthquake.search('(size:0 country:japan|country:china)').selector
+{"$and"=> [{"eq_primary"=>0},
+           {"$or"=>[{"country"=>/japan/i},
+                    {"country"=>/china/i}]}]}
+
+
+the OR between 'country:japan|country:china' is lost after adding |italy to the query.
