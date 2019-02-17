@@ -12,9 +12,10 @@ gem 'figaro'
 gem 'webpacker', require: false
 gem 'heroku-deflater', group: :production
 
+gem 'sassc-rails'
+
 gem 'rails', '~> 5.2.1', '>= 5.2.1.1'
 gem 'puma', '~> 3.11'
-gem 'sass-rails', '~> 5.0'
 gem 'uglifier', '>= 1.3.0'
 # See https://github.com/rails/execjs#readme for more supported runtimes
 # gem 'mini_racer', platforms: :ruby
