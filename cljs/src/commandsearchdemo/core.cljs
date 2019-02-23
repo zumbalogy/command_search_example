@@ -3,6 +3,8 @@
             [reagent.core :as r]
             [commandsearchdemo.quake-map :as quake-map]))
 
+(declare update-results)
+
 (defonce query (r/atom ""))
 (defonce results (r/atom []))
 (defonce scroll-offset (r/atom 0))
@@ -90,16 +92,16 @@
 (def help-section
   [:div.help-section
     [:h4 "Help"]
-    [:div.help-subheader "The search allows for specification, comparison, quotation, and logic (AND, OR, NOT)."
+    [:div.help-subheader "The search field allows for specification of fields (:), comparisons (< > <= >=), negation (-), a logical OR (|), quotation, and grouping via parentheses. Further details can be found " [:a {:href "https://github.com/zumbalogy/command_search#syntax" :target "_blank" } "here"] "."
                          [:br]
                          "Here are some clickable examples:"]
     (build-help-example "country:Italy")
-    (build-help-example "\"SOUTH ISLAND\"")
+    (build-help-example "\"south island\"")
     (build-help-example "size>8.6")
     (build-help-example "-size:0")
     (build-help-example "sea|ocean")
     (build-help-example "100_years_ago<date<90_years_ago")
-    (build-help-example "country:'UK' -territory")
+    (build-help-example "country:'uk' -territory")
     (build-help-example "morocco -spain")
     [:div.help-footer "Click on an earthquake in the list or on the map to select it."
                       [:br]
