@@ -20,7 +20,7 @@ _id|id|tsu|date|focal_depth|eq_primary|intensity|country|state|location|latitude
 28|28|true|-0227-01-01|100|7.2|10|greece|""|dodecanese islands|36.3|28.3|130|0|0|0|0.0|0|0
 29|29|false|-0217-01-01|0|0.0|0|italy|""|liguria (ligurie), gaule|44.3|8.5|130|0|0|0|0.0|0|0
 30|30|false|-0186-02-22|0|7.0|0|china|""|gansu province|33.8|105.6|30|760|0|0|0.0|0|0
-31|31|false|-0177-01-01|100|0.0|0|italy|""|sabines|||130|0|0|0|0.0|0|0
+31|31|false|-0177-01-01|100|0.0|0|italy|""|sabines|42.469|13.565|130|0|0|0|0.0|0|0
 32|32|false|-0070-06-01|0|7.0|9|china|""|shandong province|36.3|119.0|30|6000|0|0|0.0|0|0
 33|33|false|-0047-04-17|0|0.0|9|china|""|gansu province: longxi|34.9|104.7|30|0|0|0|0.0|0|0
 34|34|false|-0033-01-01|0|0.0|9|israel|""|palestine|31.2|34.2|140|30000|0|0|0.0|0|0
@@ -757,7 +757,7 @@ _id|id|tsu|date|focal_depth|eq_primary|intensity|country|state|location|latitude
 1053|1053|true|1668-07-10|0|6.6|9|turkey|""|turkey|38.4|27.1|140|17500|0|0|0.0|0|0
 1054|1054|true|1668-07-25|0|8.5|12|china|""|shandong province|35.3|118.6|30|42578|0|0|0.0|0|0
 1055|1055|false|1669-01-04|5|5.7|9|azerbaijan|""|shemakha (semacha)|40.6|48.6|40|7000|0|0|0.0|0|0
-1056|1056|false|1669-06-04|0|0.0|11|india|""|fort madran|||60|0|0|0|0.0|0|0
+1056|1056|false|1669-06-04|0|0.0|11|india|""|fort madran|13.03|80.2787|60|0|0|0|0.0|0|0
 1057|1057|false|1669-03-11|0|0.0|10|italy|""|nicolosi|37.6|15.0|130|0|0|0|0.0|0|0
 1058|1058|false|1670-01-01|0|0.0|0|iran|""|lar-evaz|27.5|53.6|140|0|0|0|0.0|0|0
 1059|1059|false|1670-07-17|0|0.0|9|austria|""|innsbruck, schwaz|47.2|11.4|120|0|0|0|0.0|0|0
@@ -909,7 +909,7 @@ _id|id|tsu|date|focal_depth|eq_primary|intensity|country|state|location|latitude
 1263|1263|false|1735-02-02|20|4.5|0|colombia|""|popayan|2.6|-76.5|160|0|0|0|0.0|0|0
 1265|1265|false|1736-01-30|0|6.0|8|taiwan|""|tainan|23.1|120.3|30|260|0|100|0.0|500|0
 1267|1267|false|1736-12-05|0|0.0|0|ecuador|""|ecuador|-0.9|-78.6|160|0|0|0|0.0|0|0
-1268|1268|true|1737-10-11|0|0.0|0|india|""|calcutta|||60|0|0|0|0.0|0|0
+1268|1268|true|1737-10-11|0|0.0|0|india|""|calcutta|22.5666|88.3666|60|0|0|0|0.0|0|0
 1270|1270|false|1737-11-04|20|7.8|10|russia|""|off kamchatka|55.5|163.0|50|0|0|0|0.0|0|0
 1271|1271|true|1737-12-17|50|7.5|9|russia|""|kuril islands|50.0|157.0|50|0|0|0|0.0|0|0
 1272|1272|true|1737-12-24|0|8.0|11|chile|""|valdivia, chiloe|-43.0|-74.0|160|0|0|0|0.0|0|0
@@ -1167,7 +1167,7 @@ _id|id|tsu|date|focal_depth|eq_primary|intensity|country|state|location|latitude
 1621|1621|false|1815-12-01|0|0.0|9|greece|""|crete|35.0|25.75|130|0|0|0|0.0|0|0
 1622|1622|false|1816-07-22|33|7.5|9|guatemala|""|soloma|15.5|-91.5|100|23|0|0|0.0|0|0
 1623|1623|false|1817-03-11|0|8.0|0|france|""|chamonix valley|45.9|6.8|120|4|0|0|0.0|0|0
-1624|1624|false|1817-04-01|0|0.0|0|china|""|sichuan province: changli|||30|0|0|0|0.0|11000|0
+1624|1624|false|1817-04-01|0|0.0|0|china|""|sichuan province: changli|39.7166|119.1666|30|0|0|0|0.0|11000|0
 1625|1625|true|1817-08-23|0|6.8|10|greece|""|achaia: aeghion|38.25|22.25|130|0|0|0|0.0|0|0
 1626|1626|false|1818-02-20|0|0.0|10|italy|""|acireale, catania, calabria|37.6|15.0|130|72|0|0|0.0|0|0
 1627|1627|true|1818-02-23|0|0.0|10|italy|""|liguria; france: vence, grasse, nice|43.917|8.033|130|0|0|0|0.0|0|0
@@ -4126,7 +4126,7 @@ _id|id|tsu|date|focal_depth|eq_primary|intensity|country|state|location|latitude
 5945|5945|true|1408-01-21|0|7.0|0|japan|""|kumanonada|33.8|136.9|30|0|0|0|0.0|0|0
 5946|5946|true|1433-11-07|0|7.1|0|japan|""|tokaido, japan|34.9|139.5|30|0|0|0|0.0|0|0
 5947|5947|true|1448-09-19|0|7.0|0|japan|""|sado|37.5|138.2|30|0|0|0|0.0|0|0
-5948|5948|true|1489-01-01|0|0.0|0|turkey|""|south coasts of asia minor|||140|0|0|0|0.0|0|0
+5948|5948|true|1489-01-01|0|0.0|0|turkey|""|south coasts of asia minor|36.55|32.0|140|0|0|0|0.0|0|0
 5949|5949|true|1498-08-02|0|0.0|0|venezuela|""|boca de la sierpe|9.9|-62.3|90|0|0|0|0.0|0|0
 5950|5950|true|1510-09-21|0|6.7|0|japan|""|seionaikai, japan|34.6|135.4|30|0|0|0|0.0|0|0
 5951|5951|true|1520-04-04|0|7.0|0|japan|""|kii, kumananonada|33.6|136.3|30|0|0|0|0.0|0|0
@@ -4184,8 +4184,8 @@ _id|id|tsu|date|focal_depth|eq_primary|intensity|country|state|location|latitude
 6012|6012|true|1688-03-01|0|0.0|0|jamaica|""|port royal|17.6|-76.5|90|0|0|0|0.0|0|0
 6013|6013|true|1668-04-13|0|0.0|4|usa|ma|boston and salem, massachusetts|42.35|-71.05|150|0|0|0|0.0|0|0
 6014|6014|true|1735-12-27|0|0.0|0|philippines|""|e. luzon island, philippines|15.8|121.7|170|0|0|0|0.0|0|0
-6015|6015|true|1403-11-16|0|0.0|0|syria|""|syrian coasts|||140|0|0|0|0.0|0|0
-6016|6016|true|1332-02-12|0|0.0|0|turkey|""|marmara sea|||140|0|0|0|0.0|0|0
+6015|6015|true|1403-11-16|0|0.0|0|syria|""|syrian coasts|35.35|35.9166|140|0|0|0|0.0|0|0
+6016|6016|true|1332-02-12|0|0.0|0|turkey|""|marmara sea|40.6866|28.3186|140|0|0|0|0.0|0|0
 6017|6017|true|1510-10-10|0|7.0|0|japan|""|enshunada sea|34.5|137.6|30|0|0|0|0.0|0|0
 6019|6019|true|1642-09-04|0|6.7|0|japan|""|boso, japan|35.2|140.6|30|0|0|0|0.0|0|0
 6020|6020|true|1670-08-19|0|6.8|0|china|""|shanghai|33.0|122.5|30|0|0|0|0.0|0|0
@@ -4230,13 +4230,13 @@ _id|id|tsu|date|focal_depth|eq_primary|intensity|country|state|location|latitude
 6064|6064|true|1851-05-15|0|0.0|6|usa|ca|california: northern|37.8|-122.4|150|0|0|0|0.0|0|0
 6065|6065|true|1851-11-13|0|0.0|0|usa|ca|california: northern|40.0|-122.0|150|0|0|0|0.0|0|0
 6066|6066|true|1852-11-11|0|6.8|0|indonesia|""|sumatra: sibolga|1.5|98.0|170|0|0|0|0.0|0|0
-6067|6067|true|1852-11-25|0|0.0|0|usa|ca|california: northern|||150|0|0|0|0.0|0|0
+6067|6067|true|1852-11-25|0|0.0|0|usa|ca|california: northern|38.76|-122.105|150|0|0|0|0.0|0|0
 6068|6068|true|1814-01-01|0|0.0|0|indonesia|""|timor island, kupang, kissar island|-10.217|123.633|170|0|0|0|0.0|0|0
 6069|6069|true|1816-05-01|0|0.0|0|indonesia|""|indonesia; malaysia: penang island|5.0|96.5|170|0|0|0|0.0|0|0
 6071|6071|true|1823-09-09|150|6.8|0|indonesia|""|java|-6.5|108.5|170|0|0|0|0.0|0|0
 6072|6072|true|1823-11-30|0|0.0|0|martinique|""|saint pierre harbor|14.4|-61.1|90|0|0|0|0.0|0|0
 6073|6073|true|1824-11-30|0|0.0|0|martinique|""|saint pierre|14.4|-61.0|90|0|0|0|0.0|0|0
-6076|6076|true|1839-03-01|0|0.0|0|usa|hi|hawaii|||150|0|0|0|0.0|0|0
+6076|6076|true|1839-03-01|0|0.0|0|usa|hi|hawaii|20.7|-156.987|150|0|0|0|0.0|0|0
 6077|6077|true|1928-04-27|0|6.8|5|peru|""|esquilaya|-13.0|-69.5|160|0|0|0|0.0|0|0
 6078|6078|true|1928-05-03|0|4.3|7|turkey|""|western|40.8|26.8|140|0|0|0|0.0|0|0
 6079|6079|true|1928-05-18|0|0.0|0|tonga|""|island of lifuka, tonga islands|-19.8|-174.345|170|0|0|0|0.0|0|0
@@ -4385,7 +4385,7 @@ _id|id|tsu|date|focal_depth|eq_primary|intensity|country|state|location|latitude
 6261|6261|true|1913-10-11|33|7.0|0|papua new guinea|""|papua new guinea|-7.0|148.0|170|0|0|0|0.0|0|0
 6262|6262|true|1914-01-12|33|0.0|0|peru|""|callao|-12.0|-76.6|160|0|0|0|0.0|0|0
 6264|6264|true|1915-05-23|0|0.0|0|indonesia|""|kaimana|-3.644|133.695|170|0|0|0|0.0|0|0
-6266|6266|true|1916-01-31|0|0.0|0|costa rica|""|costa rica-panama|||100|0|0|0|0.0|0|0
+6266|6266|true|1916-01-31|0|0.0|0|costa rica|""|costa rica-panama|8.92|-82.71|100|0|0|0|0.0|0|0
 6267|6267|true|1917-01-25|0|6.5|0|china|""|fujian province: off coast|24.47|118.08|30|0|0|0|0.0|0|0
 6268|6268|true|1917-05-06|33|5.8|0|taiwan|""|taiwan|23.2|121.6|30|0|0|0|0.0|0|0
 6270|6270|true|1918-10-25|0|0.0|7|usa territory|pr|puerto rico|18.5|-67.5|90|0|0|0|0.0|0|0
@@ -4413,7 +4413,7 @@ _id|id|tsu|date|focal_depth|eq_primary|intensity|country|state|location|latitude
 6303|6303|true|1927-12-28|35|7.5|0|russia|""|kamchatka|55.663|160.039|50|0|0|0|0.0|0|0
 6304|6304|true|1928-02-09|33|5.8|0|canada|bc|british columbia|49.0|-125.0|150|0|0|0|0.0|0|0
 6305|6305|true|1871-08-20|0|0.0|0|chile|""|valparaiso|-33.1|-71.7|160|0|0|0|0.0|0|0
-6306|6306|true|1878-01-20|0|0.0|0|usa|ak|alaska: aleutian islands|||150|0|0|0|0.0|0|0
+6306|6306|true|1878-01-20|0|0.0|0|usa|ak|alaska: aleutian islands|53.888|-166.527|150|0|0|0|0.0|0|0
 6307|6307|true|1878-02-14|0|0.0|0|chile|""|central|-36.8|-73.0|160|0|0|0|0.0|0|0
 6309|6309|true|1889-09-06|70|8.0|0|indonesia|""|n. moluccas islands|1.0|126.25|170|0|0|0|0.0|0|0
 6314|6314|true|1915-11-18|0|6.4|8|philippines|""|w. luzon island|18.0|119.5|170|0|0|0|0.0|0|0
@@ -4471,7 +4471,7 @@ _id|id|tsu|date|focal_depth|eq_primary|intensity|country|state|location|latitude
 6375|6375|true|1956-12-18|33|0.0|0|chile|""|antofagasta|-25.5|-71.0|160|0|0|0|0.0|0|0
 6377|6377|true|1957-09-26|0|0.0|0|indonesia|""|s. java sea|-8.2|107.3|170|0|0|0|0.0|0|0
 6378|6378|true|1957-10-26|0|6.0|0|indonesia|""|kalimantan island|-2.0|116.0|170|0|0|0|0.0|0|0
-6379|6379|true|1957-11-01|0|0.0|0|solomon islands|""|solomon islands|||170|0|0|0|0.0|0|0
+6379|6379|true|1957-11-01|0|0.0|0|solomon islands|""|solomon islands|-9.0|159.5|170|0|0|0|0.0|0|0
 6380|6380|true|1958-09-17|0|0.0|0|russia|""|n. kuril islands|49.3|156.4|50|0|0|0|0.0|0|0
 6381|6381|true|1958-11-04|0|6.1|0|pacific ocean|""|east pacific ridge|-50.0|-115.0|170|0|0|0|0.0|0|0
 6382|6382|true|1958-11-12|29|0.0|0|russia|""|s. kuril islands|44.2|148.8|50|0|0|0|0.0|0|0
@@ -4613,7 +4613,7 @@ _id|id|tsu|date|focal_depth|eq_primary|intensity|country|state|location|latitude
 6551|6551|true|1859-12-17|0|0.0|0|indonesia|""|sulawesi: manado, belang|0.9|124.9|170|0|0|0|0.0|0|0
 6552|6552|true|1877-06-15|0|0.0|0|chile|""|northern|-19.6|-70.2|160|0|0|0|0.0|0|0
 6553|6553|true|1886-01-31|0|0.0|0|indonesia|""|koeta radja (atjeh)|5.6|95.3|60|0|0|0|0.0|0|0
-6554|6554|true|1903-09-07|0|0.0|0|taiwan|""|taiwan|||30|0|0|0|0.0|0|0
+6554|6554|true|1903-09-07|0|0.0|0|taiwan|""|taiwan|23.88|121.0|30|0|0|0|0.0|0|0
 6555|6555|true|1970-12-04|7|5.1|0|russia|""|black sea|43.84|39.34|40|0|0|0|0.0|0|0
 6556|6556|true|1818-03-18|0|7.0|0|indonesia|""|sumatra: bengkulu|-4.0|101.5|170|0|0|0|0.0|0|0
 6557|6557|true|1828-05-26|0|6.4|0|japan|""|amakusa islands|32.6|129.9|30|0|0|0|0.0|0|0
@@ -4632,7 +4632,7 @@ _id|id|tsu|date|focal_depth|eq_primary|intensity|country|state|location|latitude
 6574|6574|true|1900-10-07|33|6.9|0|indonesia|""|nw. irian jaya|-4.0|140.0|170|5|0|0|0.0|1|0
 6575|6575|true|1901-06-15|33|0.0|0|japan|""|iwate, japan|39.0|143.0|30|0|0|0|0.0|0|0
 6576|6576|true|1910-12-18|0|6.7|8|indonesia|""|sulawesi-n. moluccas islands|4.0|127.0|170|0|0|0|0.0|0|0
-6577|6577|true|1912-12-06|0|0.0|3|micronesia, fed. states of|""|yap is, caroline is|||170|0|0|0|0.0|0|0
+6577|6577|true|1912-12-06|0|0.0|3|micronesia, fed. states of|""|yap is, caroline is|7.58|144.143|170|0|0|0|0.0|0|0
 6578|6578|true|1914-02-26|130|7.2|0|peru|""|arequipa|-17.0|-72.0|160|0|0|0|0.0|0|0
 6579|6579|true|1915-08-07|14|6.7|9|greece|""|kefallonia island, ithaca island|38.5|20.7|130|0|0|0|0.0|0|0
 6580|6580|true|1919-01-01|33|7.4|7|philippines|""|mindanao island|8.0|126.0|170|0|0|0|0.0|0|0
@@ -4687,7 +4687,7 @@ _id|id|tsu|date|focal_depth|eq_primary|intensity|country|state|location|latitude
 6635|6635|true|1817-01-08|0|0.0|0|usa|pa|pennsylvania: philadelphia|39.95|-75.1|150|0|0|0|0.0|0|0
 6636|6636|true|1823-05-30|0|0.0|0|usa|ny|lake erie (great lakes)|42.7|-79.0|150|0|0|0|0.0|0|0
 6637|6637|true|1895-09-01|0|4.3|6|usa|ny|new jersey: high bridge|40.667|-74.883|150|0|0|0|0.0|0|0
-6639|6639|true|1932-11-10|0|0.0|0|usa|ny|new york: willetts point|||150|0|0|0|0.0|0|0
+6639|6639|true|1932-11-10|0|0.0|0|usa|ny|new york: willetts point|40.76|-73.84|150|0|0|0|0.0|0|0
 6640|6640|true|2005-01-19|28|6.6|0|japan|""|east coast honshu|34.064|141.491|30|0|0|0|0.0|0|0
 6642|6642|true|1818-11-08|600|8.5|0|indonesia|""|sumbawa island: bima|-7.0|117.0|170|0|0|0|0.0|0|0
 6643|6643|true|1938-02-13|0|0.0|0|indonesia|""|new guinea: fakfak|-3.0|132.3|170|0|0|0|0.0|0|0
@@ -4701,7 +4701,7 @@ _id|id|tsu|date|focal_depth|eq_primary|intensity|country|state|location|latitude
 6652|6652|true|1984-06-13|41|5.5|0|japan|""|tori shima, okinawa|31.448|140.036|30|0|0|0|0.0|0|0
 6657|6657|true|2005-03-28|30|8.6|0|indonesia|""|sumatera: sw|2.085|97.108|170|1313|0|340|0.0|300|300
 6659|6659|true|2005-04-10|19|6.7|5|indonesia|""|padang|-1.644|99.607|60|0|0|0|0.0|0|0
-6697|6697|true|1500-01-01|0|0.0|0|usa|hi|hawaii|||150|0|0|0|0.0|0|0
+6697|6697|true|1500-01-01|0|0.0|0|usa|hi|hawaii|20.7|-156.987|150|0|0|0|0.0|0|0
 6717|6717|false|1906-02-16|0|0.0|8|saint lucia|""|castries|14.0|-61.0|90|0|0|0|0.0|0|0
 6738|6738|true|2005-06-15|10|7.2|4|usa|ca|california: off coast northern|41.301|-125.97|150|0|0|0|0.0|0|0
 6739|6739|true|2005-08-16|36|7.2|0|japan|""|east coast honshu|38.276|142.039|30|0|0|56|0.0|1|0
@@ -4750,11 +4750,11 @@ _id|id|tsu|date|focal_depth|eq_primary|intensity|country|state|location|latitude
 6837|6837|true|1750-01-01|0|0.0|0|venezuela|""|cumana|10.5|-64.2|90|0|0|0|0.0|0|0
 6857|6857|true|1848-07-12|0|6.5|0|french polynesia|""|tahiti|-17.9|-149.9|170|0|0|0|0.0|0|0
 6877|6877|false|1917-06-08|0|6.7|0|el salvador|""|san salvador|13.82|-89.31|100|0|0|0|0.0|0|0
-6878|6878|false|1576-05-23|0|0.0|0|el salvador|""|san marcos|||100|0|0|0|0.0|0|0
-6879|6879|false|1659-09-30|0|0.0|0|el salvador|""|san salvador|||100|0|0|0|0.0|0|0
-6880|6880|false|1707-01-01|0|0.0|0|el salvador|""|san salvador|||100|0|0|0|0.0|0|0
-6881|6881|false|1719-01-01|0|0.0|0|el salvador|""|san salvador|||100|0|0|0|0.0|0|0
-6882|6882|false|1798-02-02|0|0.0|0|el salvador|""|san salvador|||100|0|0|0|0.0|0|0
+6878|6878|false|1576-05-23|0|0.0|0|el salvador|""|san marcos|13.58|-89.21|100|0|0|0|0.0|0|0
+6879|6879|false|1659-09-30|0|0.0|0|el salvador|""|san salvador|13.69|-89.19|100|0|0|0|0.0|0|0
+6880|6880|false|1707-01-01|0|0.0|0|el salvador|""|san salvador|13.69|-89.19|100|0|0|0|0.0|0|0
+6881|6881|false|1719-01-01|0|0.0|0|el salvador|""|san salvador|13.69|-89.19|100|0|0|0|0.0|0|0
+6882|6882|false|1798-02-02|0|0.0|0|el salvador|""|san salvador|13.69|-89.19|100|0|0|0|0.0|0|0
 6883|6883|false|1839-03-22|0|0.0|0|el salvador|""|san salvador|13.7|-89.2|100|0|0|0|0.0|0|0
 6884|6884|false|1919-04-28|0|5.9|0|el salvador|""|san salvador|13.69|-89.19|100|0|0|0|0.0|0|0
 6897|6897|true|1868-08-13|0|0.0|0|venezuela|""|rio caribe|10.7|-63.1|90|0|0|0|0.0|0|0
@@ -4811,10 +4811,10 @@ _id|id|tsu|date|focal_depth|eq_primary|intensity|country|state|location|latitude
 7251|7251|false|2005-11-26|9|4.4|0|turkey|""|doganyol|38.26|38.814|140|0|0|0|0.0|0|0
 7252|7252|false|2005-12-14|44|5.3|0|india|""|jausari, chamoli, nandprayag|30.476|79.255|60|1|0|4|0.0|1|1
 7253|7253|false|2005-12-24|14|4.3|0|turkey|""|akhisar|38.804|26.783|140|0|0|0|0.0|0|0
-7261|7261|false|1118-01-01|0|0.0|0|uk|""|united kingdom: ireland: sliabh-elpa|||120|0|0|0|0.0|0|0
-7262|7262|false|1734-01-01|0|0.0|0|uk|""|united kingdom: ireland|||120|0|0|0|0.0|105|105
-7263|7263|false|1734-01-01|0|0.0|0|iceland|""|southern lowland|||120|0|0|0|0.0|0|0
-7264|7264|false|1732-01-01|0|0.0|0|iceland|""|southern lowland|||120|0|0|0|0.0|0|0
+7261|7261|false|1118-01-01|0|0.0|0|uk|""|united kingdom: ireland: sliabh-elpa|54.917|-8.0|120|0|0|0|0.0|0|0
+7262|7262|false|1734-01-01|0|0.0|0|uk|""|united kingdom: ireland|53.416|-8.0|120|0|0|0|0.0|105|105
+7263|7263|false|1734-01-01|0|0.0|0|iceland|""|southern lowland|63.5|-18.0|120|0|0|0|0.0|0|0
+7264|7264|false|1732-01-01|0|0.0|0|iceland|""|southern lowland|63.5|-18.0|120|0|0|0|0.0|0|0
 7265|7265|true|1906-02-21|0|0.0|0|colombia|""|buenaventura|3.9|-77.033|160|0|0|0|0.0|0|0
 7281|7281|true|1979-04-09|10|5.3|0|montenegro|""|bar ulcinj|41.956|19.023|130|0|0|0|0.0|0|0
 7282|7282|true|1979-05-15|33|5.6|0|greece|""|crete|34.53|24.437|130|0|0|0|0.0|0|0
@@ -4965,7 +4965,7 @@ _id|id|tsu|date|focal_depth|eq_primary|intensity|country|state|location|latitude
 7771|7771|true|1956-07-09|0|6.8|0|greece|""|aegean sea|36.8|25.2|130|0|0|0|0.0|0|0
 7773|7773|true|1941-03-16|0|0.0|0|italy|""|calabria|38.3|12.2|130|0|0|0|0.0|0|0
 7774|7774|true|1940-01-15|15|4.8|8|italy|""|italy|38.1|13.5|130|0|0|0|0.0|0|0
-7775|7775|true|1978-06-22|0|0.0|0|italy|""|adriatic sea|||130|0|0|0|0.0|0|0
+7775|7775|true|1978-06-22|0|0.0|0|italy|""|adriatic sea|43.0|15.0|130|0|0|0|0.0|0|0
 7776|7776|true|1928-04-24|0|5.0|0|greece|""|aegean sea|38.0|23.5|130|0|0|0|0.0|0|0
 7777|7777|true|1743-02-20|0|6.9|0|greece|""|ionian sea, amalias, gargalianoi, kalamai|39.0|20.3|130|0|0|0|0.0|0|0
 7778|7778|true|1939-01-27|15|0.0|0|italy|""|calabria|38.5|14.7|130|0|0|0|0.0|0|0
@@ -4977,10 +4977,10 @@ _id|id|tsu|date|focal_depth|eq_primary|intensity|country|state|location|latitude
 7784|7784|true|1903-05-13|0|0.0|0|italy|""|palermo|38.1|13.4|130|0|0|0|0.0|0|0
 7785|7785|true|1914-01-15|0|0.0|6|italy|""|ligurian coast|43.5|10.2|130|0|0|0|0.0|0|0
 7786|7786|true|1919-10-22|10|5.6|8|italy|""|tyrrhenian sea|41.4|12.6|130|0|0|0|0.0|0|0
-7787|7787|true|1870-08-06|0|0.0|0|croatia|""|greece: crete|||130|0|0|0|0.0|0|0
+7787|7787|true|1870-08-06|0|0.0|0|croatia|""|greece: crete|35.22|24.86|130|0|0|0|0.0|0|0
 7788|7788|true|1870-10-28|0|0.0|0|italy|""|tyrrhenian sea|39.28|16.28|130|0|0|0|0.0|0|0
-7790|7790|true|1870-11-02|0|0.0|0|italy|""|calabria|||130|0|0|0|0.0|0|0
-7791|7791|true|1871-01-17|0|0.0|0|italy|""|ligurian coast|||130|0|0|0|0.0|0|0
+7790|7790|true|1870-11-02|0|0.0|0|italy|""|calabria|38.9|16.6|130|0|0|0|0.0|0|0
+7791|7791|true|1871-01-17|0|0.0|0|italy|""|ligurian coast|44.41|8.932|130|0|0|0|0.0|0|0
 7792|7792|true|1873-10-25|0|0.0|8|greece|""|vasiliki (leukas)|38.0|23.3|130|0|0|0|0.0|0|0
 7793|7793|true|-0590-01-01|0|0.0|0|lebanon|""|sur (tyre)|33.27|35.22|140|0|0|0|0.0|0|0
 7794|7794|true|-0525-01-01|0|0.0|0|lebanon|""|sur (tyre), sayda (saida)|33.56|35.37|140|0|0|0|0.0|0|0
@@ -5278,7 +5278,7 @@ _id|id|tsu|date|focal_depth|eq_primary|intensity|country|state|location|latitude
 8176|8176|false|2008-09-03|6|4.1|0|turkey|""|adiyaman|37.507|38.503|140|0|0|0|0.0|0|0
 8177|8177|false|2008-10-28|15|6.4|0|pakistan|""|quetta|30.639|67.351|60|166|0|370|0.0|3487|4125
 8178|8178|false|0033-01-01|0|0.0|0|israel|""|palestine|31.2|34.2|140|0|0|0|0.0|0|0
-8179|8179|false|0857-04-01|0|0.0|0|egypt|""|egypt|||15|0|0|0|0.0|0|0
+8179|8179|false|0857-04-01|0|0.0|0|egypt|""|egypt|26.71|29.83|15|0|0|0|0.0|0|0
 8180|8180|false|1387-09-05|0|0.0|0|yemen|""|aden (adan)|12.4|45.1|60|0|0|0|0.0|0|0
 8181|8181|false|1463-01-01|0|0.0|9|yemen|""|zabid|14.1|43.2|60|10|0|0|0.0|50|50
 8182|8182|false|1941-01-11|0|5.9|8|yemen|""|razih|16.4|43.5|60|1200|0|200|0.0|700|1000
@@ -5330,7 +5330,7 @@ _id|id|tsu|date|focal_depth|eq_primary|intensity|country|state|location|latitude
 8258|8258|false|2009-01-21|10|4.6|0|peru|""|paccha|-11.779|-75.626|160|0|0|0|0.0|50|500
 8259|8259|true|2009-03-19|34|7.6|0|tonga|""|tonga islands|-23.046|-174.659|170|0|0|0|0.0|0|0
 8260|8260|true|1978-08-14|30|4.4|0|spain|""|spain|36.63|-6.871|130|0|0|0|0.0|0|0
-8261|8261|true|1842-11-01|0|0.0|0|canada|""|montreal|||150|0|0|0|0.0|0|0
+8261|8261|true|1842-11-01|0|0.0|0|canada|""|montreal|45.5|-73.6|150|0|0|0|0.0|0|0
 8262|8262|true|0842-10-24|0|0.0|0|uk|""|united kingdom: channel islands; gaul|49.5|-2.5|120|0|0|0|0.0|0|0
 8263|8263|true|1751-11-21|0|0.0|7|italy|""|liguria (ligurie), gaule|43.8|9.0|130|0|0|0|0.0|0|0
 8264|8264|false|2009-04-06|9|6.3|0|italy|""|l'aquila|42.334|13.334|130|309|0|1500|2500.0|15000|0
@@ -5465,7 +5465,7 @@ _id|id|tsu|date|focal_depth|eq_primary|intensity|country|state|location|latitude
 9732|9732|true|-0218-01-01|0|0.0|0|spain|""|cadiz|36.2|-7.17|130|0|0|0|0.0|0|0
 9733|9733|true|-0210-01-01|0|0.0|0|portugal|""|cabo san vicente|36.0|-10.5|130|0|0|0|0.0|0|0
 9734|9734|true|-0060-01-01|0|6.7|9|portugal|""|cabo san vicente|36.0|-10.0|130|0|0|0|0.0|0|0
-9752|9752|true|-0223-10-01|0|0.0|0|greece|""|greece|||130|0|0|0|0.0|0|0
+9752|9752|true|-0223-10-01|0|0.0|0|greece|""|greece|39.4|22.2|130|0|0|0|0.0|0|0
 9753|9753|true|-0058-01-01|0|6.6|0|albania|""|dyrrachium|41.3|19.5|130|0|0|0|0.0|0|0
 9754|9754|true|-0050-01-01|0|5.5|8|georgia|""|dyoscuria [sukhumi]|43.0|41.0|40|0|0|0|0.0|0|0
 9756|9756|true|1631-12-16|0|0.0|0|italy|""|naples (napoli)|40.821|14.426|130|4000|0|0|0.0|0|0
@@ -5501,7 +5501,7 @@ _id|id|tsu|date|focal_depth|eq_primary|intensity|country|state|location|latitude
 9787|9787|false|1586-01-01|0|0.0|0|guatemala|""|antigua|14.553|-90.735|100|0|0|0|0.0|0|0
 9788|9788|false|1565-08-01|0|0.0|0|guatemala|""|antigua|14.6|-90.7|100|0|0|0|0.0|0|0
 9789|9789|false|1566-05-01|0|0.0|0|guatemala|""|antigua|14.6|-90.7|100|0|0|0|0.0|0|0
-9790|9790|true|1537-01-01|0|0.0|0|mexico|""|southern|||150|0|0|0|0.0|0|0
+9790|9790|true|1537-01-01|0|0.0|0|mexico|""|southern|17.2|-95.0|150|0|0|0|0.0|0|0
 9791|9791|false|1871-08-21|0|0.0|0|usa territory|vi|virgin islands: st. thomas|18.35|-64.9|90|0|0|0|0.0|100|100
 9792|9792|false|1871-09-01|0|0.0|0|british virgin islands|""|tortola island|18.4|-64.6|90|0|0|0|0.0|0|0
 9793|9793|true|1871-02-07|0|0.0|0|mexico|""|minatitlan|18.2|-94.5|150|0|0|0|0.0|0|0
@@ -5510,7 +5510,7 @@ _id|id|tsu|date|focal_depth|eq_primary|intensity|country|state|location|latitude
 9797|9797|true|2011-03-09|32|7.5|0|japan|""|honshu: e coast|38.435|142.842|30|0|0|0|0.0|0|0
 9798|9798|true|1919-11-21|0|0.0|8|indonesia|""|irian jaya region|-2.55|140.75|170|0|0|0|0.0|0|0
 9799|9799|true|2011-03-11|30|9.1|0|japan|""|honshu|38.297|142.372|30|18453|0|6152|220085.456|127511|273796
-9800|9800|true|1651-01-01|0|0.0|0|peru|""|peru-chile|||160|0|0|0|0.0|0|0
+9800|9800|true|1651-01-01|0|0.0|0|peru|""|peru-chile|-18.0|-69.79|160|0|0|0|0.0|0|0
 9801|9801|false|2011-03-24|8|6.8|0|myanmar (burma)|""|myanmar: tachilek|20.687|99.822|60|75|0|123|3.6|0|10104
 9802|9802|true|1872-01-01|0|0.0|0|japan|""|bonin islands [chichijima island]|27.07|142.21|30|0|0|0|0.0|0|0
 9803|9803|false|2010-11-06|5|4.9|0|iran|""|dorud-razan|33.37|48.94|140|0|0|104|0.0|0|0
@@ -5600,7 +5600,7 @@ _id|id|tsu|date|focal_depth|eq_primary|intensity|country|state|location|latitude
 9889|9889|false|2011-11-08|5|5.0|0|usa|ok|oklahoma: sparks, prague|35.531|-96.788|150|0|0|0|0.0|0|0
 9890|9890|false|2011-11-21|114|5.8|0|india|""|assam|24.955|95.236|60|0|0|0|0.0|0|0
 9891|9891|false|2011-12-01|32|5.3|0|china|""|xinjiang province: southern, kashi|38.31|76.888|40|0|0|0|0.0|0|300
-9892|9892|true|1681-12-11|0|0.0|0|indonesia|""|sumatra: mentawai islands|||60|0|0|0|0.0|0|0
+9892|9892|true|1681-12-11|0|0.0|0|indonesia|""|sumatra: mentawai islands|-2.13|99.48|60|0|0|0|0.0|0|0
 9893|9893|false|2012-05-03|10|5.4|0|iran|""|mourmouri, abdanan, dehloran|32.747|47.726|140|0|0|8|0.0|0|0
 9894|9894|false|2012-05-07|11|5.7|0|azerbaijan|""|zagatala|41.549|46.789|40|0|0|50|0.0|3100|0
 9895|9895|true|1887-05-19|0|0.0|0|indonesia|""|sumatra: aceh: sigli|5.4|96.0|60|0|0|0|0.0|0|0
@@ -5619,9 +5619,9 @@ _id|id|tsu|date|focal_depth|eq_primary|intensity|country|state|location|latitude
 9909|9909|false|2012-06-04|50|5.8|0|indonesia|""|java|-7.692|106.371|60|0|0|2|0.0|0|23
 9910|9910|true|1747-01-01|0|0.0|7|philippines|""|se luzon is: naga|13.6|123.2|170|0|0|0|0.0|0|0
 9911|9911|true|1830-09-16|0|0.0|0|philippines|""|manila|14.55|120.9|170|0|0|0|0.0|0|0
-9912|9912|true|1885-01-29|0|0.0|0|algeria|""|bordjou, arreridj|||15|0|0|0|0.0|0|0
+9912|9912|true|1885-01-29|0|0.0|0|algeria|""|bordjou, arreridj|36.0|4.76|15|0|0|0|0.0|0|0
 9913|9913|false|1885-12-03|0|5.9|9|algeria|""|m'sila|36.1|4.6|15|33|0|0|0.0|0|0
-9914|9914|false|1885-01-25|0|0.0|0|iceland|""|iceland|||70|0|0|0|0.0|0|0
+9914|9914|false|1885-01-25|0|0.0|0|iceland|""|iceland|64.85|-18.53|70|0|0|0|0.0|0|0
 9915|9915|true|1905-01-01|0|0.0|0|tunisia|""|bizerte|37.3|9.9|15|0|0|0|0.0|0|0
 9916|9916|true|1952-07-13|260|6.8|0|vanuatu|""|vanuatu islands|-18.5|169.25|170|0|0|0|0.0|0|0
 9917|9917|false|1359-03-03|0|0.0|0|algeria|""|algiers|36.8|3.0|15|0|0|0|0.0|0|0
@@ -5659,7 +5659,7 @@ _id|id|tsu|date|focal_depth|eq_primary|intensity|country|state|location|latitude
 9949|9949|false|2012-06-14|5|5.3|0|turkey|""|sirnak|37.294|42.325|140|0|0|23|0.0|0|25
 9950|9950|false|2012-07-20|10|4.9|0|china|""|jiangsu province|32.978|119.593|30|1|0|2|0.0|0|0
 9951|9951|false|2012-07-25|22|6.5|0|indonesia|""|banda aceh|2.707|96.045|60|1|0|0|0.0|0|20
-9952|9952|false|1269-01-01|0|0.0|0|turkey|""|cicilia, ceyhan (seyhan)|||140|8000|0|0|0.0|0|3
+9952|9952|false|1269-01-01|0|0.0|0|turkey|""|cicilia, ceyhan (seyhan)|37.0|35.8|140|8000|0|0|0.0|0|3
 9953|9953|true|2013-01-05|10|7.5|0|usa|ak|alaska: southeastern|55.393|-134.652|150|0|0|0|0.0|0|0
 9954|9954|true|1700-01-27|0|9.0|0|usa|or|cascadia subduction zone|45.0|-125.0|150|0|0|0|0.0|0|0
 9956|9956|true|1853-10-03|0|0.0|0|japan|""|okinawa|26.2|127.6|30|0|0|0|0.0|0|0
@@ -5714,10 +5714,10 @@ _id|id|tsu|date|focal_depth|eq_primary|intensity|country|state|location|latitude
 10006|10006|false|2013-06-22|47|5.1|0|indonesia|""|lombok island|-8.305|116.058|60|0|0|50|0.0|5370|1700
 10007|10007|false|2013-06-18|10|5.3|0|russia|""|kemerovo|54.263|86.173|40|0|0|0|0.0|0|500
 10008|10008|false|1868-08-14|0|8.5|0|chile|""|arica|-18.6|-71.0|160|0|0|0|0.0|0|0
-10009|10009|true|1881-11-24|0|0.0|8|tonga|""|tonga islands|||170|0|0|0|0.0|0|0
+10009|10009|true|1881-11-24|0|0.0|8|tonga|""|tonga islands|-19.23|-174.66|170|0|0|0|0.0|0|0
 10010|10010|true|1937-05-28|0|0.0|8|papua new guinea|""|keravia, rabaul, kokopo|-4.271|152.203|170|507|0|0|0.0|0|0
 10011|10011|true|1907-01-01|0|0.0|0|tonga|""|tonga islands: s of tonga|-21.17|-175.73|170|0|0|0|0.0|0|0
-10012|10012|false|1848-10-17|0|6.0|0|new zealand|""|cook strait|||170|0|0|0|0.0|0|0
+10012|10012|false|1848-10-17|0|6.0|0|new zealand|""|cook strait|-41.33|174.33|170|0|0|0|0.0|0|0
 10013|10013|false|1848-10-18|0|6.0|0|new zealand|""|awatere river, marlborough|-41.67|174.0|170|3|0|0|0.0|0|0
 10015|10015|true|1765-01-01|0|0.0|0|chile|""|valparaiso|-33.05|-71.617|160|0|0|0|0.0|0|0
 10017|10017|true|1855-10-22|0|0.0|0|usa|ca|california: san francisco|37.8|-122.4|150|0|0|0|0.0|0|0
@@ -5726,7 +5726,7 @@ _id|id|tsu|date|focal_depth|eq_primary|intensity|country|state|location|latitude
 10020|10020|true|1869-02-13|0|0.0|0|usa|ca|california: san francisco|37.783|-122.417|150|0|0|0|0.0|0|0
 10021|10021|true|2013-07-21|17|6.5|0|new zealand|""|cook strait|-41.704|174.337|170|0|0|5|0.0|0|35
 10022|10022|true|1938-03-22|16|6.3|0|canada|bc|british columbia|52.2|-131.9|150|0|0|0|0.0|0|0
-10023|10023|true|1877-02-24|0|0.0|0|usa|hi|hawaii|||150|0|0|0|0.0|0|0
+10023|10023|true|1877-02-24|0|0.0|0|usa|hi|hawaii|20.7|-156.987|150|0|0|0|0.0|0|0
 10024|10024|true|1877-10-11|0|0.0|0|colombia|""|buenaventura|3.88|-77.08|160|0|0|0|0.0|0|0
 10025|10025|true|1837-08-09|0|6.5|0|mexico|""|acapulco|16.86|-99.88|150|0|0|0|0.0|0|0
 10026|10026|true|1837-10-18|0|7.0|0|mexico|""|mexico city, acapulco|19.45|-99.15|150|0|0|0|0.0|0|0
@@ -5754,16 +5754,16 @@ _id|id|tsu|date|focal_depth|eq_primary|intensity|country|state|location|latitude
 10049|10049|false|2013-10-12|40|6.6|7|greece|""|crete: chania|35.514|23.252|130|0|0|1|0.0|0|0
 10050|10050|false|2013-10-22|10|5.5|5|indonesia|""|banda aceh|5.103|95.971|60|1|0|2|0.0|0|160
 10052|10052|true|2013-10-25|10|7.1|4|japan|""|honshu: e coast|37.2|144.6|30|0|0|1|0.0|0|0
-10053|10053|true|1897-09-21|0|0.0|0|new zealand|""|wellington|||170|0|0|0|0.0|0|0
+10053|10053|true|1897-09-21|0|0.0|0|new zealand|""|wellington|-41.28|174.77|170|0|0|0|0.0|0|0
 10054|10054|true|2013-11-17|10|7.7|0|antarctica|""|scotia sea: south orkney islands|-60.274|-46.401|20|0|0|0|0.0|0|0
 10055|10055|true|1900-01-01|0|0.0|0|venezuela|""|maiquetia|10.6|-66.95|90|0|0|0|0.0|0|0
 10056|10056|false|2013-11-28|4|5.7|4|iran|""|borazjan|29.275|51.313|140|8|0|200|0.0|250|0
 10057|10057|true|1808-04-02|0|5.7|9|italy|""|valley of pellice, chisone|44.833|7.25|130|2|0|0|0.0|0|0
-10058|10058|true|0551-04-01|0|0.0|0|greece|""|maliakos gulf|||130|0|0|0|0.0|0|0
+10058|10058|true|0551-04-01|0|0.0|0|greece|""|maliakos gulf|38.8|22.78|130|0|0|0|0.0|0|0
 10059|10059|false|2014-01-02|8|5.3|0|iran|""|bastak|27.15|54.448|140|1|0|30|0.0|0|0
-10060|10060|true|1876-10-26|0|0.0|0|japan|""|ryukyu islands|||30|0|0|0|0.0|0|0
-10061|10061|true|1865-03-01|0|0.0|0|japan|""|ryukyu islands|||30|0|0|0|0.0|0|0
-10062|10062|true|1865-03-01|0|0.0|0|peru|""|callao|||160|0|0|0|0.0|0|0
+10060|10060|true|1876-10-26|0|0.0|0|japan|""|ryukyu islands|26.5|128.0|30|0|0|0|0.0|0|0
+10061|10061|true|1865-03-01|0|0.0|0|japan|""|ryukyu islands|26.5|128.0|30|0|0|0|0.0|0|0
+10062|10062|true|1865-03-01|0|0.0|0|peru|""|callao|-12.0|-77.1|160|0|0|0|0.0|0|0
 10063|10063|true|1956-03-02|0|5.3|7|new zealand|""|north island|-38.9|175.7|170|0|0|0|0.0|0|0
 10064|10064|true|1914-10-06|0|0.0|8|new zealand|""|north island|-37.8|178.2|170|1|0|0|0.0|0|0
 10066|10066|true|1831-01-01|0|0.0|0|new zealand|""|north island: poverty bay|-38.7|178.0|170|0|0|0|0.0|0|0
@@ -5850,7 +5850,7 @@ _id|id|tsu|date|focal_depth|eq_primary|intensity|country|state|location|latitude
 10151|10151|false|2015-06-04|10|6.0|6|malaysia|""|sabah: lahad,datu,kanak|5.987|116.541|170|18|0|0|0.0|0|23
 10152|10152|false|2015-07-03|10|6.4|0|china|""|s. xinjiang: hotan|37.6|78.2|40|3|0|263|0.0|3000|0
 10153|10153|false|2015-06-28|26|5.3|0|india|""|kokrajhar|26.638|90.41|60|0|0|2|0.0|0|0
-10154|10154|true|1866-01-19|0|0.0|0|greece|""|aegean sea|||130|0|0|0|0.0|0|0
+10154|10154|true|1866-01-19|0|0.0|0|greece|""|aegean sea|39.0|25.26|130|0|0|0|0.0|0|0
 10155|10155|true|1866-01-31|0|6.1|7|greece|""|thera island (santorini)|36.4|25.3|130|0|0|0|0.0|52|0
 10156|10156|true|2015-09-16|22|8.3|9|chile|""|central|-31.573|-71.674|160|15|1|14|600.0|2305|10044
 10157|10157|true|2015-07-27|23|6.9|0|usa|ak|alaska|52.214|-169.399|150|0|0|0|0.0|0|0
@@ -5904,11 +5904,11 @@ _id|id|tsu|date|focal_depth|eq_primary|intensity|country|state|location|latitude
 10207|10207|true|1892-03-27|0|0.0|0|chile|""|arica|-18.5|-70.35|160|0|0|0|0.0|0|0
 10208|10208|false|1870-06-12|0|0.0|0|guatemala|""|chiquimulilla|14.083|-90.383|100|0|0|0|0.0|0|0
 10209|10209|true|2016-11-21|11|6.9|0|japan|""|near e coast honshu|37.392|141.403|30|0|0|0|0.0|0|0
-10210|10210|false|1870-06-09|0|0.0|0|guadeloupe|""|guadeloupe|||90|0|0|0|0.0|0|0
+10210|10210|false|1870-06-09|0|0.0|0|guadeloupe|""|guadeloupe|16.22|-61.57|90|0|0|0|0.0|0|0
 10211|10211|true|2016-11-24|10|7.0|0|nicaragua|""|nicaragua|11.96|-88.835|100|0|0|0|0.0|0|0
 10212|10212|false|1897-04-25|0|0.0|0|montserrat|""|montserrat|16.72|-62.18|90|0|0|0|0.0|0|0
 10213|10213|true|1896-02-16|0|0.0|0|jamaica|""|kingston|17.6|-76.7|90|0|0|0|0.0|0|0
-10214|10214|true|1919-08-19|0|0.0|0|venezuela|""|lara|||160|0|0|0|0.0|0|0
+10214|10214|true|1919-08-19|0|0.0|0|venezuela|""|lara|10.19|-69.81|160|0|0|0|0.0|0|0
 10215|10215|false|2016-12-06|8|6.5|0|indonesia|""|sumatra: aceh: pidie jaya|5.281|96.108|60|104|0|857|233.0|245|18752
 10217|10217|true|1895-05-31|0|0.0|0|chile|""|northern|-18.0|-71.0|160|0|0|0|0.0|0|0
 10218|10218|false|2016-12-08|41|7.8|0|solomon islands|""|solomon islands|-10.665|161.335|170|1|0|0|0.0|191|126
