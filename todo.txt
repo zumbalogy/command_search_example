@@ -16,3 +16,12 @@ maybe with -1 or something. nil is more realistic for the demo though.
 on xps 13 screen, dates get wrapped on UI.
 also, look into font of "source code"
 also, look into bottom margin of quake list
+
+----------------------//////////////////////////////
+
+
+scroll bar should maintain same size or not exist or such.
+
+----------------------//////////////////////////////
+
+save searches? new chart?
