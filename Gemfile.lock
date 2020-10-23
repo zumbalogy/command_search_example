@@ -75,7 +75,7 @@ GEM
       coffee-script-source
       execjs
     coffee-script-source (1.12.2)
-    command_search (0.11.3)
+    command_search (0.12.0)
       chronic (~> 0.10.2)
     concurrent-ruby (1.1.6)
     crass (1.0.6)
