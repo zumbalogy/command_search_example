@@ -131,4 +131,4 @@
       (selected-quake @selected-result)]])
 
 (defn ^:export main []
-    (dom/render [app] (js/document.getElementById "splash-render-hook")))
+    (dom/render [:f> app] (js/document.getElementById "splash-render-hook")))
