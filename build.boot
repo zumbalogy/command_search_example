@@ -31,5 +31,5 @@
               :optimizations :none)))
 
 (deftask prod []
-  (comp (cljs :optimizations :none)
+  (comp (cljs :optimizations :simple)
         (target :dir #{"app/assets/cljs-build"})))
