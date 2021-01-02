@@ -113,7 +113,7 @@ GEM
     nokogiri (1.10.9)
       mini_portile2 (~> 2.4.0)
     public_suffix (4.0.3)
-    puma (3.12.4)
+    puma (3.12.6)
     rack (2.2.2)
     rack-proxy (0.6.5)
       rack
@@ -212,7 +212,7 @@ DEPENDENCIES
   heroku-deflater
   jbuilder (~> 2.5)
   listen (>= 3.0.5, < 3.2)
-  puma (~> 3.11)
+  puma (~> 3.12)
   rails (~> 5.2.1, >= 5.2.1.1)
   sassc-rails
   selenium-webdriver
