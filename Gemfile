@@ -5,7 +5,6 @@ ruby '~> 2.7'
 
 gem 'command_search'
 
-gem 'mongoid'
 gem 'cljs-rails'
 
 gem 'figaro'

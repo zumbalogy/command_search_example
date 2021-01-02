@@ -50,7 +50,6 @@ GEM
     bindex (0.8.1)
     bootsnap (1.4.8)
       msgpack (~> 1.0)
-    bson (4.11.1)
     builder (3.2.4)
     byebug (11.1.1)
     capybara (3.31.0)
@@ -109,11 +108,6 @@ GEM
     mini_mime (1.0.2)
     mini_portile2 (2.4.0)
     minitest (5.14.0)
-    mongo (2.14.0)
-      bson (>= 4.8.2, < 5.0.0)
-    mongoid (7.2.0)
-      activemodel (>= 5.1, < 6.1)
-      mongo (>= 2.10.5, < 3.0.0)
     msgpack (1.3.3)
     nio4r (2.5.2)
     nokogiri (1.10.9)
@@ -218,7 +212,6 @@ DEPENDENCIES
   heroku-deflater
   jbuilder (~> 2.5)
   listen (>= 3.0.5, < 3.2)
-  mongoid
   puma (~> 3.11)
   rails (~> 5.2.1, >= 5.2.1.1)
   sassc-rails

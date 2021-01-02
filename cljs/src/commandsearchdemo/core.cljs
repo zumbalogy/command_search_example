@@ -78,7 +78,7 @@
         (selected-quake-section q "houses_damaged")])))
 
 (defn build-quake [data]
-  [:li { :key (aget data "_id")
+  [:li { :key (aget data "id")
          :on-click #(reset! selected-result data) }
     [:div.size (aget data "eq_primary")]
     [:div.country (aget data "country")]

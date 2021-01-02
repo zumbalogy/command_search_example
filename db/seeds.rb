@@ -59,36 +59,36 @@ clean_data = quake_data.map do |data|
 
   date = Date.new(data['YEAR'].to_i, (data['MONTH'] || 1).to_i, (data['DAY'] || 1).to_i)
 
-  e['id'] = data['I_D'].to_i
-  e['tsu'] = !!data['FLAG_TSUNAMI']
-  e['date'] = date
-  e['focal_depth'] = data['FOCAL_DEPTH'].to_i
-  e['eq_primary'] = data['EQ_PRIMARY'].to_f
-  e['intensity'] = data['INTENSITY'].to_i
-  e['country'] = (data['COUNTRY'] || '').downcase
-  e['state'] = (data['STATE'] || '').downcase
-  e['region'] = data['REGION_CODE'].to_i
+  out['id'] = data['I_D'].to_i
+  out['tsu'] = !!data['FLAG_TSUNAMI']
+  out['date'] = date
+  out['focal_depth'] = data['FOCAL_DEPTH'].to_i
+  out['eq_primary'] = data['EQ_PRIMARY'].to_f
+  out['intensity'] = data['INTENSITY'].to_i
+  out['country'] = (data['COUNTRY'] || '').downcase
+  out['state'] = (data['STATE'] || '').downcase
+  out['region'] = data['REGION_CODE'].to_i
 
-  e['deaths'] = (data['TOTAL_DEATHS'] || data['DEATHS']).to_i
-  e['missing'] = (data['TOTAL_MISSING'] || data['MISSING']).to_i
-  e['injuries'] = (data['TOTAL_INJURIES'] || data['INJURIES']).to_i
-  e['damage_millions_dollars'] = (data['TOTAL_DAMAGE_MILLIONS_DOLLARS'] || data['DAMAGE_MILLIONS_DOLLARS']).to_f
-  e['houses_destroyed'] = (data['TOTAL_HOUSES_DESTROYED'] || data['HOUSES_DESTROYED']).to_i
-  e['houses_damaged'] = (data['TOTAL_HOUSES_DAMAGED'] || data['HOUSES_DAMAGED']).to_i
+  out['deaths'] = (data['TOTAL_DEATHS'] || data['DEATHS']).to_i
+  out['missing'] = (data['TOTAL_MISSING'] || data['MISSING']).to_i
+  out['injuries'] = (data['TOTAL_INJURIES'] || data['INJURIES']).to_i
+  out['damage_millions_dollars'] = (data['TOTAL_DAMAGE_MILLIONS_DOLLARS'] || data['DAMAGE_MILLIONS_DOLLARS']).to_f
+  out['houses_destroyed'] = (data['TOTAL_HOUSES_DESTROYED'] || data['HOUSES_DESTROYED']).to_i
+  out['houses_damaged'] = (data['TOTAL_HOUSES_DAMAGED'] || data['HOUSES_DAMAGED']).to_i
 
-  e['location'] = (data['LOCATION_NAME'] || '').sub(/^#{data['COUNTRY']}:/, '').strip
-  e['location'] = e['location'].gsub(/\s+/, ' ').downcase
-  e['location'] = location_renames[e['location']] || e['location']
+  out['location'] = (data['LOCATION_NAME'] || '').sub(/^#{data['COUNTRY']}:/, '').strip
+  out['location'] = out['location'].gsub(/\s+/, ' ').downcase
+  out['location'] = location_renames[out['location']] || out['location']
 
   if data['LATITUDE'] == nil && data['LONGITUDE'] == nil
 
     key = data['LOCATION_NAME'].gsub(/\s+/, ' ')
     (lat, long) = lat_long_lookup[key]
-    e['latitude'] = lat
-    e['longitude'] = long
+    out['latitude'] = lat
+    out['longitude'] = long
   else
-    e['latitude'] = data['LATITUDE'].to_f
-    e['longitude'] = data['LONGITUDE'].to_f
+    out['latitude'] = data['LATITUDE'].to_f
+    out['longitude'] = data['LONGITUDE'].to_f
   end
 
   out
