@@ -6,9 +6,10 @@ ruby '2.7.2'
 gem 'command_search'
 
 gem 'cljs-rails'
+gem 'svelte-rails'
 
 gem 'figaro'
-gem 'webpacker', require: false
+gem 'webpacker'
 gem 'heroku-deflater', group: :production
 
 gem 'sassc-rails'

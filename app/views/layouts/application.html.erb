@@ -10,6 +10,7 @@
   </head>
   <body>
     <%= yield %>
+    <%= javascript_pack_tag 'application' %>
   </body>
   <script>
     window.fastQuakeFilter = function(ids, list) {
@@ -53,5 +54,4 @@
       }).join(''));
     }
   </script>
-  <%= javascript_include_tag cljs_main_path %>
 </html>
