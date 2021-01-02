@@ -132,4 +132,5 @@
   ;     (selected-quake @selected-result)]])
 
 (defn ^:export main []
-    (dom/render [app] (js/document.getElementById "splash-render-hook")))
+    ; (dom/render [app] (js/document.getElementById "splash-render-hook")))
+    (dom/render [(fn [] "this is a test. jan 1, 2021")] js/document.body))
