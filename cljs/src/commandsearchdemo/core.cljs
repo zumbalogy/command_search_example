@@ -109,28 +109,26 @@
                       "Attributes in the selected quake are also clickable."]])
 
 (defn app []
-  [:div.test "this is a test. currently debugging, jan 1 2021"])
-  ; [:div.center
-  ;   [:div.left
-  ;     [:input { :value @query
-  ;               :placeholder "Search..."
-  ;               :on-change #(update-results (-> % .-target .-value)) }]
-  ;     [:div.help-button { :on-click #(swap! show-help not) }
-  ;       "?"]
-  ;     [:ul { :on-scroll #(reset! scroll-offset (-> % .-target .-scrollTop)) }
-  ;       (if (empty? @results)
-  ;         (if (= "" @query)
-  ;             [:li.empty-message "Loading..."]
-  ;             [:li.empty-message "No earthquakes found."])
-  ;           (concat
-  ;             (map build-quake (take 200 @results))
-  ;             (when (< 500 @scroll-offset)
-  ;               (map build-quake (drop 200 @results)))))]]
-  ;   [:div.right
-  ;     (when @show-help help-section)
-  ;     (quake-map/create @results selected-result)
-  ;     (selected-quake @selected-result)]])
+  [:div.center
+    [:div.left
+      [:input { :value @query
+                :placeholder "Search..."
+                :on-change #(update-results (-> % .-target .-value)) }]
+      [:div.help-button { :on-click #(swap! show-help not) }
+        "?"]
+      [:ul { :on-scroll #(reset! scroll-offset (-> % .-target .-scrollTop)) }
+        (if (empty? @results)
+          (if (= "" @query)
+              [:li.empty-message "Loading..."]
+              [:li.empty-message "No earthquakes found."])
+            (concat
+              (map build-quake (take 200 @results))
+              (when (< 500 @scroll-offset)
+                (map build-quake (drop 200 @results)))))]]
+    [:div.right
+      (when @show-help help-section)
+      (quake-map/create @results selected-result)
+      (selected-quake @selected-result)]])
 
 (defn ^:export main []
-    ; (dom/render [app] (js/document.getElementById "splash-render-hook")))
-    (dom/render [(fn [] "this is a test. jan 1, 2021")] js/document.body))
+    (dom/render [app] (js/document.getElementById "splash-render-hook")))

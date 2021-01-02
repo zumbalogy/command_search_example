@@ -22,4 +22,4 @@ For production:
 
 `boot prod; RAILS_ENV=production rake assets:precompile; RAILS_SERVE_STATIC_FILES=true RAILS_ENV=production rails s`
 
-but note that for production, `ENV['MONGODB_URI']` has to be set (or edit mongoid.yml).
+Note to self: Cljs has to be precompiled before pushing to Heroku.
