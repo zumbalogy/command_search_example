@@ -1,4 +1,4 @@
-EARTHQUAKE_DATA = JSON.parse(File.read("public/quake_export.json"))
+EARTHQUAKE_DATA = JSON.parse(File.read(__dir__ + '/../../public/quake_export.json'))
 
 class Earthquake
   def self.search(query)
