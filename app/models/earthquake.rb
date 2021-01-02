@@ -37,6 +37,7 @@ class Earthquake
         /=/ => ':'
       }
     }
+    # Typically this would be "self" or the class name, assuming an activeRecord or mongoid class.
     CommandSearch.search(EARTHQUAKE_DATA, query, options)
   end
 end
