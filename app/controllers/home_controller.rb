@@ -6,7 +6,7 @@ class HomeController < ApplicationController
 
   def search
     decoded = Base64.decode64(params[:query] || '').force_encoding('UTF-8')
-    res = Earthquake.search(decoded).pluck(:_id)
+    res = Earthquake.search(decoded).map { |x| x['_id'] }
     render json: res
   end
 end

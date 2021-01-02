@@ -1,28 +1,6 @@
-require('csv')
-require('command_search')
+EARTHQUAKE_DATA = JSON.parse(File.read("public/quake_export.json"))
 
 class Earthquake
-  include Mongoid::Document
-
-  field :id, type: Integer
-  field :tsu, type: Boolean
-  field :date, type: Date
-  field :focal_depth, type: Integer
-  field :eq_primary, type: Float
-  field :intensity, type: Integer
-  field :country, type: String
-  field :state, type: String
-  field :location, type: String
-  field :latitude, type: Float
-  field :longitude, type: Float
-  field :region, type: Integer
-  field :deaths, type: Integer
-  field :missing, type: Integer
-  field :injuries, type: Integer
-  field :damage_millions_dollars, type: Float
-  field :houses_destroyed, type: Integer
-  field :houses_damaged, type: Integer
-
   def self.search(query)
     options = {
       fields: {
@@ -59,6 +37,6 @@ class Earthquake
         /=/ => ':'
       }
     }
-    CommandSearch.search(Earthquake, query, options)
+    CommandSearch.search(EARTHQUAKE_DATA, query, options)
   end
 end

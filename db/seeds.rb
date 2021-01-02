@@ -1,7 +1,5 @@
+require('json')
 require('csv')
-require('mongoid')
-
-Mongoid.purge!
 
 data_file = File.read(__dir__ + '/../earthquakes.csv')
 
@@ -52,60 +50,52 @@ lat_long_lookup = {
   'LARA' => [10.19, -69.81]
 }
 
-quake_data.each do |data|
-  e = Earthquake.new()
+location_renames = {
+  'grfece: off west coast' => 'off west coast'
+}
+
+clean_data = quake_data.map do |data|
+  out = {}
 
   date = Date.new(data['YEAR'].to_i, (data['MONTH'] || 1).to_i, (data['DAY'] || 1).to_i)
 
-  e.id = data['I_D'].to_i
-  e.tsu = !!data['FLAG_TSUNAMI']
-  e.date = date
-  e.focal_depth = data['FOCAL_DEPTH'].to_i
-  e.eq_primary = data['EQ_PRIMARY'].to_f
-  e.intensity = data['INTENSITY'].to_i
-  e.country = (data['COUNTRY'] || '').downcase
-  e.state = (data['STATE'] || '').downcase
-  e.region = data['REGION_CODE'].to_i
+  e['id'] = data['I_D'].to_i
+  e['tsu'] = !!data['FLAG_TSUNAMI']
+  e['date'] = date
+  e['focal_depth'] = data['FOCAL_DEPTH'].to_i
+  e['eq_primary'] = data['EQ_PRIMARY'].to_f
+  e['intensity'] = data['INTENSITY'].to_i
+  e['country'] = (data['COUNTRY'] || '').downcase
+  e['state'] = (data['STATE'] || '').downcase
+  e['region'] = data['REGION_CODE'].to_i
 
-  e.deaths = (data['TOTAL_DEATHS'] || data['DEATHS']).to_i
-  e.missing = (data['TOTAL_MISSING'] || data['MISSING']).to_i
-  e.injuries = (data['TOTAL_INJURIES'] || data['INJURIES']).to_i
-  e.damage_millions_dollars = (data['TOTAL_DAMAGE_MILLIONS_DOLLARS'] || data['DAMAGE_MILLIONS_DOLLARS']).to_f
-  e.houses_destroyed = (data['TOTAL_HOUSES_DESTROYED'] || data['HOUSES_DESTROYED']).to_i
-  e.houses_damaged = (data['TOTAL_HOUSES_DAMAGED'] || data['HOUSES_DAMAGED']).to_i
+  e['deaths'] = (data['TOTAL_DEATHS'] || data['DEATHS']).to_i
+  e['missing'] = (data['TOTAL_MISSING'] || data['MISSING']).to_i
+  e['injuries'] = (data['TOTAL_INJURIES'] || data['INJURIES']).to_i
+  e['damage_millions_dollars'] = (data['TOTAL_DAMAGE_MILLIONS_DOLLARS'] || data['DAMAGE_MILLIONS_DOLLARS']).to_f
+  e['houses_destroyed'] = (data['TOTAL_HOUSES_DESTROYED'] || data['HOUSES_DESTROYED']).to_i
+  e['houses_damaged'] = (data['TOTAL_HOUSES_DAMAGED'] || data['HOUSES_DAMAGED']).to_i
 
-  e.location = (data['LOCATION_NAME'] || '').sub(/^#{data['COUNTRY']}:/, '').strip
-  e.location = e.location.gsub(/\s+/, ' ').downcase
+  e['location'] = (data['LOCATION_NAME'] || '').sub(/^#{data['COUNTRY']}:/, '').strip
+  e['location'] = e['location'].gsub(/\s+/, ' ').downcase
+  e['location'] = location_renames[e['location']] || e['location']
 
   if data['LATITUDE'] == nil && data['LONGITUDE'] == nil
 
     key = data['LOCATION_NAME'].gsub(/\s+/, ' ')
     (lat, long) = lat_long_lookup[key]
-    e.latitude = lat
-    e.longitude = long
+    e['latitude'] = lat
+    e['longitude'] = long
   else
-    e.latitude = data['LATITUDE'].to_f
-    e.longitude = data['LONGITUDE'].to_f
+    e['latitude'] = data['LATITUDE'].to_f
+    e['longitude'] = data['LONGITUDE'].to_f
   end
 
-  e.save!
+  out
 end
-
-q = Earthquake.where(location: 'grfece: off west coast').first
-q.location = 'off west coast'
-q.save!
 
 File.open(__dir__ + '/../public/quake_export.json', 'w') do |f|
-  f.write(Earthquake.all.to_json)
-end
-
-CSV.open(__dir__ + '/../public/quake_export.dsv', 'w', { col_sep: '|' }) do |dsv|
-  attrs = Earthquake.attribute_names
-  dsv << attrs
-  Earthquake.all.each do |quake|
-    dsv << attrs.map { |a| quake.send(a) }
-  end
+  f.write(clean_data.to_json)
 end
 
 `gzip -f -k -9 #{__dir__ + '/../public/quake_export.json'}`
-`gzip -f -k -9 #{__dir__ + '/../public/quake_export.dsv'}`
