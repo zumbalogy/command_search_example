@@ -1,5 +1,6 @@
 (ns commandsearchdemo.core
   (:require [clojure.string :as string]
+            [reagent.dom :as dom]
             [reagent.core :as r]
             [commandsearchdemo.quake-map :as quake-map]))
 
@@ -130,4 +131,4 @@
       (selected-quake @selected-result)]])
 
 (defn ^:export main []
-    (r/render [app] (js/document.getElementById "splash-render-hook")))
+    (dom/render [app] (js/document.getElementById "splash-render-hook")))

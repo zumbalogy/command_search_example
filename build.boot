@@ -1,7 +1,7 @@
 (set-env!
  :resource-paths  #{"cljs/src"}
- :dependencies '[[org.clojure/clojure         "1.9.0"]
-                 [org.clojure/clojurescript   "1.10.439"]
+ :dependencies '[[org.clojure/clojure         "1.10.1"]
+                 [org.clojure/clojurescript   "1.10.764"]
                  [adzerk/boot-cljs            "2.1.5"    :scope "test"]
                  [adzerk/boot-cljs-repl       "0.4.0"    :scope "test"]
                  [adzerk/boot-reload          "0.6.0"    :scope "test"]
@@ -11,7 +11,7 @@
                  [weasel                      "0.7.0"    :scope "test"]
                  [cider/piggieback            "0.3.10"   :scope "test"]
                  ; [binaryage/devtools          "0.9.10"   :scope "test"]
-                 [reagent                     "0.8.1"]])
+                 [reagent                     "1.0.0"]])
 
 (require
   '[adzerk.boot-cljs             :refer [cljs]]
