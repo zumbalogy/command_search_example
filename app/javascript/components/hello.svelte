@@ -1,6 +1,12 @@
-<svelte:head>
+<h1>
 	<title>Hello {name}! ❤</title>
-</svelte:head>
+</h1>
+
+<h1>Hellosd {name}! ❤</h1>
+
+{#if time}
+  <code>{time}</code>
+{/if}
 
 <script>
   import { onMount } from 'svelte'
@@ -13,26 +19,10 @@
 
     const interval = setInterval(() => {
       time = new Date()
-    }, 1000)
+    }, 100)
 
     return () => {
       clearInterval(interval)
     }
   })
 </script>
-
-<style>
-  :global(body) {
-    background-color: #223;
-  }
-
-  h1, code {
-    color: #fee;
-  }
-</style>
-
-<h1>Hello {name}! ❤</h1>
-
-{#if time}
-  <code>{time}</code>
-{/if}

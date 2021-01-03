@@ -7564,20 +7564,7 @@ wbuf@^1.1.0, wbuf@^1.7.3:
   dependencies:
     minimalistic-assert "^1.0.0"
 
-webpack-assets-manifest@^3.1.1:
-  version "3.1.1"
-  resolved "https://registry.yarnpkg.com/webpack-assets-manifest/-/webpack-assets-manifest-3.1.1.tgz#39bbc3bf2ee57fcd8ba07cda51c9ba4a3c6ae1de"
-  integrity sha512-JV9V2QKc5wEWQptdIjvXDUL1ucbPLH2f27toAY3SNdGZp+xSaStAgpoMcvMZmqtFrBc9a5pTS1058vxyMPOzRQ==
-  dependencies:
-    chalk "^2.0"
-    lodash.get "^4.0"
-    lodash.has "^4.0"
-    mkdirp "^0.5"
-    schema-utils "^1.0.0"
-    tapable "^1.0.0"
-    webpack-sources "^1.0.0"
-
-"webpack-assets-manifest@https://github.com/pustovalov/webpack-assets-manifest#build":
+webpack-assets-manifest@^3.1.1, "webpack-assets-manifest@https://github.com/pustovalov/webpack-assets-manifest#build":
   version "3.1.1"
   resolved "https://github.com/pustovalov/webpack-assets-manifest#0867d168ac26b979d65dfc706cbf691ceead51ac"
   dependencies:

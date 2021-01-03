@@ -11,7 +11,7 @@
   </head>
   <body>
     <%= yield %>
-    <%= svelte_component :Hello, {name: 'from application html erb'}, {prerender: false} %>
+    <%= svelte_component :hello, {name: 'from application html erb'}, {prerender: false} %>
   </body>
   <script>
     window.fastQuakeFilter = function(ids, list) {
