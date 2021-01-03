@@ -18,7 +18,7 @@
           {/if}
         </li>
       {:else}
-        <VirtualList items={results} height='500px' let:item>
+        <VirtualList items={results} let:item height='calc(100vh - 132px)'>
           <li
             class='{item.scrollIdx % 2 && "odd"}'
             on:click={_ => selectedQuake = item}

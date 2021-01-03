@@ -137,7 +137,6 @@ body {
       margin: 0;
       margin-left: 12px;
       width: calc(100% - 20px);
-      max-height: calc(100vh - 126px);
       @media (max-width: 1448px) { max-height: calc(100vh - 142px); }
       @media (max-width: 848px) { max-height: calc(100vh - 160px); }
       @media (max-width: 829px) { max-height: calc(100vh - 178px); }
