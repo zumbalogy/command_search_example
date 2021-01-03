@@ -1,33 +1,33 @@
-<svelte:head>
+<h1>
 	<title>Hello {name}! ❤</title>
-</svelte:head>
+</h1>
 
 <script>
   import { onMount } from 'svelte'
 
-  let name = ''
-  let time = 0
+  export let name
+  let time
 
   onMount(() => {
+		time = new Date()
+
     const interval = setInterval(() => {
       time = new Date()
-    }, 1000)
+    }, 100)
 
     return () => {
       clearInterval(interval)
     }
   })
-
-	export name
 </script>
 
 <style>
   :global(body) {
-    background-color: #223
+    background-color: #223;
   }
 
   h1, code {
-    color: #fee
+    color: #fee;
   }
 </style>
 

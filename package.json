@@ -1,15 +1,13 @@
 {
   "dependencies": {
-    "@rails/webpacker": "5.2.1",
-    "svelte-preprocess": "^4.6.1",
-    "svelte_ujs_ng": "^0.3.4".
     "@rails/ujs": "^6.0.0",
-
+    "@rails/webpacker": "5.2.1",
     "svelte": "^3.23.2",
     "svelte-loader": "^2.13.6",
-    "svelte_ujs": "../svelte-rails"
+    "svelte_ujs_ng": "^0.3.4"
   },
   "devDependencies": {
+    "svelte-preprocess": "^4.6.1",
     "webpack-dev-server": "^3.11.1"
   }
 }
