@@ -4,13 +4,18 @@
   </div>
 {:else}
   <div class='map-wrapper'>
-    <img src='/blank_map2.svg'>
-    <svg x='0' y='0' viewbox='0 0 360 180'>
+    <img src='/blank_map2.svg' style='transform: {transform};'>
+    <svg
+      x='0'
+      y='0'
+      viewbox='0 0 360 180'
+      style='transform: {transform};'
+    >
       {#each quakes as quake}
         <circle
           cx='{180 + quake.longitude}'
           cy='{90 - quake.latitude}'
-          r='2'
+          r='{radius}'
           fill='#1277'
         >
         </circle>
@@ -21,4 +26,24 @@
 
 <script>
   export let quakes
+
+  $: box = longLatFinder(quakes)
+  $: minLat = box[0]
+  $: maxLat = box[1]
+  $: minLon = box[2]
+  $: maxLon = box[3]
+
+  $: midLat = (minLat + maxLat) / 2
+  $: midLon = (minLon + maxLon) / 2
+  $: difLat = maxLat - minLat
+  $: difLon = maxLon - minLon
+
+  $: transX = (50 * midLon) / -180
+  $: transY = (50 * midLat) / 90
+
+  $: maxDif = Math.max(1, difLon, (difLat * 2))
+  $: zoom = Math.min(20, 300 / maxDif)
+
+  $: radius = 2 / zoom
+  $: transform = (zoom < 1.4) ? '' : `scale(${zoom}) translate(${transX}%, ${transY}%)`
 </script>

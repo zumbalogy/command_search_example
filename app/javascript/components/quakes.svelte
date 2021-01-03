@@ -18,38 +18,74 @@
           {/if}
         </li>
       {:else}
-        {#each results as quake}
-          <li>
+        <VirtualList items={results} height='500px' let:item>
+        <!-- {#each results as quake} -->
+          <li on:click={_ => selectedQuake = item}>
             <div class='size'>
-              {quake.eq_primary}
+              {item.eq_primary}
             </div>
             <div class='country'>
-              {quake.country}
+              {item.country}
             </div>
             <div class='location'>
-              {quake.location}
+              {item.location}
             </div>
             <div class='date'>
-              {quake.date}
+              {item.date}
             </div>
           </li>
-        {/each}
+        <!-- {/each} -->
+        </VirtualList>
       {/if}
     </ul>
   </div>
   <div class='right'>
     <Map quakes={results}/>
+    {#if selectedQuake}
+      <div class='selected-quake'>
+        <h4>
+          Selected Quake
+        </h4>
+        {#each selectedAttrs as attr}
+          <!-- TODO: make quotes only when nessesary -->
+          <div
+            on:click={_ => {
+              query = `${attr[0]}:${selectedQuake[attr[0]]}`
+              searchAction()
+            }}
+          >
+            {attr[1]}: {selectedQuake[attr[0]]}
+          </div>
+        {/each}
+      </div>
+    {/if}
   </div>
 </div>
 
 <script>
+  import VirtualList from '@sveltejs/svelte-virtual-list';
   import Map from './map.svelte';
 
   let allQuakes = []
   let results = []
-  let selectedResult = null
+  let selectedQuake = null
   let showHelp = false
   let query = ''
+
+  const selectedAttrs = [
+    ['country', 'Country'],
+    ['location', 'Location'],
+    ['eq_primary', 'Size'],
+    ['intensity', 'Intensite'],
+    ['focal_depth', 'Focal Depth'],
+    ['tsu', 'Tsunami'],
+    ['latitude', 'Lat'],
+    ['longitude', 'Lon'],
+    ['date', 'Date'],
+    ['region', 'Region'],
+    ['houses_destroyed', 'Houses Destroyed'],
+    ['houses_damaged', 'Houses Damaged']
+  ]
 
   let searchAction = _ => {
     const clean = query.trim()
