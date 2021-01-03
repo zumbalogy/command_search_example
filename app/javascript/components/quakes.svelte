@@ -40,20 +40,14 @@
     </ul>
   </div>
   <div class='right'>
-    <Map quakes={results}/>
+    <Map quakes={results} bind:selectedQuake={selectedQuake}/>
     {#if selectedQuake}
       <div class='selected-quake'>
         <h4>
           Selected Quake
         </h4>
         {#each selectedAttrs as attr}
-          <!-- TODO: make quotes only when nessesary -->
-          <div
-            on:click={_ => {
-              query = `${attr[0]}:${selectedQuake[attr[0]]}`
-              searchAction()
-            }}
-          >
+          <div on:click={_ => selectedClickAction(attr)}>
             {attr[1]}: {selectedQuake[attr[0]]}
           </div>
         {/each}
@@ -76,7 +70,7 @@
     ['country', 'Country'],
     ['location', 'Location'],
     ['eq_primary', 'Size'],
-    ['intensity', 'Intensite'],
+    ['intensity', 'Intensity'],
     ['focal_depth', 'Focal Depth'],
     ['tsu', 'Tsunami'],
     ['latitude', 'Lat'],
@@ -87,7 +81,16 @@
     ['houses_damaged', 'Houses Damaged']
   ]
 
-  let searchAction = _ => {
+  const selectedClickAction = (attr) => {
+    let val = selectedQuake[attr[0]]
+    if (`${val}`.includes(' ')) {
+      val = `"${val}"`
+    }
+    query = `${attr[0]}:${val}`
+    searchAction()
+  }
+
+  const searchAction = _ => {
     const clean = query.trim()
     const encoded = b64EncodeUnicode(clean)
     window.location = `#/${encoded}`

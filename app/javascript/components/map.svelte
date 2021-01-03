@@ -17,15 +17,26 @@
           cy='{90 - quake.latitude}'
           r='{radius}'
           fill='#1277'
+          on:click={_ => selectedQuake = quake}
         >
         </circle>
       {/each}
+      {#if selectedQuake}
+        <circle
+          cx='{180 + selectedQuake.longitude}'
+          cy='{90 - selectedQuake.latitude}'
+          r='{4 / zoom}'
+          fill='#f11'
+        >
+      </circle>
+      {/if}
     </svg>
   </div>
 {/if}
 
 <script>
   export let quakes
+  export let selectedQuake
 
   $: box = longLatFinder(quakes)
   $: minLat = box[0]
