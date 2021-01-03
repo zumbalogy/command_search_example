@@ -19,8 +19,10 @@
         </li>
       {:else}
         <VirtualList items={results} height='500px' let:item>
-        <!-- {#each results as quake} -->
-          <li on:click={_ => selectedQuake = item}>
+          <li
+            class='{item.scrollIdx % 2 && "odd"}'
+            on:click={_ => selectedQuake = item}
+          >
             <div class='size'>
               {item.eq_primary}
             </div>
@@ -34,7 +36,6 @@
               {item.date}
             </div>
           </li>
-        <!-- {/each} -->
         </VirtualList>
       {/if}
     </ul>
@@ -60,11 +61,15 @@
   import VirtualList from '@sveltejs/svelte-virtual-list';
   import Map from './map.svelte';
 
+  let allIds = []
   let allQuakes = []
+  let resultIds = []
   let results = []
   let selectedQuake = null
   let showHelp = false
   let query = ''
+
+  $: results = fastQuakeFilter(resultIds, allQuakes)
 
   const selectedAttrs = [
     ['country', 'Country'],
@@ -95,7 +100,7 @@
     const encoded = b64EncodeUnicode(clean)
     window.location = `#/${encoded}`
     if (clean === '') {
-      results = allQuakes
+      resultIds = allIds
       return
     }
     // if (query !== clean) {
@@ -103,11 +108,12 @@
     // }
     fetch(`/search/${encoded}`)
     .then(x => x.json())
-    .then(x => results = fastQuakeFilter(x, allQuakes))
+    .then(x => resultIds = x)
   }
 
   fetch('quake_export.json')
   .then(x => x.json())
   .then(x => allQuakes = x)
-  .then(_ => results = allQuakes)
+  .then(_ => allIds = allQuakes.map(x => x.id))
+  .then(_ => resultIds = allIds)
 </script>

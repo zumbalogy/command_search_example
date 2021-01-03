@@ -133,7 +133,6 @@ body {
       display: inline-block;
       border: 1px solid #000;
       font-family: monospace;
-      overflow: scroll;
       padding: 0;
       margin: 0;
       margin-left: 12px;
@@ -153,6 +152,9 @@ body {
         &.empty-message {
             line-height: 22px;
             text-align: center;
+        }
+        &.odd {
+          background-color: #f4f4f4;
         }
         div {
           vertical-align: middle;
@@ -176,9 +178,6 @@ body {
             padding-right: 2px;
           }
         }
-      }
-      li:nth-child(even) {
-        background-color: #f4f4f4;
       }
     }
   }

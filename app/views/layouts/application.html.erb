@@ -17,10 +17,11 @@
     window.fastQuakeFilter = function(ids, list) {
       var output = [];
       var list_index = 0;
-      ids.forEach(function(id) {
+      ids.forEach(function(id, i) {
         while (id !== list[list_index].id) {
           list_index += 1;
         }
+        list[list_index].scrollIdx = i
         output.push(list[list_index])
         list_index += 1;
       })
