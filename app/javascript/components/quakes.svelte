@@ -18,7 +18,11 @@
           {/if}
         </li>
       {:else}
-        <VirtualList items={results} let:item height='calc(100vh - 132px)'>
+        <VirtualList
+          items={results}
+          let:item
+          height='100%'
+        >
           <li
             class='{item.scrollIdx % 2 && "odd"}'
             on:click={_ => selectedQuake = item}
@@ -58,7 +62,7 @@
 </div>
 
 <script>
-  import VirtualList from '@sveltejs/svelte-virtual-list';
+  import VirtualList from './virtualList.svelte';
   import Map from './map.svelte';
 
   let allIds = []
