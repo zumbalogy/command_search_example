@@ -1,3 +1,0 @@
-{:require  [commandsearchdemo.core]
- :init-fns [commandsearchdemo.core/main]
- :compiler-options {:asset-path "http://localhost:5555/main.out"}}

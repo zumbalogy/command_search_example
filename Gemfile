@@ -5,7 +5,6 @@ ruby '2.7.2'
 
 gem 'command_search'
 
-gem 'cljs-rails'
 gem 'svelte-rails'
 
 gem 'figaro'

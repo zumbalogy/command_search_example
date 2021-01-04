@@ -14,12 +14,5 @@ Map source: [commons.wikimedia.org/wiki/File:BlankMap-Equirectangular.svg](https
 
 ### Setup
 
-To run this project, mongo will need to be installed.
 To build: `bundle install` and `rake run db:seed`.
-To run: `boot dev` for the front end and `rails s` for the backend.
-
-For production:
-
-`boot prod; RAILS_ENV=production rake assets:precompile; RAILS_SERVE_STATIC_FILES=true RAILS_ENV=production rails s`
-
-Note to self: Cljs has to be precompiled before pushing to Heroku.
+To run: `rails s`.
