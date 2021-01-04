@@ -4,6 +4,7 @@ git_source(:github) { |repo| "https://github.com/#{repo}.git" }
 ruby '2.7.2'
 
 gem 'command_search'
+# gem "command_search", path: "/home/ash/projects/command_search/"
 
 gem 'svelte-rails'
 
