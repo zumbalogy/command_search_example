@@ -21,7 +21,7 @@
         <VirtualList
           items={results}
           let:item
-          height='calc(100vh - 142px)'
+          height='calc(100vh - 146px)'
         >
           <li
             class='{item.scrollIdx % 2 && "odd"}'

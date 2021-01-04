@@ -106,6 +106,7 @@ body {
       font-size: 16px;
       margin-bottom: 10px;
       border: 1px solid #000;
+      float: left;
       &:focus {
         outline: none;
       }
@@ -137,13 +138,6 @@ body {
       margin-left: 12px;
       width: calc(100% - 20px);
       overflow-y: auto;
-      @media (max-width: 848px) { max-height: calc(100vh - 160px); }
-      @media (max-width: 829px) { max-height: calc(100vh - 178px); }
-      @media (max-width: 645px) { max-height: calc(100vh - 194px); }
-      @media (max-width: 544px) { max-height: calc(100vh - 212px); }
-      @media (max-width: 534px) { max-height: calc(100vh - 230px); }
-      @media (max-width: 469px) { max-height: calc(100vh - 246px); }
-      @media (max-width: 439px) { max-height: calc(100vh - 264px); }
       svelte-virtual-list-viewport {
         border: 1px solid #000;
         &.bottom {
