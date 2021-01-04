@@ -5,7 +5,7 @@
       bind:value={query}
       on:keyup={searchAction}
     >
-    <div class='help-button'>
+    <div class='help-button' on:click={_ => showHelp = !showHelp}>
       ?
     </div>
     <ul>
@@ -45,6 +45,11 @@
     </ul>
   </div>
   <div class='right'>
+    {#if showHelp}
+      <div class='help-section'>
+
+      </div>
+    {/if}
     <Map quakes={results} bind:selectedQuake={selectedQuake}/>
     {#if selectedQuake}
       <div class='selected-quake'>
@@ -101,18 +106,19 @@
 
   const searchAction = _ => {
     const clean = query.trim()
+    if (query !== clean) {
+      return
+    }
     const encoded = b64EncodeUnicode(clean)
     window.location = `#/${encoded}`
     if (clean === '') {
       resultIds = allIds
       return
     }
-    // if (query !== clean) {
-    //   return
-    // }
+    const save = query
     fetch(`/search/${encoded}`)
     .then(x => x.json())
-    .then(x => resultIds = x)
+    .then(x => (save === query) && (resultIds = x))
   }
 
   fetch('quake_export.json')
