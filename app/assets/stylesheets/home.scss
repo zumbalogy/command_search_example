@@ -131,16 +131,12 @@ body {
     }
     ul {
       display: inline-block;
-      border: 1px solid #000;
       font-family: monospace;
       padding: 0;
       margin: 0;
       margin-left: 12px;
       width: calc(100% - 20px);
       overflow-y: auto;
-      height: 100vh;
-      max-height: calc(100vh - 136px);
-      @media (max-width: 1448px) { max-height: calc(100vh - 142px); }
       @media (max-width: 848px) { max-height: calc(100vh - 160px); }
       @media (max-width: 829px) { max-height: calc(100vh - 178px); }
       @media (max-width: 645px) { max-height: calc(100vh - 194px); }
@@ -148,17 +144,23 @@ body {
       @media (max-width: 534px) { max-height: calc(100vh - 230px); }
       @media (max-width: 469px) { max-height: calc(100vh - 246px); }
       @media (max-width: 439px) { max-height: calc(100vh - 264px); }
-      // svelte-virtual-list-contents {
-      //   border-right: 1px solid #000;
-      //   border-left: 1px solid #000;
-      // }
+      svelte-virtual-list-viewport {
+        border: 1px solid #000;
+        &.bottom {
+          border: 0;
+          svelte-virtual-list-contents {
+            border: 1px solid #000;
+          }
+        }
+      }
       li {
         list-style: none;
         min-height: 24px;
         padding-top: 4px;
         &.empty-message {
-            line-height: 22px;
-            text-align: center;
+          border: 1px solid #000;
+          line-height: 22px;
+          text-align: center;
         }
         &.odd {
           background-color: #f4f4f4;

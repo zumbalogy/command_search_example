@@ -72,6 +72,9 @@
         await tick(); // render the newly visible row
         row = rows[i - start];
       }
+      if (!row) {
+        return
+      }
       const row_height = height_map[i] = itemHeight || row.offsetHeight;
       content_height += row_height;
       i += 1;
@@ -157,6 +160,7 @@
   bind:offsetHeight={viewport_height}
   on:scroll={handle_scroll}
   style="height: {height};"
+  class="{(bottom === 0) && 'bottom'}"
 >
   <svelte-virtual-list-contents
     bind:this={contents}
@@ -164,7 +168,9 @@
   >
     {#each visible as row (row.index)}
       <svelte-virtual-list-row>
-        <slot item={row.data}>Missing template</slot>
+        <slot item={row.data}>
+          Missing template
+        </slot>
       </svelte-virtual-list-row>
     {/each}
   </svelte-virtual-list-contents>
