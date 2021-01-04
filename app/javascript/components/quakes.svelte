@@ -100,6 +100,8 @@
   let showHelp = false
   let query = ''
 
+  $: results = fastQuakeFilter(resultIds, allQuakes)
+
   const helpText = 'The search field allows for specification of fields (:), comparisons (< > <= >=), negation (-), a logical OR (|), quotation, and grouping via parentheses.'
 
   const helpExamples = [
@@ -112,8 +114,6 @@
     "country:'uk' -territory",
     'morocco -spain'
   ]
-
-  $: results = fastQuakeFilter(resultIds, allQuakes)
 
   const selectedAttrs = [
     ['country', 'Country'],
