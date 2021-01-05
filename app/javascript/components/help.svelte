@@ -13,7 +13,7 @@
     Here are some clickable examples:
   </div>
   {#each helpExamples as text}
-    <div class='example' on:click={clickAction}>
+    <div class='example' on:click={_ => clickAction(text)}>
       {text}
     </div>
   {/each}

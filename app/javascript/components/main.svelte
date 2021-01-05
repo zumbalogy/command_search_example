@@ -16,7 +16,7 @@
   </div>
   <div class='right'>
     {#if showHelp}
-      <Help clickAction={_ => (query = text) && searchAction()}/>
+      <Help clickAction={x => (query = x) && searchAction()}/>
     {/if}
     <Map quakes={results} bind:selectedQuake={selectedQuake}/>
     {#if selectedQuake}
