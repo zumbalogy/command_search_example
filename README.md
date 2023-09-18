@@ -1,18 +1,24 @@
-### Earthquake Search
+# README
 
-This is a Ruby on Rails project to show off usage of the command_search gem.
+This README would normally document whatever steps are necessary to get the
+application up and running.
 
-Live version: [earthquake-search.herokuapp.com](https://earthquake-search.herokuapp.com/).
+Things you may want to cover:
 
-The command_search gem: [github.com/zumbalogy/command_search](https://github.com/zumbalogy/command_search).
+* Ruby version
 
-The relevant code is in [app/models/earthquake.rb](https://github.com/zumbalogy/command_search_example/blob/master/app/models/earthquake.rb).
+* System dependencies
 
-Earthquake data source: [ngdc.noaa.gov/nndc/struts/form?t=101650&s=1&d=1](https://www.ngdc.noaa.gov/nndc/struts/form?t=101650&s=1&d=1)
+* Configuration
 
-Map source: [commons.wikimedia.org/wiki/File:BlankMap-Equirectangular.svg](https://commons.wikimedia.org/wiki/File:BlankMap-Equirectangular.svg)
+* Database creation
 
-### Setup
+* Database initialization
 
-To build: `bundle install` and `rake run db:seed`.
-To run: `rails s`.
+* How to run the test suite
+
+* Services (job queues, cache servers, search engines, etc.)
+
+* Deployment instructions
+
+* ...
