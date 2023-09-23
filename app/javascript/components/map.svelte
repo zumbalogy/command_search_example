@@ -35,8 +35,8 @@
 {/if}
 
 <script>
-  import blankMapSVG from './images/blank_map.svg';
-  import { longLatFinder } from './helpers.js'
+  import blankMapSVG from '../images/blank_map.svg';
+  import { longLatFinder } from '../helpers.js'
 
   export let quakes
   export let selectedQuake

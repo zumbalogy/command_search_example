@@ -2,11 +2,11 @@
 	import './styles.css';
 	export const prerender = true;
 
-  import QuakeList from './quakeList.svelte'
-  import Selected from './selected.svelte'
-  import Help from './help.svelte'
-  import Map from './map.svelte'
-  
+  import QuakeList from './components/quakeList.svelte'
+  import Selected from './components/selected.svelte'
+  import Help from './components/help.svelte'
+  import Map from './components/map.svelte'
+
   import {
     fastQuakeFilter,
     b64EncodeUnicode,
