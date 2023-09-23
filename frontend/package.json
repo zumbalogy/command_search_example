@@ -7,22 +7,10 @@
     "preview": "vite preview"
   },
   "devDependencies": {
-    "@fontsource/fira-mono": "^4.5.10",
-    "@neoconfetti/svelte": "^1.0.0",
     "@sveltejs/adapter-auto": "^2.0.0",
     "@sveltejs/kit": "^1.20.4",
-    "bun-plugin-html": "^1.2.0",
     "svelte": "^4.0.5",
     "vite": "^4.4.2"
   },
   "type": "module",
-  "dependencies": {
-    "@rollup/plugin-html": "^1.0.2",
-    "@sveltejs/adapter-static": "^2.0.3",
-    "add": "^2.0.6",
-    "inline-assets": "^1.4.9",
-    "parcel-bundler": "^1.12.5",
-    "parcel-plugin-inliner": "^1.0.16",
-    "vite-plugin-singlefile": "^0.13.5"
-  }
 }

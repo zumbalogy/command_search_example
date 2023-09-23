@@ -8,6 +8,9 @@ gem "command_search"
 gem "pry-rails"
 gem 'rack-cors'
 
+gem 'vite_rails'
+
+
 # Bundle edge Rails instead: gem "rails", github: "rails/rails", branch: "main"
 gem "rails", "~> 7.0.8"
 
