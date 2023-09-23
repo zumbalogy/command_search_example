@@ -1,10 +1,10 @@
 {#if quakes.length === 0}
   <div class='map-wrapper'>
-    <img src='/blank_map2.svg'>
+    <img src={blankMapSVG}>
   </div>
 {:else}
   <div class='map-wrapper'>
-    <img src='/blank_map2.svg' style='transform: {transform};'>
+    <img src={blankMapSVG} style='transform: {transform};'>
     <svg
       x='0'
       y='0'
@@ -35,6 +35,9 @@
 {/if}
 
 <script>
+  import blankMapSVG from '$lib/images/blank_map.svg';
+  import { longLatFinder } from './helpers.js'
+
   export let quakes
   export let selectedQuake
 

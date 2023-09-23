@@ -34,6 +34,12 @@
   import Selected from './selected.svelte'
   import Help from './help.svelte'
   import Map from './map.svelte'
+  import {
+    fastQuakeFilter,
+    b64EncodeUnicode,
+    b64DecodeUnicode
+  } from './helpers.js'
+
 
   let allIds = []
   let allQuakes = []
@@ -61,6 +67,7 @@
     .then(x => x.json())
     .then(x => (save === query) && (resultIds = x))
   }
+
 
   fetch('quake_export.json')
   .then(x => x.json())
