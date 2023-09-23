@@ -5,10 +5,6 @@ ruby "3.2.2"
 
 gem "command_search"
 
-gem "svelte-rails"
-
-gem "webpacker"
-gem "byebug"
 gem "pry-rails"
 
 # Bundle edge Rails instead: gem "rails", github: "rails/rails", branch: "main"
