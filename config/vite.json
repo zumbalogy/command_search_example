@@ -5,6 +5,11 @@
   },
   "development": {
     "autoBuild": true,
+    "publicOutputDir": "vite-dev",
+    "port": 3036
+  },
+  "deployment": {
+    "autoBuild": true,
     "publicOutputDir": "vite",
     "port": 3036
   },
