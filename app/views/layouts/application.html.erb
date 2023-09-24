@@ -4,57 +4,14 @@
     <title>Earthquakes</title>
     <%= csrf_meta_tags %>
     <%= csp_meta_tag %>
-    <%= stylesheet_link_tag 'application', media: 'all', 'data-turbolinks-track': 'reload' %>
-    <link rel='preload' href='/blank_map2.svg' as='image'>
+    <link rel='preload' href='/blank_map.svg' as='image'>
     <link rel='preload' href='/quake_export.json' as='fetch' crossorigin='anonymous'>
-    <%= javascript_pack_tag 'application' %>
+
+    <%= vite_client_tag %>
+    <%= vite_javascript_tag 'application' %>
+
   </head>
   <body>
     <%= yield %>
-    <%= svelte_component :main, {}, {prerender: false} %>
   </body>
-  <script>
-    window.fastQuakeFilter = function(ids, list) {
-      var output = [];
-      var list_index = 0;
-      ids.forEach(function(id, i) {
-        while (id !== list[list_index].id) {
-          list_index += 1;
-        }
-        list[list_index].scrollIdx = i
-        output.push(list[list_index])
-        list_index += 1;
-      })
-      return output;
-    }
-
-    window.longLatFinder = function(list) {
-      var ttt = Date.now()
-      var minLat = 90;
-      var maxLat = -90;
-      var minLong = 180;
-      var maxLong = -180;
-      list.forEach(function(item) {
-        if (item.latitude < minLat) { minLat = item.latitude }
-        if (item.latitude > maxLat) { maxLat = item.latitude }
-        if (item.longitude < minLong) { minLong = item.longitude }
-        if (item.longitude > maxLong) { maxLong = item.longitude }
-      })
-      return [minLat, maxLat, minLong, maxLong];
-    }
-
-    window.b64EncodeUnicode = function(str) {
-      return btoa(encodeURIComponent(str).replace(/%([0-9A-F]{2})/g,
-        function toSolidBytes(match, p1) {
-          return String.fromCharCode('0x' + p1);
-        })
-      );
-    }
-
-    window.b64DecodeUnicode = function(str) {
-      return decodeURIComponent(atob(str).split('').map(function(c) {
-        return '%' + ('00' + c.charCodeAt(0).toString(16)).slice(-2);
-      }).join(''));
-    }
-  </script>
 </html>
