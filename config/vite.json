@@ -8,11 +8,6 @@
     "publicOutputDir": "vite-dev",
     "port": 3036
   },
-  "deployment": {
-    "autoBuild": true,
-    "publicOutputDir": "vite",
-    "port": 3036
-  },
   "test": {
     "autoBuild": true,
     "publicOutputDir": "vite-test",
