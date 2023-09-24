@@ -1,6 +1,6 @@
 <script>
-	import './styles.css';
-	export const prerender = true;
+  import './styles.css';
+  export const prerender = true;
 
   import QuakeList from './components/quakeList.svelte'
   import Selected from './components/selected.svelte'
@@ -56,22 +56,22 @@
 </script>
 
 <div class="app">
-	<main>
-		<div class='header'>
-		  <div class='left'>
-		    <h3>
-		      Earthquakes
-		    </h3>
-		  </div>
-		  <div class='right'>
-		    <a href='https://www.ngdc.noaa.gov/nndc/struts/form?t=101650&s=1' target='_blank'>
-		      National Geophysical Data Center / World Data Service (NGDC/WDS): NCEI/WDS Global Significant Earthquake Database. NOAA National Centers for Environmental Information. doi:10.7289/V5TD9V7K
-		    </a>
-		    <p>
-		      Disclaimer: This data has been normalized and approximated from the original NCEI/WDS source.
-		    </p>
-		  </div>
-		</div>
+  <main>
+    <div class='header'>
+      <div class='left'>
+        <h3>
+          Earthquakes
+        </h3>
+      </div>
+      <div class='right'>
+        <a href='https://www.ngdc.noaa.gov/nndc/struts/form?t=101650&s=1' target='_blank'>
+          National Geophysical Data Center / World Data Service (NGDC/WDS): NCEI/WDS Global Significant Earthquake Database. NOAA National Centers for Environmental Information. doi:10.7289/V5TD9V7K
+        </a>
+        <p>
+          Disclaimer: This data has been normalized and approximated from the original NCEI/WDS source.
+        </p>
+      </div>
+    </div>
 
     <div class='center'>
       <div class='left'>
@@ -104,11 +104,11 @@
       </div>
     </div>
 
-		<div class='footer'>
-		  <a class='source-code' href='https://github.com/zumbalogy/command_search_example' target='_blank'>
-		    Source Code
-		  </a>
-		</div>
+    <div class='footer'>
+      <a class='source-code' href='https://github.com/zumbalogy/command_search_example' target='_blank'>
+        Source Code
+      </a>
+    </div>
 
-	</main>
+  </main>
 </div>
