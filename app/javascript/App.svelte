@@ -44,15 +44,17 @@
 
   fetch('quake_export.json')
   .then(x => x.json())
-  .then(x => allQuakes = x)
-  .then(_ => allIds = allQuakes.map(x => x.id))
-  .then(_ => resultIds = allIds)
-
-  if (location.hash.length > 2) {
-    const hash = location.hash.slice(2)
-    query = b64DecodeUnicode(hash)
-    searchAction()
-  }
+  .then(x => {
+    allQuakes = x
+    allIds = allQuakes.map(x => x.id)
+    if (location.hash.length > 2) {
+      const hash = location.hash.slice(2)
+      query = b64DecodeUnicode(hash)
+      searchAction()
+    } else {
+      resultIds = allIds
+    }
+  })
 </script>
 
 <div class="app">
